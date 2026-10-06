@@ -1,0 +1,7 @@
+# Top navbar order. Everything not listed falls in at "..." alphabetically.
+plugins
+apps
+guide
+...
+glossary.md
+tagged-pages.md
