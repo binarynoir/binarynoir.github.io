@@ -1,0 +1,253 @@
+/* ---- Logo typefaces -------------------------------------------------------
+   Film Noir  : display. Wordmark, hero title and page titles (the big, rare text).
+   Rockwell   : slab serif for section headings and card titles.
+   Body text, code and navigation stay on the system sans so documentation reads fast.
+   Font files live in docs/public/fonts. */
+
+@font-face {
+  font-family: 'Film Noir';
+  src: url('/fonts/film-noir.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rockwell';
+  src: url('/fonts/rockwell.woff2') format('woff2');
+  font-display: swap;
+}
+
+:root {
+  --bn-font-display: 'Film Noir', 'Impact', 'Arial Narrow', sans-serif;
+  --bn-font-slab: 'Rockwell', 'Rockwell Nova', 'Roboto Slab', 'Georgia', serif;
+}
+
+:root {
+  /* Noir palette, taken from the logo: black, white and one mid grey. */
+  --vp-c-brand-1: #1f1f1f;
+  --vp-c-brand-2: #3a3a3a;
+  --vp-c-brand-3: #111111;
+  --vp-c-brand-soft: rgba(17, 17, 17, 0.08);
+}
+
+.dark {
+  --vp-c-brand-1: #f0f0f0;
+  --vp-c-brand-2: #d4d4d4;
+  --vp-c-brand-3: #e5e5e5;
+  --vp-c-brand-soft: rgba(240, 240, 240, 0.14);
+
+  /* Brand buttons are light in dark mode, so their text must be dark. */
+  --vp-button-brand-text: #111111;
+  --vp-button-brand-hover-text: #111111;
+  --vp-button-brand-active-text: #111111;
+}
+
+/* Tooltips from markdown-it-glossary render as plain <abbr title>. Make them discoverable. */
+abbr[title] {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+.vp-doc img {
+  border-radius: 8px;
+}
+
+/* ---- Noir identity -------------------------------------------------------
+   Hard edges, strong contrast and one grey, to match the logo. */
+
+:root {
+  --vp-font-family-base:
+    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+    sans-serif;
+  --bn-line: rgba(17, 17, 17, 0.16);
+  --bn-line-strong: #111111;
+  --bn-radius: 2px;
+}
+
+.dark {
+  --bn-line: rgba(240, 240, 240, 0.18);
+  --bn-line-strong: #f0f0f0;
+}
+
+/* Wordmark and titles: Film Noir. */
+.VPNavBarTitle .title,
+.vp-doc h1 {
+  font-family: var(--bn-font-display);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.vp-doc h1 {
+  letter-spacing: 0.05em;
+}
+
+/* Tag badges inside headings keep the body font so they stay legible. */
+.vp-doc h1 .md-tag,
+.vp-doc h2 .md-tag {
+  font-family: var(--vp-font-family-base);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Section headings and card titles: Rockwell. */
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.VPHero .text,
+.VPFeature .title {
+  font-family: var(--bn-font-slab);
+  font-weight: 400;
+}
+
+.VPHero .text {
+  /* The logo is the brand, so the headline carries the hero. */
+  font-size: clamp(36px, 5vw, 52px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.VPNavBarTitle .logo {
+  height: 28px;
+}
+
+/* Hero: the full logo is portrait, so cap its height and drop the colored glow. */
+.VPHero .image-bg {
+  display: none;
+}
+
+.VPHero .image-src {
+  position: static;
+  transform: none;
+  max-height: 360px;
+  max-width: 100%;
+  width: auto;
+  margin-inline: auto;
+  border-radius: 0;
+}
+
+.VPHero .image {
+  margin: 0 0 24px;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .VPHero .image {
+    margin: 0 0 24px;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPHero .image {
+    margin: 0;
+    width: auto;
+  }
+}
+
+.VPHero .image-container {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  /* VitePress pulls the image up with negative margins on small screens, which
+     slid the logo under the navbar and over the title. */
+  margin: 0 auto;
+  /* Fixed width in VitePress on small screens; let it span so the logo centers. */
+  width: 100%;
+  padding-block: 24px;
+}
+
+@media (min-width: 960px) {
+  .VPHero .image-container {
+    width: auto;
+    min-width: 320px;
+  }
+}
+
+.VPHero .tagline {
+  max-width: 34rem;
+}
+
+/* Buttons: square, to match the logo's frame. */
+.VPButton.VPButton {
+  border-radius: var(--bn-radius);
+  font-weight: 600;
+}
+
+.VPButton.VPButton.alt {
+  border-color: var(--bn-line-strong);
+}
+
+/* Feature cards: outlined panels with a boxed icon, no soft fill. */
+.VPFeatures .VPFeature {
+  background: transparent;
+  border: 1px solid var(--bn-line);
+  border-radius: var(--bn-radius);
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
+}
+
+.VPFeatures .VPFeature:hover {
+  border-color: var(--bn-line-strong);
+  transform: translateY(-2px);
+}
+
+.VPFeatures .VPFeature .icon {
+  background: transparent;
+  border: 1px solid var(--bn-line-strong);
+  border-radius: var(--bn-radius);
+  width: 52px;
+  height: 52px;
+}
+
+.VPFeatures .VPFeature .icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.VPFeatures .VPFeature .link-text-value {
+  font-weight: 600;
+}
+
+/* Content: a scanline rule under each H2, echoing the dashes behind the detective. */
+.vp-doc h2 {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 56px;
+}
+
+.vp-doc h2::after {
+  content: '';
+  display: block;
+  height: 4px;
+  margin-top: 10px;
+  background: repeating-linear-gradient(90deg, var(--bn-line-strong) 0 24px, transparent 24px 30px);
+  opacity: 0.55;
+  width: 120px;
+}
+
+.vp-doc table,
+.vp-doc div[class*='language-'] {
+  border-radius: var(--bn-radius);
+}
+
+.vp-doc th {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 13px;
+}
+
+/* Keep keyboard focus obvious. */
+:focus-visible {
+  outline: 2px solid var(--bn-line-strong);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .VPFeature {
+    transition: none;
+  }
+  .VPFeatures .VPFeature:hover {
+    transform: none;
+  }
+}

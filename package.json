@@ -1,0 +1,36 @@
+{
+  "name": "binarynoir.github.io",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The BinaryNoir developer hub, and a live demo of the @binarynoir VitePress plugins.",
+  "type": "module",
+  "license": "MIT",
+  "author": "John Smith III",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binarynoir/binarynoir.github.io.git"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs --host",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "icons": "node scripts/generate-icons.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@binarynoir/vite-plugin-image-fallback": "^0.1.5",
+    "@binarynoir/vite-plugin-optimize-images": "^0.1.5",
+    "@binarynoir/vitepress-auto-navbar": "^0.2.2",
+    "@binarynoir/vitepress-auto-sidebar": "^0.4.9",
+    "@binarynoir/vitepress-markdown-tags": "^0.2.2",
+    "@binarynoir/vitepress-reading-time-tag": "^0.1.4",
+    "@types/node": "^24.0.0",
+    "markdown-it-glossary": "^0.3.3",
+    "prettier": "^3.6.0",
+    "vitepress": "2.0.0-alpha.20"
+  }
+}

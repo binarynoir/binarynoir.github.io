@@ -1,0 +1,10 @@
+# Titles are set here, not in each page's H1, so the ((tag|...)) badges in the
+# headings stay out of the menu. The navbar reuses these titles automatically.
+index.md:Overview
+auto-sidebar.md:Auto Sidebar
+auto-navbar.md:Auto Navbar
+markdown-tags.md:Markdown Tags
+reading-time-tag.md:Reading Time Tag
+glossary.md:Glossary Tooltips
+optimize-images.md:Optimize Images
+image-fallback.md:Image Fallback
