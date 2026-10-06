@@ -32,3 +32,4 @@ npm run docs:dev
 ## Contribute
 
 Every page has a **Suggest a change to this page** link at the bottom that opens the file on GitHub. Typos, clearer wording and corrections are all welcome.
+
