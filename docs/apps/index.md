@@ -8,11 +8,11 @@ title: Apps
 
 Small command-line tools for people who would rather be told when something changes than keep checking. Everything here installs with a single Homebrew command, and each tool is a single self-contained program.
 
-| App                          | What it does                                         | Written in |
-| ---------------------------- | ---------------------------------------------------- | ---------- |
-| [NoirWatch](/apps/noirwatch) | Watches web pages and notifies you when they change. | ((tag      | Shell | grey))   |
-| [NoirCon](/apps/noircon)     | Checks that sites and IP addresses are reachable.    | ((tag      | Shell | grey))   |
-| [callrx](/apps/callrx)       | Amateur radio callsign lookup in your terminal.      | ((tag      | Rust  | orange)) |
+| App                          | What it does                                         | Written in          |
+| ---------------------------- | ---------------------------------------------------- | ------------------- |
+| [NoirWatch](/apps/noirwatch) | Watches web pages and notifies you when they change. | ((tag/Shell/grey))  |
+| [NoirCon](/apps/noircon)     | Checks that sites and IP addresses are reachable.    | ((tag/Shell/grey))  |
+| [callrx](/apps/callrx)       | Amateur radio callsign lookup in your terminal.      | ((tag/Rust/orange)) |
 
 ## For users
 
