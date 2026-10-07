@@ -3,8 +3,8 @@ layout: home
 title: BinaryNoir
 
 hero:
-  text: Quiet, sharp tools for developers
-  tagline: Open-source VitePress plugins, Vite plugins and command-line apps. This site is the hub for all of them, and it is built with the plugins it documents.
+  text: Open-source tools for developers, homelabbers and tinkerers
+  tagline: VitePress and Vite plugins, plus command-line apps for homelabs and ham radio. This site is the hub for all of them, and it is built with the plugins it documents.
   image:
     src: /full-logo.svg
     alt: BinaryNoir Studios logo
