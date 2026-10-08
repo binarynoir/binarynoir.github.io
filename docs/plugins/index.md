@@ -6,7 +6,7 @@ title: Plugins
 
 [[readingTime]]
 
-Seven small packages that make a documentation site easier to build and nicer to read. Each one does a single job, they share conventions, and they are all running on the site you are looking at.
+Eight small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. Seven are running on the site you are looking at; Downloads is new and is not wired into this site yet.
 
 | Plugin                                        | Works with                   | What it does                                              |
 | --------------------------------------------- | ---------------------------- | --------------------------------------------------------- |
@@ -14,6 +14,7 @@ Seven small packages that make a documentation site easier to build and nicer to
 | [Auto Navbar](/plugins/auto-navbar)           | VitePress 2                  | Builds `themeConfig.nav` from your folders.               |
 | [Markdown Tags](/plugins/markdown-tags/)      | VitePress, VS Code, Obsidian | Inline status badges and tagged-pages lists.              |
 | [Reading Time Tag](/plugins/reading-time-tag) | VitePress 2                  | `[[readingTime]]` becomes a reading-time tip block.       |
+| [Downloads](/plugins/downloads)               | VitePress                    | Files in a `downloads` folder become linkable downloads.  |
 | [Glossary Tooltips](/plugins/glossary)        | VitePress, markdown-it       | Hover definitions from one glossary file.                 |
 | [Optimize Images](/plugins/optimize-images)   | Vite                         | Re-compresses images in the build output.                 |
 | [Image Fallback](/plugins/image-fallback)     | Vite                         | Placeholder for missing images instead of a failed build. |
@@ -26,6 +27,7 @@ npm install --save-dev \
   @binarynoir/vitepress-auto-navbar \
   @binarynoir/vitepress-markdown-tags \
   @binarynoir/vitepress-reading-time-tag \
+  @binarynoir/vitepress-downloads \
   @binarynoir/vite-plugin-optimize-images \
   @binarynoir/vite-plugin-image-fallback \
   markdown-it-glossary
