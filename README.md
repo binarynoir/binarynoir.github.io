@@ -6,15 +6,16 @@ It documents BinaryNoir's open-source VitePress plugins, Vite plugins and comman
 
 ## Plugins demonstrated
 
-| Package                                                                                                | Role on this site                                          |
-| ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
-| [`@binarynoir/vitepress-auto-sidebar`](https://github.com/binarynoir/vitepress-auto-sidebar)           | Builds the sidebar from the folder tree                    |
-| [`@binarynoir/vitepress-auto-navbar`](https://github.com/binarynoir/vitepress-auto-navbar)             | Builds the top navbar from the folder tree                 |
-| [`@binarynoir/vitepress-markdown-tags`](https://github.com/binarynoir/vitepress-markdown-tags)         | Status badges and tagged-page lists                        |
-| [`@binarynoir/vitepress-reading-time-tag`](https://github.com/binarynoir/vitepress-reading-time-tag)   | `[[readingTime]]` tip blocks                               |
-| [`markdown-it-glossary`](https://github.com/binarynoir/markdown-it-glossary)                           | Hover definitions from `docs/reference/glossary.md`        |
-| [`@binarynoir/vite-plugin-optimize-images`](https://github.com/binarynoir/vite-plugin-optimize-images) | Re-compresses images in the build output                   |
-| [`@binarynoir/vite-plugin-image-fallback`](https://github.com/binarynoir/vite-plugin-image-fallback)   | Placeholder for missing images (one is missing on purpose) |
+| Package                                                                                                | Role on this site                                                    |
+| ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
+| [`@binarynoir/vitepress-auto-sidebar`](https://github.com/binarynoir/vitepress-auto-sidebar)           | Builds the sidebar from the folder tree                              |
+| [`@binarynoir/vitepress-auto-navbar`](https://github.com/binarynoir/vitepress-auto-navbar)             | Builds the top navbar from the folder tree                           |
+| [`@binarynoir/vitepress-markdown-tags`](https://github.com/binarynoir/vitepress-markdown-tags)         | Status badges and tagged-page lists                                  |
+| [`@binarynoir/vitepress-reading-time-tag`](https://github.com/binarynoir/vitepress-reading-time-tag)   | `[[readingTime]]` tip blocks                                         |
+| [`@binarynoir/vitepress-downloads`](https://github.com/binarynoir/vitepress-downloads)                 | Downloadable files from a `downloads` folder (not yet wired in here) |
+| [`markdown-it-glossary`](https://github.com/binarynoir/markdown-it-glossary)                           | Hover definitions from `docs/reference/glossary.md`                  |
+| [`@binarynoir/vite-plugin-optimize-images`](https://github.com/binarynoir/vite-plugin-optimize-images) | Re-compresses images in the build output                             |
+| [`@binarynoir/vite-plugin-image-fallback`](https://github.com/binarynoir/vite-plugin-image-fallback)   | Placeholder for missing images (one is missing on purpose)           |
 
 ## Develop
 

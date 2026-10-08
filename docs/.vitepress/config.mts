@@ -21,6 +21,9 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
 
+  // Downloadable files are published as-is, never built as pages.
+  srcExclude: ['**/downloads/**'],
+
   sitemap: { hostname: SITE_URL },
 
   head: [
