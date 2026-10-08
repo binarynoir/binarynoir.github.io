@@ -58,7 +58,8 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    logo: { light: '/logo-light.svg', dark: '/logo-dark.svg', alt: 'BinaryNoir' },
+    siteTitle: false,
+    logo: { light: '/logo-wide-light.svg', dark: '/logo-wide-dark.svg', alt: 'BinaryNoir' },
 
     // @binarynoir/vitepress-auto-navbar: top nav built from the folder tree.
     // `.nav` files set order and titles; `.inherit` borrows titles from `.sidebar`.
@@ -83,8 +84,8 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Released under the MIT License. Built with VitePress and the plugins it documents.',
-      copyright: 'Copyright © John Smith III / BinaryNoir',
+      message: 'Code released under the MIT License. BinaryNoir name and logos are trademarks of BinaryNoir. <a href="/legal">Legal</a> · <a href="/terms">Terms</a>',
+      copyright: 'Copyright © 2026 John Smith III / BinaryNoir. All rights reserved except where licensed.',
     },
   },
 

@@ -41,4 +41,4 @@ The repository's Pages source must be set to **GitHub Actions** (Settings → Pa
 
 ## License
 
-[MIT](LICENSE)
+Code is [MIT](LICENSE) licensed. The BinaryNoir name, logos and site content are the property of John Smith III / BinaryNoir and are not covered by that license; see [docs/legal.md](docs/legal.md).
