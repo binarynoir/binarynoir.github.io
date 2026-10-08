@@ -84,8 +84,10 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Code released under the MIT License. BinaryNoir name and logos are trademarks of BinaryNoir. <a href="/legal">Legal</a> · <a href="/terms">Terms</a>',
-      copyright: 'Copyright © 2026 John Smith III / BinaryNoir. All rights reserved except where licensed.',
+      message:
+        'Code released under the MIT License. BinaryNoir name and logos are trademarks of BinaryNoir. <a href="/legal">Legal</a> · <a href="/terms">Terms</a>',
+      copyright:
+        'Copyright © 2026 John Smith III / BinaryNoir. All rights reserved except where licensed.',
     },
   },
 
