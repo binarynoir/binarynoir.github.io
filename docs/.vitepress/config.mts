@@ -8,11 +8,16 @@ import { generateNav } from '@binarynoir/vitepress-auto-navbar';
 import { generateSidebar } from '@binarynoir/vitepress-auto-sidebar';
 import { imageFallbackPlugin } from '@binarynoir/vite-plugin-image-fallback';
 import { optimizeImagesPlugin } from '@binarynoir/vite-plugin-optimize-images';
+import { downloadsMarkdown, downloadsVitePlugin } from '@binarynoir/vitepress-downloads';
+import { downloadsSrcExclude } from '@binarynoir/vitepress-downloads/vitepress';
 
 // import.meta.dirname, not __dirname: VitePress configs are ESM.
 const docsRoot = path.resolve(import.meta.dirname, '..');
 
 const SITE_URL = 'https://binarynoir.github.io';
+
+// @binarynoir/vitepress-downloads: the same options go to all three pieces below.
+const downloadsOptions = { folders: ['downloads', 'files'] };
 
 export default defineConfig({
   title: 'BinaryNoir',
@@ -21,8 +26,8 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
 
-  // Downloadable files are published as-is, never built as pages.
-  srcExclude: ['**/downloads/**'],
+  // Files in a `downloads` or `files` folder are published as-is, never built as pages.
+  srcExclude: downloadsSrcExclude(downloadsOptions),
 
   sitemap: { hostname: SITE_URL },
 
@@ -93,6 +98,8 @@ export default defineConfig({
       md.use(readingTimeTag);
       // @binarynoir/vitepress-markdown-tags: ((tag|Done|green)) becomes a badge.
       md.use(markdownTags);
+      // @binarynoir/vitepress-downloads: links into a `downloads` or `files` folder become file downloads.
+      md.use(downloadsMarkdown, downloadsOptions);
     },
   },
 
@@ -115,6 +122,8 @@ export default defineConfig({
       optimizeImagesPlugin({ verbose: true }),
       // Keeps `tagged: true` pages current while running `vitepress dev`.
       taggedPagesVitePlugin(),
+      // Publishes the files in each `downloads` or `files` folder at their page-relative URL.
+      downloadsVitePlugin(downloadsOptions),
     ],
   },
 });

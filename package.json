@@ -22,15 +22,16 @@
     "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@binarynoir/vite-plugin-image-fallback": "^0.1.5",
-    "@binarynoir/vite-plugin-optimize-images": "^0.1.5",
-    "@binarynoir/vitepress-auto-navbar": "^0.2.2",
-    "@binarynoir/vitepress-auto-sidebar": "^0.4.9",
-    "@binarynoir/vitepress-markdown-tags": "^0.2.2",
+    "@binarynoir/vite-plugin-image-fallback": "^0.1.6",
+    "@binarynoir/vite-plugin-optimize-images": "^0.1.6",
+    "@binarynoir/vitepress-auto-navbar": "^0.2.3",
+    "@binarynoir/vitepress-auto-sidebar": "^0.4.10",
+    "@binarynoir/vitepress-downloads": "^0.1.1",
+    "@binarynoir/vitepress-markdown-tags": "^0.2.3",
     "@binarynoir/vitepress-reading-time-tag": "^0.1.4",
-    "@types/node": "^24.0.0",
-    "markdown-it-glossary": "^0.3.3",
-    "prettier": "^3.6.0",
+    "@types/node": "^24.19.1",
+    "markdown-it-glossary": "^0.3.4",
+    "prettier": "^3.9.9",
     "vitepress": "2.0.0-alpha.20"
   }
 }
