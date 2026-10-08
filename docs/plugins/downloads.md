@@ -24,7 +24,7 @@ The file is published at `/tools/ai/downloads/check-access.sql`, and the link do
 
 ## Try it
 
-This page has its own `downloads` folder: `sample.sql` and `sample.md`.
+This page has its own `downloads` folder: [sample.sql](./downloads/sample.sql) and [sample.md](./downloads/sample.md).
 
 ## Install
 
