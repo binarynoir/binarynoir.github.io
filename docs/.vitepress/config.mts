@@ -85,7 +85,7 @@ export default defineConfig({
 
     footer: {
       message:
-        'Code released under the MIT License. BinaryNoir name and logos are trademarks of BinaryNoir. <a href="/legal">Legal</a> · <a href="/terms">Terms</a>',
+        'Code released under the MIT License. BinaryNoir name and logos are trademarks of BinaryNoir. <a href="/legal">Legal</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a>',
       copyright:
         'Copyright © 2026 John Smith III / BinaryNoir. All rights reserved except where licensed.',
     },
@@ -96,7 +96,12 @@ export default defineConfig({
     config(md) {
       // markdown-it-glossary: hover definitions from docs/reference/glossary.md on every page.
       // A page opts out with `glossary: false` in its frontmatter.
-      md.use(glossaryAbbr, { file: path.join(docsRoot, 'reference/glossary.md') });
+      md.use(glossaryAbbr, {
+        file: path.join(docsRoot, 'reference/glossary.md'),
+        root: docsRoot,
+        // Not the default `glossary.md`: docs/plugins/glossary.md is a documentation page, not a glossary.
+        scopedFile: 'section-glossary.md',
+      });
       // @binarynoir/vitepress-reading-time-tag: [[readingTime]] becomes a tip block.
       md.use(readingTimeTag);
       // @binarynoir/vitepress-markdown-tags: ((tag|Done|green)) becomes a badge.

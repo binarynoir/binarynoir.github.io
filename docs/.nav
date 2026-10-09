@@ -3,4 +3,7 @@ plugins
 apps
 guide
 reference
+-legal.md
+-privacy.md
+-terms.md
 ...
