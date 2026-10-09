@@ -38,6 +38,33 @@ export default defineConfig({
 
 Or wrap the config with `withGlossary` from `markdown-it-glossary/vitepress`. It plays nicely with other `withX()` wrappers.
 
+### Touch devices
+
+`<abbr title>` tooltips only appear on hover, so they never show on a phone or tablet. Call `enableGlossaryTouch()` once in the browser and tapping a term shows its definition in a small popover instead. Tapping elsewhere, scrolling, or pressing Escape dismisses it. It only activates on devices that can't hover, so desktop keeps the native tooltip.
+
+In VitePress, call it from your theme's `enhanceApp`:
+
+```ts
+// .vitepress/theme/index.ts
+import DefaultTheme from 'vitepress/theme';
+import { enableGlossaryTouch } from 'markdown-it-glossary/client';
+
+export default {
+  extends: DefaultTheme,
+  enhanceApp() {
+    enableGlossaryTouch();
+  },
+};
+```
+
+| Option         | Default         | Description                                                                    |
+| -------------- | --------------- | ------------------------------------------------------------------------------ |
+| `selector`     | `'abbr[title]'` | Which elements carry a definition in their `title`.                            |
+| `touchOnly`    | `true`          | Only activate on devices that can't hover. `false` also enables it on desktop. |
+| `injectStyles` | `true`          | Inject the default popover styles. `false` lets you style `.glossary-popover`. |
+
+The default look follows VitePress theme colors and can be overridden with the `--glossary-popover-bg`, `--glossary-popover-fg`, and `--glossary-popover-border` CSS variables. `enableGlossaryTouch()` returns a function that removes its listeners.
+
 ## Writing the glossary file
 
 Each term is a `###` heading followed by its definition as the next paragraph. This site's own [glossary file](/reference/glossary) is written like this:
@@ -64,7 +91,31 @@ glossary: false
 ---
 ```
 
-The glossary page itself uses this so its headings don't tooltip themselves. To override one term on one page, write a real markdown-it-abbr definition anywhere on that page: `*[CI]: something else`.
+The glossary page itself uses this so its headings don't tooltip themselves.
+
+Opting out only turns off the site-wide glossary for that page. The page still supports [markdown-it-abbr](https://github.com/markdown-it/markdown-it-abbr), so you can add tooltips by hand. Write a definition line anywhere in the page's Markdown, in the form `*[Term]: definition`:
+
+```md
+---
+glossary: false
+---
+
+# Release notes
+
+We cut a release every sprint, and each one is gated on CI passing.
+
+*[CI]: Continuous Integration, only this page's definition applies.
+```
+
+Every exact, case-sensitive occurrence of `CI` on that page becomes an `<abbr title>`, and nothing else from the glossary does. The definition line itself isn't rendered. Use this to keep a few terms on an otherwise opted-out page, or to define terms that aren't in the glossary at all.
+
+### Override one term on one page
+
+The same syntax works on a page that has _not_ opted out. A page-local definition always wins over the site-wide one for that term, on that page:
+
+```md
+*[CI]: something else, on this page only
+```
 
 ## Options
 
