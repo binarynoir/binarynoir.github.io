@@ -41,11 +41,12 @@
   --vp-button-brand-active-text: #111111;
 }
 
-/* Tooltips from markdown-it-glossary render as plain <abbr title>. Make them discoverable. */
-abbr[title] {
+/* Glossary terms render as plain <abbr title>. Underline them so they are discoverable;
+   the pointer cursor comes from enableGlossaryTooltips(). Selecting on `abbr` alone, not
+   `abbr[title]`, keeps the underline while a popover is open (the title is lifted then). */
+abbr {
   text-decoration: underline dotted;
   text-underline-offset: 3px;
-  cursor: help;
 }
 
 .vp-doc img {
