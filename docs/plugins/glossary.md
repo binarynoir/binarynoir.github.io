@@ -38,21 +38,21 @@ export default defineConfig({
 
 Or wrap the config with `withGlossary` from `markdown-it-glossary/vitepress`. It plays nicely with other `withX()` wrappers.
 
-### Touch devices
+### Hover, click and tap
 
-`<abbr title>` tooltips only appear on hover, so they never show on a phone or tablet. Call `enableGlossaryTouch()` once in the browser and tapping a term shows its definition in a small popover instead. Tapping elsewhere, scrolling, or pressing Escape dismisses it. It only activates on devices that can't hover, so desktop keeps the native tooltip.
+`<abbr title>` tooltips need a mouse hover, so they never show on a phone or tablet. Call `enableGlossaryTooltips()` once in the browser and every term gets a small popover that works with any input: hover a term with a mouse (click to pin it open), or tap it on a touch screen. Tap the term again, tap elsewhere, scroll, or press Escape to dismiss it. While the popover is open the term's `title` is lifted so the browser's own tooltip doesn't show on top of it, then restored.
 
 In VitePress, call it from your theme's `enhanceApp`:
 
 ```ts
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme';
-import { enableGlossaryTouch } from 'markdown-it-glossary/client';
+import { enableGlossaryTooltips } from 'markdown-it-glossary/client';
 
 export default {
   extends: DefaultTheme,
   enhanceApp() {
-    enableGlossaryTouch();
+    enableGlossaryTooltips();
   },
 };
 ```
@@ -60,10 +60,11 @@ export default {
 | Option         | Default         | Description                                                                    |
 | -------------- | --------------- | ------------------------------------------------------------------------------ |
 | `selector`     | `'abbr[title]'` | Which elements carry a definition in their `title`.                            |
-| `touchOnly`    | `true`          | Only activate on devices that can't hover. `false` also enables it on desktop. |
+| `hover`        | `true`          | Show on mouse hover too. `false` for click and tap only.                       |
+| `touchOnly`    | `false`         | Respond to touch input only, leaving mouse users the native tooltip.           |
 | `injectStyles` | `true`          | Inject the default popover styles. `false` lets you style `.glossary-popover`. |
 
-The default look follows VitePress theme colors and can be overridden with the `--glossary-popover-bg`, `--glossary-popover-fg`, and `--glossary-popover-border` CSS variables. `enableGlossaryTouch()` returns a function that removes its listeners.
+The default look follows VitePress theme colors and can be overridden with the `--glossary-popover-bg`, `--glossary-popover-fg`, and `--glossary-popover-border` CSS variables. `enableGlossaryTooltips()` returns a function that removes its listeners.
 
 ## Writing the glossary file
 
@@ -126,6 +127,6 @@ The same syntax works on a page that has _not_ opted out. A page-local definitio
 | `headingLevel`   | `3`          | Heading level that marks a term.                            |
 | `frontmatterKey` | `'glossary'` | Frontmatter key for the opt-out. `false` disables it.       |
 
-The plugin emits plain `<abbr title>` tags and injects no CSS. This site adds a dotted underline and a help cursor in its theme so the tooltips are discoverable.
+The plugin itself emits plain `<abbr title>` tags and injects no CSS. This site adds a dotted underline in its theme so the terms are discoverable, and `enableGlossaryTooltips()` adds the popover and a pointer cursor.
 
 [Source and full README on GitHub](https://github.com/binarynoir/markdown-it-glossary)

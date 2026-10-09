@@ -28,9 +28,9 @@
     "@binarynoir/vitepress-auto-sidebar": "^0.4.10",
     "@binarynoir/vitepress-downloads": "^0.1.1",
     "@binarynoir/vitepress-markdown-tags": "^0.2.3",
-    "@binarynoir/vitepress-reading-time-tag": "^0.1.4",
+    "@binarynoir/vitepress-reading-time-tag": "^0.1.5",
     "@types/node": "^24.19.1",
-    "markdown-it-glossary": "^0.3.5",
+    "markdown-it-glossary": "^0.3.6",
     "prettier": "^3.9.9",
     "vitepress": "2.0.0-alpha.20"
   }
