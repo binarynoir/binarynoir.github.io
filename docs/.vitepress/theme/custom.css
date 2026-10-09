@@ -42,7 +42,7 @@
 }
 
 /* Glossary terms render as plain <abbr title>. Underline them so they are discoverable;
-   the pointer cursor comes from enableGlossaryTooltips(). Selecting on `abbr` alone, not
+   the help cursor comes from enableGlossaryTooltips(). Selecting on `abbr` alone, not
    `abbr[title]`, keeps the underline while a popover is open (the title is lifted then). */
 abbr {
   text-decoration: underline dotted;
