@@ -20,6 +20,7 @@ Three small pieces: config, theme and Markdown.
 
 ```ts
 // .vitepress/config.mts
+import { defineConfig } from 'vitepress';
 import { markdownTags, stripTags } from '@binarynoir/vitepress-markdown-tags';
 
 export default defineConfig({
@@ -53,9 +54,20 @@ Prefer one call? `withMarkdownTags(config)` from `@binarynoir/vitepress-markdown
 
 ## Tagged pages
 
-Add `tagged: true` to any page's frontmatter and it lists every tag used across the site, grouped by label, each with a link to the section that uses it. Nothing to add to `config.mts` beyond `taggedPagesVitePlugin()` in `vite.plugins`, which keeps these pages current in `vitepress dev`.
+Add `tagged: true` to any page's frontmatter and it lists every tag used across the site, grouped by label, each with a link to the section that uses it. The list goes at the end of the page, or wherever you put a `<!-- tagged-pages -->` comment on its own line.
 
-See the site-wide list on [Tagged pages](/reference/tagged-pages), and a scoped one on the [apps roadmap](/apps/roadmap), which only looks inside `apps/` and only lists some labels:
+Builds need nothing else. To keep these pages current while you edit in `vitepress dev`, also add the Vite plugin (`withMarkdownTags` adds it for you):
+
+```ts
+// .vitepress/config.mts
+import { taggedPagesVitePlugin } from '@binarynoir/vitepress-markdown-tags/vitepress';
+
+export default defineConfig({
+  vite: { plugins: [taggedPagesVitePlugin()] },
+});
+```
+
+See the site-wide list on [Tagged pages](/reference/tagged-pages). To narrow a list, give `tagged` settings instead of `true`. The [apps roadmap](/apps/roadmap) only looks inside `apps/` and only lists two labels:
 
 ```md
 ---
@@ -64,6 +76,14 @@ tagged:
   folders: [apps]
 ---
 ```
+
+| Setting   | Default    | Description                                                  |
+| --------- | ---------- | ------------------------------------------------------------ |
+| `include` | all labels | Only list these labels.                                      |
+| `exclude` | none       | Never list these labels. Wins over `include`.                |
+| `folders` | whole site | Only scan pages in these folders, relative to the docs root. |
+
+Labels match case-insensitively, and tags inside code are ignored.
 
 ## Options
 

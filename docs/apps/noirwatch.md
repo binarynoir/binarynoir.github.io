@@ -6,7 +6,7 @@ title: NoirWatch
 
 [[readingTime]]
 
-NoirWatch monitors websites for changes and sends a notification when one changes. Notifications can go to your desktop (macOS, Linux and Windows) or to your phone through Pushover.
+NoirWatch watches web pages and notifies you when one changes. Notifications can go to your desktop (macOS, Linux and Windows) or to your phone through Pushover.
 
 ## Features
 
@@ -22,11 +22,10 @@ NoirWatch monitors websites for changes and sends a notification when one change
 On macOS with Homebrew:
 
 ```sh
-brew tap binarynoir/noirwatch
-brew install noirwatch
+brew install binarynoir/noirwatch/noirwatch
 ```
 
-On Linux, macOS or Windows (Git Bash), clone and run it directly. It needs Bash 4 or newer plus `curl`, `sed`, `shasum` and `xmllint`:
+On Linux, macOS or Windows (in Git Bash), you can instead clone the repository and run the script directly. It needs Bash 4 or newer plus `curl`, `sed`, `shasum` and `xmllint`. Desktop notifications also need `notify-send` on Linux or PowerShell on Windows.
 
 ```sh
 git clone https://github.com/binarynoir/noirwatch.git
@@ -34,20 +33,26 @@ cd noirwatch
 chmod +x noirwatch
 ```
 
+If you installed from a clone, type `./noirwatch` instead of `noirwatch` in the commands below.
+
 ## First run
 
 ```sh
+# Create a configuration file (~/.config/noirwatch.json on macOS and Linux)
+noirwatch --init
+
 # Watch one page
-./noirwatch https://example.com
+noirwatch https://example.com
 
-# Watch every URL listed in a file
-./noirwatch -f urls
+# Watch every page listed under "urls" in the configuration file
+noirwatch
 
-# Run in the background
-./noirwatch -b https://example.com
+# Run in the background, and stop it later
+noirwatch --start
+noirwatch --stop
 ```
 
-Create a default configuration file with `noirwatch --init`. The full option list, service setup for systemd, launchd and Windows, and Docker instructions are in the [README](https://github.com/binarynoir/noirwatch#readme).
+The configuration file holds the check interval, your notification settings (such as Pushover keys) and the list of pages to watch. Open it in your editor with `noirwatch --edit-config`. `noirwatch --help` lists every option and its current default. The [README](https://github.com/binarynoir/noirwatch#readme) covers the configuration file in detail, plus running NoirWatch as a service with systemd, launchd or Windows, and with Docker.
 
 ## Status
 
@@ -56,7 +61,9 @@ Create a default configuration file with `noirwatch --init`. The full option lis
 - ((tag|Done)) Desktop notifications on macOS, Linux and Windows
 - ((tag|Done)) Run as a background service
 - ((tag|Done)) Run a custom script when a change is detected
-- ((tag|Planned)) Change averages for all URLs
+- ((tag|Done)) Run a set number of checks, then exit
+- ((tag|Done)) JSON configuration with per-page options
+- ((tag|Planned)) Change averages for all URLs, in notifications and a history report
 - ((tag|Planned)) More notification methods: email, Slack, Discord, Teams, Telegram
 
 [NoirWatch on GitHub](https://github.com/binarynoir/noirwatch) · [Homebrew tap](https://github.com/binarynoir/homebrew-noirwatch)

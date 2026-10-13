@@ -6,12 +6,12 @@ title: Obsidian
 
 [[readingTime]]
 
-`obsidian-markdown-tags` (also **Tags for Markdown**) renders tags in Reading view and in Live Preview, including inside tables.
+`obsidian-markdown-tags` (listed in Obsidian as **Tags for Markdown**) renders tags in Reading view and in Live Preview, including inside tables.
 
 ## Install
 
 1. In Obsidian, open **Settings → Community plugins** and search for `Tags for Markdown`.
-2. Install it, then enable it.
+2. Select **Install**, then **Enable**.
 
 To install by hand, download the [latest release](https://github.com/binarynoir/obsidian-markdown-tags/releases/latest) and copy `main.js`, `styles.css` and `manifest.json` into `<vault>/.obsidian/plugins/obsidian-markdown-tags/`.
 

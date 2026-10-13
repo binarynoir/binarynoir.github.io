@@ -23,7 +23,11 @@ Inline syntax like `((tag|Done|green))` turns into a styled badge. Code blocks a
 ((<tag|label|background|foreground))     arrow style
 ```
 
-Use `|` or `/` as the separator (`((tag/Done/green))`), but not both in one tag. Background is a preset color name or a hex code; foreground is a hex code. A label can't contain the separator.
+Use `|` or `/` as the separator (`((tag/Done/green))`), but not both in one tag. Because both are separators, a label can't contain `|` or `/`, and a tag must fit on one line.
+
+- **background** is a hex code such as `#0f766e`, or one of the preset colors: `grey`, `green`, `yellow`, `orange`, `blue`, `purple`, `red`. Leave it out and a [preset label](#see-it-live) picks its own color; any other label is grey.
+- **foreground** is the text color, as a hex code.
+- **arrow style** (`((<tag|…))`) draws the badge as a pointed price tag.
 
 ## See it live
 
@@ -39,10 +43,10 @@ Preset labels pick their own color:
 
 Or choose the colors yourself: ((tag|Custom|orange)) ((tag|Hex color|#0f766e|#fff)) and the arrow style ((<tag|v2|#3d3d3d|#fff)).
 
-Tags work in tables too:
+Tags work in tables too. Use the `/` separator there, because a `|` would end the table cell:
 
-| Feature                 | Status |
-| ----------------------- | ------ |
-| Inline badges           | ((tag  | Done))    |
-| Arrow tags              | ((tag  | Done))    |
-| Per-folder tagged pages | ((tag  | In review | orange)) |
+| Feature                 | Status                   |
+| ----------------------- | ------------------------ |
+| Inline badges           | ((tag/Done))             |
+| Arrow tags              | ((<tag/Done))            |
+| Per-folder tagged pages | ((tag/In review/orange)) |

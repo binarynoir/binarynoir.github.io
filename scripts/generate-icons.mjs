@@ -26,6 +26,10 @@ const ICONS = {
   puzzle: `<path d="M4 8h5.5a2.5 2.5 0 1 1 5 0H20v4.5a2.5 2.5 0 1 1 0 5V20H4z"/><rect x="6" y="11" width="2" height="2" fill="C" stroke="none"/>`,
   // Compass for the guide.
   compass: `<circle cx="12" cy="12" r="9"/><path d="M16 8l-2 6-6 2 2-6z"/><rect x="11" y="11" width="2" height="2" fill="C" stroke="none"/>`,
+  // Arrow dropping into a tray; the square is the file on its way down.
+  download: `<path d="M12 8v7M8 11l4 4 4-4"/><path d="M4 15v5h16v-5"/><rect x="11" y="3" width="2" height="2" fill="C" stroke="none"/>`,
+  // A tag's angle brackets with the square held safely between them.
+  escape: `<path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/><rect x="11" y="11" width="2" height="2" fill="C" stroke="none"/>`,
 };
 
 const COLORS = { light: '#111111', dark: '#f0f0f0' };

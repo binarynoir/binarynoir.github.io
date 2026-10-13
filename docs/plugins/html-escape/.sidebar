@@ -1,4 +1,7 @@
 index.md:Overview
+hints.md:Hints
+as-code.md:As Code
+rules.md:Rules
 interpolation-off.md:Interpolation Off
 tags-off.md:Tags Off
 off.md:Everything Off

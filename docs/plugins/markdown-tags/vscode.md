@@ -11,7 +11,7 @@ title: Visual Studio Code
 ## Install
 
 1. Open the Extensions view (`Cmd+Shift+X` on macOS, `Ctrl+Shift+X` on Windows and Linux).
-2. Search for `Markdown Tags` and click **Install**.
+2. Search for `Tags for Markdown` (publisher BinaryNoir) and click **Install**.
 
 Or install it from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=BinaryNoir.vscode-markdown-tags).
 

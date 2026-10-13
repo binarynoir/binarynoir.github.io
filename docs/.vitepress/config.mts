@@ -111,7 +111,8 @@ export default defineConfig({
       md.use(downloadsMarkdown, downloadsOptions);
       // @binarynoir/vitepress-html-escape: stray tags like Array<string>, and {{ }} in prose,
       // render as text instead of breaking the Vue compile. It runs after every other rule.
-      md.use(markdownHtmlEscape);
+      // In `vitepress dev`, hints underline each fix and explain it; `vitepress build` leaves them out.
+      md.use(markdownHtmlEscape, { hints: process.env.NODE_ENV !== 'production' });
     },
   },
 

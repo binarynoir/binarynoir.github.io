@@ -53,6 +53,7 @@ Each top-level folder becomes a navbar entry: a dropdown if it has several pages
 | `indexTitle`        | `'Overview'`   | Label for the dropdown entry that links to the folder's landing page. |
 | `flattenSinglePage` | `true`         | A folder with one entry becomes a plain link.                         |
 | `activeMatch`       | `true`         | Keep items highlighted on every page beneath them.                    |
+| `verbose`           | `false`        | Log each folder as it is processed.                                   |
 
 In `.nav` files, `.link` renders a folder as one plain link, and `.inherit` borrows `name:Title` overrides from the other config files.
 

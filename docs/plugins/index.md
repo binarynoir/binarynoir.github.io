@@ -8,17 +8,17 @@ title: Plugins
 
 Nine small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. All nine are running on the site you are looking at.
 
-| Plugin                                        | Works with                   | What it does                                              |
-| --------------------------------------------- | ---------------------------- | --------------------------------------------------------- |
-| [Auto Sidebar](/plugins/auto-sidebar)         | VitePress 2                  | Builds `themeConfig.sidebar` from your folders.           |
-| [Auto Navbar](/plugins/auto-navbar)           | VitePress 2                  | Builds `themeConfig.nav` from your folders.               |
-| [Markdown Tags](/plugins/markdown-tags/)      | VitePress, VS Code, Obsidian | Inline status badges and tagged-pages lists.              |
-| [Reading Time Tag](/plugins/reading-time-tag) | VitePress 2                  | `[[readingTime]]` becomes a reading-time tip block.       |
-| [Downloads](/plugins/downloads)               | VitePress                    | Files in a `downloads` folder become linkable downloads.  |
-| [Glossary Tooltips](/plugins/glossary/)       | VitePress, markdown-it       | Hover definitions from one glossary file.                 |
-| [HTML Escape](/plugins/html-escape/)          | VitePress 2, markdown-it     | Stray `<tags>` and braces render as text, not errors.     |
-| [Optimize Images](/plugins/optimize-images)   | Vite                         | Re-compresses images in the build output.                 |
-| [Image Fallback](/plugins/image-fallback)     | Vite                         | Placeholder for missing images instead of a failed build. |
+| Plugin                                        | Works with                   | What it does                                                 |
+| --------------------------------------------- | ---------------------------- | ------------------------------------------------------------ |
+| [Auto Sidebar](/plugins/auto-sidebar)         | VitePress 2                  | Builds `themeConfig.sidebar` from your folders.              |
+| [Auto Navbar](/plugins/auto-navbar)           | VitePress 2                  | Builds `themeConfig.nav` from your folders.                  |
+| [Markdown Tags](/plugins/markdown-tags/)      | VitePress, VS Code, Obsidian | Inline status badges and tagged-pages lists.                 |
+| [Reading Time Tag](/plugins/reading-time-tag) | VitePress 2                  | `[[readingTime]]` becomes a reading-time tip block.          |
+| [Downloads](/plugins/downloads)               | VitePress                    | Files in a `downloads` folder become linkable downloads.     |
+| [Glossary Tooltips](/plugins/glossary/)       | VitePress, markdown-it       | Hover definitions from one glossary file.                    |
+| [HTML Escape](/plugins/html-escape/)          | VitePress 2, markdown-it     | Stray `<tags>` and braces render as text, with fix-it hints. |
+| [Optimize Images](/plugins/optimize-images)   | Vite                         | Re-compresses images in the build output.                    |
+| [Image Fallback](/plugins/image-fallback)     | Vite                         | Placeholder for missing images instead of a failed build.    |
 
 ## Install them all
 

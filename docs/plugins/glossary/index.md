@@ -107,7 +107,7 @@ docs/
 └─ team-b/index.md
 ```
 
-See it working on the [live section glossary demo](/plugins/glossary/section-demo/).
+To use a different file name, set the `scopedFile` option. This site sets `scopedFile: 'section-glossary.md'` so that its own [Glossary](/reference/glossary) page, `reference/glossary.md`, is never mistaken for a section glossary. See it working on the [live section glossary demo](/plugins/glossary/section-demo/).
 
 To apply a section glossary to the whole site instead, set `glossary-scope: site` in that file's frontmatter. Section glossaries are found when the config loads, so adding or editing one needs a dev-server restart.
 
@@ -117,7 +117,7 @@ When a term is defined in more than one glossary, **the closest glossary wins**.
 
 | Rank | Source                     | Applies when                                                                 |
 | ---- | -------------------------- | ---------------------------------------------------------------------------- |
-| 1    | Page-local `*[Term]: …`    | the page defines the term itself                                             |
+| 1    | Page-local `*[Term]: …`    | the page defines the term itself (see [Opt a page out](#opt-a-page-out))     |
 | 2    | Section glossary           | its folder contains the page; the deepest folder ranks highest               |
 | 3    | Site-wide section glossary | it is marked `glossary-scope: site` and its folder does not contain the page |
 | 4    | Master glossary            | always, unless the page opts out                                             |

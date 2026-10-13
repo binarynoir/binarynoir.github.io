@@ -14,8 +14,11 @@ This site is plain VitePress 2 plus nine plugins. There is no hand-written navig
 docs/
   .nav                  top navbar order
   index.md              home page
+  legal.md, privacy.md, terms.md
+                        footer pages, hidden from the navbar by .nav
   plugins/              developer docs for each plugin
     .sidebar            order and titles for this section
+    downloads/          files the Downloads demo publishes as-is
   apps/                 user docs for the CLI apps
   guide/                this section
   reference/            glossary terms and the generated list of every tag
@@ -36,7 +39,7 @@ docs/
 | "Reading time" box              | [Reading Time Tag](/plugins/reading-time-tag) | `markdown.config`                     |
 | Dotted-underline hovers         | [Glossary Tooltips](/plugins/glossary/)       | `markdown.config`                     |
 | File download links             | [Downloads](/plugins/downloads)               | `markdown.config` and `vite.plugins`  |
-| Stray `<tags>` shown as text    | [HTML Escape](/plugins/html-escape/)          | `markdown.config`                     |
+| Stray `<tags>` shown as text    | [HTML Escape](/plugins/html-escape/)          | `markdown.config`, plus the theme     |
 | Smaller images                  | [Optimize Images](/plugins/optimize-images)   | `vite.plugins`                        |
 | Placeholder for a missing image | [Image Fallback](/plugins/image-fallback)     | `vite.plugins`                        |
 
@@ -46,14 +49,14 @@ docs/
 
 ## The theme
 
-The only theme code is registering the badge component and loading its stylesheet:
+The theme registers the badge component and loads its stylesheet, and turns on the two popovers: glossary definitions, and the HTML Escape hints that explain broken markup:
 
 <<< @/.vitepress/theme/index.ts{ts}
 
 ## Adding a page
 
 1. Create `docs/<section>/my-page.md` with a `# Heading`.
-2. Optionally add a line for it to that section's `.sidebar` to choose its position and title. Without one it is listed alphabetically.
-3. Run `npm run docs:dev`. The page is already in the sidebar.
+2. Optionally, add a line for it to that section's `.sidebar` file to choose its position and title. Pages without a line are listed alphabetically where the `...` line is, or at the end if there is none.
+3. Run `npm run docs:dev`. The page is already in the sidebar. Anything [HTML Escape](/plugins/html-escape/) had to fix, such as an `Array<T>` outside backticks, has a wavy underline there: hover it to see what is wrong and how to fix it. The deployed site leaves the underlines out.
 
 To add a whole new section, create a folder with an `index.md`. It becomes a navbar entry and its own sidebar automatically.

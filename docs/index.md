@@ -57,6 +57,24 @@ features:
     link: /plugins/reading-time-tag
     linkText: See the reading-time plugin
   - icon:
+      light: /icons/download-light.svg
+      dark: /icons/download-dark.svg
+      width: 28
+      height: 28
+    title: Downloads
+    details: Keep a .sql, .zip or .xlsx next to the page that links to it, and the link downloads the file.
+    link: /plugins/downloads
+    linkText: See the downloads plugin
+  - icon:
+      light: /icons/escape-light.svg
+      dark: /icons/escape-dark.svg
+      width: 28
+      height: 28
+    title: HTML Escape
+    details: A stray Array&lt;string&gt; or {{ }} in your Markdown shows up as text instead of breaking the build.
+    link: /plugins/html-escape/
+    linkText: See the HTML Escape plugin
+  - icon:
       light: /icons/image-light.svg
       dark: /icons/image-dark.svg
       width: 28
@@ -90,8 +108,11 @@ npm install --save-dev \
   @binarynoir/vitepress-auto-navbar \
   @binarynoir/vitepress-markdown-tags \
   @binarynoir/vitepress-reading-time-tag \
+  @binarynoir/vitepress-downloads \
   @binarynoir/vitepress-html-escape \
+  @binarynoir/vite-plugin-optimize-images \
+  @binarynoir/vite-plugin-image-fallback \
   markdown-it-glossary
 ```
 
-Every plugin is optional and independent. Take one, or take them all.
+Every plugin is optional and independent. Take one, or take them all. Each plugin's page shows how to register it, and the VitePress plugins need Node 22 or newer.

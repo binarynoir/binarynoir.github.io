@@ -27,6 +27,7 @@ npm install --save-dev @binarynoir/vite-plugin-image-fallback
 ## Use
 
 ```ts
+// vite.config.ts, or inside `vite: { plugins: [...] }` in a VitePress config
 import { imageFallbackPlugin } from '@binarynoir/vite-plugin-image-fallback';
 
 export default defineConfig({
