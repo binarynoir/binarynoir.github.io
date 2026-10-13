@@ -6,6 +6,8 @@ title: Glossary Tooltips
 
 [[readingTime]]
 
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fmarkdown--it--glossary-181717?logo=github)](https://github.com/binarynoir/markdown-it-glossary) [![npm version](https://img.shields.io/npm/v/markdown-it-glossary)](https://www.npmjs.com/package/markdown-it-glossary) [![CI](https://github.com/binarynoir/markdown-it-glossary/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/markdown-it-glossary/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/markdown-it-glossary)](https://github.com/binarynoir/markdown-it-glossary/blob/main/LICENSE)
+
 `markdown-it-glossary` lets you define a term once, in a plain Markdown file, and wraps every plain-text mention of it across your site in a hover tooltip. No linking each mention by hand, no repeating the definition on every page.
 
 ## See it live

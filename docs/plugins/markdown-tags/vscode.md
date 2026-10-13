@@ -6,6 +6,8 @@ title: Visual Studio Code
 
 [[readingTime]]
 
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvscode--markdown--tags-181717?logo=github)](https://github.com/binarynoir/vscode-markdown-tags) [![VS Marketplace version](https://img.shields.io/visual-studio-marketplace/v/BinaryNoir.vscode-markdown-tags)](https://marketplace.visualstudio.com/items?itemName=BinaryNoir.vscode-markdown-tags) [![CI](https://github.com/binarynoir/vscode-markdown-tags/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/vscode-markdown-tags/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vscode-markdown-tags)](https://github.com/binarynoir/vscode-markdown-tags/blob/main/LICENSE)
+
 `vscode-markdown-tags` (published as **Tags for Markdown**) styles tags in the built-in Markdown preview. It needs VS Code 1.95 or newer and adds no settings of its own.
 
 ## Install

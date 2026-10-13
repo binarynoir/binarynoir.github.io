@@ -6,6 +6,8 @@ title: Auto Sidebar
 
 [[readingTime]]
 
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvitepress--auto--sidebar-181717?logo=github)](https://github.com/binarynoir/vitepress-auto-sidebar) [![npm version](https://img.shields.io/npm/v/@binarynoir/vitepress-auto-sidebar)](https://www.npmjs.com/package/@binarynoir/vitepress-auto-sidebar) [![CI](https://github.com/binarynoir/vitepress-auto-sidebar/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/vitepress-auto-sidebar/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vitepress-auto-sidebar)](https://github.com/binarynoir/vitepress-auto-sidebar/blob/main/LICENSE)
+
 `@binarynoir/vitepress-auto-sidebar` builds your sidebar by scanning your docs folder, so you stop hand-maintaining `themeConfig.sidebar`. Add a Markdown file and it appears in the sidebar, titled from its heading.
 
 ## See it live

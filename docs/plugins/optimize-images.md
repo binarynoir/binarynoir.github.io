@@ -6,6 +6,8 @@ title: Optimize Images
 
 [[readingTime]]
 
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvite--plugin--optimize--images-181717?logo=github)](https://github.com/binarynoir/vite-plugin-optimize-images) [![npm version](https://img.shields.io/npm/v/@binarynoir/vite-plugin-optimize-images)](https://www.npmjs.com/package/@binarynoir/vite-plugin-optimize-images) [![CI](https://github.com/binarynoir/vite-plugin-optimize-images/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/vite-plugin-optimize-images/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vite-plugin-optimize-images)](https://github.com/binarynoir/vite-plugin-optimize-images/blob/main/LICENSE)
+
 `@binarynoir/vite-plugin-optimize-images` re-compresses the PNG, JPEG and WebP images in your build output using [sharp](https://sharp.pixelplumbing.com). Your source files are never touched, only images that actually ship get processed, and you never end up with a bigger file: if re-compressing wouldn't save meaningful space, the original is kept.
 
 ## See it live

@@ -6,6 +6,8 @@ title: Downloads
 
 [[readingTime]]
 
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvitepress--downloads-181717?logo=github)](https://github.com/binarynoir/vitepress-downloads) [![npm version](https://img.shields.io/npm/v/@binarynoir/vitepress-downloads)](https://www.npmjs.com/package/@binarynoir/vitepress-downloads) [![CI](https://github.com/binarynoir/vitepress-downloads/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/vitepress-downloads/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vitepress-downloads)](https://github.com/binarynoir/vitepress-downloads/blob/main/LICENSE)
+
 `@binarynoir/vitepress-downloads` turns a folder named `downloads` into downloadable files, linked with a plain relative path. VitePress is built for pages, so a `.sql`, `.zip` or `.xlsx` normally has to be copied into `public/` and linked by an absolute URL. With this plugin the file stays next to the page that uses it.
 
 ```txt

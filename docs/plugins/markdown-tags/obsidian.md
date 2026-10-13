@@ -6,6 +6,8 @@ title: Obsidian
 
 [[readingTime]]
 
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fobsidian--markdown--tags-181717?logo=github)](https://github.com/binarynoir/obsidian-markdown-tags) [![Latest release](https://img.shields.io/github/v/release/binarynoir/obsidian-markdown-tags)](https://github.com/binarynoir/obsidian-markdown-tags/releases/latest) [![License](https://img.shields.io/github/license/binarynoir/obsidian-markdown-tags)](https://github.com/binarynoir/obsidian-markdown-tags/blob/main/LICENSE)
+
 `obsidian-markdown-tags` (listed in Obsidian as **Tags for Markdown**) renders tags in Reading view and in Live Preview, including inside tables.
 
 ## Install

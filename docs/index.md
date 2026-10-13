@@ -100,7 +100,7 @@ features:
 - **Want a tool for your terminal?** Pick one on the [apps page](/apps/). Each installs with one Homebrew command.
 - **Building a site like this one?** Read [how this site works](/guide/how-this-site-works) and copy what is useful.
 
-## Install the whole toolkit
+## Install the whole VitePress toolkit
 
 ```sh
 npm install --save-dev \
@@ -116,3 +116,20 @@ npm install --save-dev \
 ```
 
 Every plugin is optional and independent. Take one, or take them all. Each plugin's page shows how to register it, and the VitePress plugins need Node 22 or newer.
+
+## Support the work
+
+Every plugin and app here is free and MIT-licensed. There are no paid tiers and nothing held back. If one of them saved you time, a contribution helps keep them maintained, documented and moving along the [roadmap](/apps/roadmap).
+
+<div class="bn-support">
+  <a class="bn-support-link" href="https://buymeacoffee.com/binarynoir" target="_blank" rel="noopener">Buy Me a Coffee<span class="bn-support-ext" aria-hidden="true">↗</span><span class="bn-sr-only"> (opens in a new tab)</span></a>
+  <a class="bn-support-link" href="https://ko-fi.com/binarynoir" target="_blank" rel="noopener">Ko-fi<span class="bn-support-ext" aria-hidden="true">↗</span><span class="bn-sr-only"> (opens in a new tab)</span></a>
+</div>
+
+Both open on the service's own site, which handles the payment, so this site never sees your details. Contributing is optional, and everything stays free either way.
+
+Not in a position to give? These help too:
+
+- Star the repos you use on [GitHub](https://github.com/binarynoir).
+- Report a bug or suggest a feature in a repo's issues.
+- Tell a teammate or friend about a tool that would help them.

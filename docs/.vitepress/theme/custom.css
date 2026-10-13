@@ -53,6 +53,15 @@ abbr {
   border-radius: 8px;
 }
 
+/* Repo badges (shields.io and GitHub Actions) sit in a row. VitePress makes every
+   img a block, which would stack them one per line. */
+.vp-doc img[src^='https://img.shields.io/'],
+.vp-doc img[src$='/badge.svg'] {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 3px;
+}
+
 /* ---- Noir identity -------------------------------------------------------
    Hard edges, strong contrast and one grey, to match the logo. */
 
@@ -250,5 +259,68 @@ abbr {
   }
   .VPFeatures .VPFeature:hover {
     transform: none;
+  }
+}
+
+/* ---- Support links (home page) -------------------------------------------
+   Two equal-weight outlined buttons, so neither service is pushed over the other.
+   44px tall to meet touch-target guidance; they fill to solid on hover and focus. */
+.bn-support {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.vp-doc a.bn-support-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid var(--bn-line-strong);
+  border-radius: var(--bn-radius);
+  color: var(--vp-c-text-1);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.vp-doc a.bn-support-link:hover,
+.vp-doc a.bn-support-link:focus-visible {
+  background-color: var(--vp-c-brand-1);
+  color: var(--vp-c-bg);
+}
+
+.bn-support-ext {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.bn-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 480px) {
+  .vp-doc a.bn-support-link {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vp-doc a.bn-support-link {
+    transition: none;
   }
 }

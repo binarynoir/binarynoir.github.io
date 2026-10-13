@@ -6,6 +6,8 @@ title: Image Fallback
 
 [[readingTime]]
 
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvite--plugin--image--fallback-181717?logo=github)](https://github.com/binarynoir/vite-plugin-image-fallback) [![npm version](https://img.shields.io/npm/v/@binarynoir/vite-plugin-image-fallback)](https://www.npmjs.com/package/@binarynoir/vite-plugin-image-fallback) [![CI](https://github.com/binarynoir/vite-plugin-image-fallback/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/vite-plugin-image-fallback/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vite-plugin-image-fallback)](https://github.com/binarynoir/vite-plugin-image-fallback/blob/main/LICENSE)
+
 `@binarynoir/vite-plugin-image-fallback` stops one broken image from taking down your whole build. If a page imports an image that doesn't exist (a typo, a forgotten file, a renamed asset) Vite normally fails with a "could not resolve" error. This plugin swaps in a placeholder and prints a warning that names the missing import.
 
 It is aimed at content-heavy sites, where one bad reference on page 400 of 500 shouldn't block deploying the other 499. For application code, a hard failure is usually what you want.
