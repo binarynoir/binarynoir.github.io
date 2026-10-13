@@ -10,6 +10,7 @@ import { imageFallbackPlugin } from '@binarynoir/vite-plugin-image-fallback';
 import { optimizeImagesPlugin } from '@binarynoir/vite-plugin-optimize-images';
 import { downloadsMarkdown, downloadsVitePlugin } from '@binarynoir/vitepress-downloads';
 import { downloadsSrcExclude } from '@binarynoir/vitepress-downloads/vitepress';
+import { markdownHtmlEscape } from '@binarynoir/vitepress-html-escape';
 
 // import.meta.dirname, not __dirname: VitePress configs are ESM.
 const docsRoot = path.resolve(import.meta.dirname, '..');
@@ -99,7 +100,7 @@ export default defineConfig({
       md.use(glossaryAbbr, {
         file: path.join(docsRoot, 'reference/glossary.md'),
         root: docsRoot,
-        // Not the default `glossary.md`: docs/plugins/glossary.md is a documentation page, not a glossary.
+        // Not the default `glossary.md`, so a page with that name is never read as a section glossary.
         scopedFile: 'section-glossary.md',
       });
       // @binarynoir/vitepress-reading-time-tag: [[readingTime]] becomes a tip block.
@@ -108,6 +109,9 @@ export default defineConfig({
       md.use(markdownTags);
       // @binarynoir/vitepress-downloads: links into a `downloads` or `files` folder become file downloads.
       md.use(downloadsMarkdown, downloadsOptions);
+      // @binarynoir/vitepress-html-escape: stray tags like Array<string>, and {{ }} in prose,
+      // render as text instead of breaking the Vue compile. It runs after every other rule.
+      md.use(markdownHtmlEscape);
     },
   },
 

@@ -7,7 +7,7 @@ glossary: false
 
 Every term below is defined once, here. The `markdown-it-glossary` plugin turns each plain-text mention of it, on any page of this site, into a hover tooltip. This page opts out with `glossary: false` in its frontmatter so the headings don't tooltip themselves.
 
-Back to the [plugin page](/plugins/glossary) for how it works.
+Back to the [plugin page](/plugins/glossary/) for how it works.
 
 ### CI
 

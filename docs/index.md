@@ -90,6 +90,7 @@ npm install --save-dev \
   @binarynoir/vitepress-auto-navbar \
   @binarynoir/vitepress-markdown-tags \
   @binarynoir/vitepress-reading-time-tag \
+  @binarynoir/vitepress-html-escape \
   markdown-it-glossary
 ```
 

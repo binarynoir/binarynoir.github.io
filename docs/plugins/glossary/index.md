@@ -107,7 +107,7 @@ docs/
 └─ team-b/index.md
 ```
 
-See it working on the [live section glossary demo](/plugins/glossary-demo/).
+See it working on the [live section glossary demo](/plugins/glossary/section-demo/).
 
 To apply a section glossary to the whole site instead, set `glossary-scope: site` in that file's frontmatter. Section glossaries are found when the config loads, so adding or editing one needs a dev-server restart.
 

@@ -7,7 +7,7 @@ glossary: false
 
 A section glossary: its terms apply only to pages in this folder. This page opts out with `glossary: false` so its own headings don't tooltip themselves.
 
-Back to the [demo](/plugins/glossary-demo/).
+Back to the [demo](/plugins/glossary/section-demo/).
 
 ### CI
 

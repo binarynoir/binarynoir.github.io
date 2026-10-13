@@ -6,7 +6,7 @@ title: Plugins
 
 [[readingTime]]
 
-Eight small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. Seven are running on the site you are looking at; Downloads is new and is not wired into this site yet.
+Nine small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. All nine are running on the site you are looking at.
 
 | Plugin                                        | Works with                   | What it does                                              |
 | --------------------------------------------- | ---------------------------- | --------------------------------------------------------- |
@@ -15,7 +15,8 @@ Eight small packages that make a documentation site easier to build and nicer to
 | [Markdown Tags](/plugins/markdown-tags/)      | VitePress, VS Code, Obsidian | Inline status badges and tagged-pages lists.              |
 | [Reading Time Tag](/plugins/reading-time-tag) | VitePress 2                  | `[[readingTime]]` becomes a reading-time tip block.       |
 | [Downloads](/plugins/downloads)               | VitePress                    | Files in a `downloads` folder become linkable downloads.  |
-| [Glossary Tooltips](/plugins/glossary)        | VitePress, markdown-it       | Hover definitions from one glossary file.                 |
+| [Glossary Tooltips](/plugins/glossary/)       | VitePress, markdown-it       | Hover definitions from one glossary file.                 |
+| [HTML Escape](/plugins/html-escape/)          | VitePress 2, markdown-it     | Stray `<tags>` and braces render as text, not errors.     |
 | [Optimize Images](/plugins/optimize-images)   | Vite                         | Re-compresses images in the build output.                 |
 | [Image Fallback](/plugins/image-fallback)     | Vite                         | Placeholder for missing images instead of a failed build. |
 
@@ -28,6 +29,7 @@ npm install --save-dev \
   @binarynoir/vitepress-markdown-tags \
   @binarynoir/vitepress-reading-time-tag \
   @binarynoir/vitepress-downloads \
+  @binarynoir/vitepress-html-escape \
   @binarynoir/vite-plugin-optimize-images \
   @binarynoir/vite-plugin-image-fallback \
   markdown-it-glossary
@@ -35,7 +37,7 @@ npm install --save-dev \
 
 The VitePress plugins target VitePress 2 (currently an alpha release line). Node 22 or newer is required.
 
-## One config, all seven
+## One config, all nine
 
 This is this site's real `config.mts`, included straight from the repository, so it can't drift from what is deployed. [How this site works](/guide/how-this-site-works) walks through it.
 
