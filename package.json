@@ -22,18 +22,18 @@
     "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@binarynoir/vite-plugin-image-fallback": "^0.1.7",
-    "@binarynoir/vite-plugin-optimize-images": "^0.1.7",
-    "@binarynoir/vitepress-auto-navbar": "^0.2.4",
-    "@binarynoir/vitepress-auto-sidebar": "^0.4.11",
-    "@binarynoir/vitepress-broken-links": "^0.1.0",
-    "@binarynoir/vitepress-downloads": "^0.1.1",
-    "@binarynoir/vitepress-html-escape": "^0.4.0",
-    "@binarynoir/vitepress-markdown-tags": "^0.2.4",
-    "@binarynoir/vitepress-reading-time-tag": "^0.1.5",
-    "@types/node": "^24.19.1",
-    "markdown-it-glossary": "^0.4.1",
-    "prettier": "^3.9.9",
+    "@binarynoir/vite-plugin-image-fallback": "^0.1.8",
+    "@binarynoir/vite-plugin-optimize-images": "^0.1.8",
+    "@binarynoir/vitepress-auto-navbar": "^0.2.5",
+    "@binarynoir/vitepress-auto-sidebar": "^0.4.12",
+    "@binarynoir/vitepress-broken-links": "^0.1.1",
+    "@binarynoir/vitepress-downloads": "^0.1.2",
+    "@binarynoir/vitepress-html-escape": "^0.4.1",
+    "@binarynoir/vitepress-markdown-tags": "^0.2.5",
+    "@binarynoir/vitepress-reading-time-tag": "^0.1.7",
+    "@types/node": "^24.19.2",
+    "markdown-it-glossary": "^0.4.2",
+    "prettier": "^3.9.10",
     "vitepress": "2.0.0-alpha.20"
   }
 }
