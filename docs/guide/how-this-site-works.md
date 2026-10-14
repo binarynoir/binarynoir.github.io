@@ -46,7 +46,7 @@ docs/
 | Pages left out by `.exclude`    | [Exclude](/plugins/exclude/)                  | `srcExclude` and `vite.plugins`       |
 | `README.md` as a folder's index | [README Index](/plugins/readme-index/)        | `rewrites` and `markdown.config`      |
 | Smaller images                  | [Optimize Images](/plugins/optimize-images)   | `vite.plugins`                        |
-| Placeholder for a missing image | [Image Fallback](/plugins/image-fallback)     | `vite.plugins`                        |
+| Placeholder for a missing image | [Image Fallback](/plugins/image-fallback)     | `vite.plugins`, plus the theme        |
 
 ## The config
 
@@ -54,7 +54,7 @@ docs/
 
 ## The theme
 
-The theme registers the badge component and loads its stylesheet, and turns on the three popovers: glossary definitions, the HTML Escape hints that explain broken markup, and the Broken Links hints that explain dead links:
+The theme registers the badge component and loads its stylesheet, and turns on the four popovers: glossary definitions, the HTML Escape hints that explain broken markup, the Broken Links hints that explain dead links, and the Image Fallback hints that explain missing images:
 
 <<< @/.vitepress/theme/index.ts{ts}
 

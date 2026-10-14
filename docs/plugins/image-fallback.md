@@ -18,7 +18,13 @@ The image below points at a file that does not exist on purpose: `./missing-imag
 
 ![This image is intentionally missing to demonstrate the fallback](./missing-image-demo.png)
 
-When you run the build or look at the deploy log, you will see the warning for it. That warning is the plugin working as designed.
+Hover the placeholder, or click or tap it, to see what is missing and where it was imported from. When you run the build or look at the deploy log, you will see the same file and line in the warning:
+
+```txt
+[vite-plugin-image-fallback] Could not find …/docs/plugins/missing-image-demo.png (imported by plugins/image-fallback.md:19). Using fallback image.
+```
+
+That warning is the plugin working as designed.
 
 ## Install
 
@@ -46,6 +52,7 @@ Only relative (`./foo.png`) and root-relative (`/foo.png`) imports are intercept
 | `extensions` | `jpg, jpeg, png, gif, svg, webp, avif` | Extensions treated as image imports.          |
 | `fallback`   | gray "Missing Image Asset" SVG         | A data URI, or any URL string Vite can serve. |
 | `silent`     | `false`                                | Suppress the console warning.                 |
+| `hints`      | `true`                                 | Record what is missing, for the hints below.  |
 
 ```ts
 imageFallbackPlugin({
@@ -53,5 +60,26 @@ imageFallbackPlugin({
   fallback: '/branding/placeholder.png',
 });
 ```
+
+## Hints
+
+Turn on the popovers in your theme. They work the same way as [Broken Links](/plugins/broken-links) and [HTML Escape's hints](/plugins/html-escape/#hints), and all three run side by side on this site.
+
+```ts
+// .vitepress/theme/index.ts
+import DefaultTheme from 'vitepress/theme';
+import { enableImageFallbackHints } from '@binarynoir/vite-plugin-image-fallback/client';
+
+export default {
+  extends: DefaultTheme,
+  enhanceApp() {
+    enableImageFallbackHints();
+  },
+};
+```
+
+Each placeholder gets a dashed outline and a popover that names the missing import, and the file and line that imported it. The plugin records them in a `#image-fallback=…` fragment on the placeholder's URL, which the browser ignores when it loads the image.
+
+`enableImageFallbackHints(options)` takes `hover` (default `true`), `hoverDelay` (default `300` milliseconds) and `injectStyles` (default `true`), the same options as Broken Links. The colors follow the VitePress theme and can be changed with the `--image-fallback-hint-error` CSS variable.
 
 [Source and full README on GitHub](https://github.com/binarynoir/vite-plugin-image-fallback)

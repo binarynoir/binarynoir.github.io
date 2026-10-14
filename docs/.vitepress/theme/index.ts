@@ -5,6 +5,7 @@ import '@binarynoir/vitepress-markdown-tags/style.css';
 import { enableGlossaryTooltips } from 'markdown-it-glossary/client';
 import { enableHtmlEscapeHints } from '@binarynoir/vitepress-html-escape/client';
 import { enableBrokenLinkHints } from '@binarynoir/vitepress-broken-links/client';
+import { enableImageFallbackHints } from '@binarynoir/vite-plugin-image-fallback/client';
 import './custom.css';
 
 export default {
@@ -18,5 +19,7 @@ export default {
     enableHtmlEscapeHints();
     // Wavy underlines and popovers on links to pages that don't exist.
     enableBrokenLinkHints();
+    // Dashed outlines and popovers on placeholders for images that are missing.
+    enableImageFallbackHints();
   },
 } satisfies Theme;
