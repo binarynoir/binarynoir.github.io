@@ -6,7 +6,7 @@ title: callrx
 
 [[readingTime]]
 
-[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fcallrx-181717?logo=github)](https://github.com/binarynoir/callrx) [![Latest release](https://img.shields.io/github/v/release/binarynoir/callrx)](https://github.com/binarynoir/callrx/releases/latest) [![CI](https://github.com/binarynoir/callrx/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/callrx/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/callrx)](https://github.com/binarynoir/callrx/blob/main/LICENSE)
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fcallrx-181717?logo=github)](https://github.com/binarynoir/callrx) [![Latest release](https://img.shields.io/github/v/release/binarynoir/callrx)](https://github.com/binarynoir/callrx/releases/latest) [![CI](https://img.shields.io/github/actions/workflow/status/binarynoir/callrx/ci.yml?branch=main&label=CI)](https://github.com/binarynoir/callrx/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/callrx)](https://github.com/binarynoir/callrx/blob/main/LICENSE)
 
 callrx looks up US amateur radio callsigns from your terminal. It pulls the license record from the FCC Universal Licensing System and prints it with color, clickable links and a clean table layout.
 

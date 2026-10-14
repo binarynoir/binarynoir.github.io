@@ -6,7 +6,7 @@ title: Auto Navbar
 
 [[readingTime]]
 
-[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvitepress--auto--navbar-181717?logo=github)](https://github.com/binarynoir/vitepress-auto-navbar) [![npm version](https://img.shields.io/npm/v/@binarynoir/vitepress-auto-navbar)](https://www.npmjs.com/package/@binarynoir/vitepress-auto-navbar) [![CI](https://github.com/binarynoir/vitepress-auto-navbar/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/vitepress-auto-navbar/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vitepress-auto-navbar)](https://github.com/binarynoir/vitepress-auto-navbar/blob/main/LICENSE)
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvitepress--auto--navbar-181717?logo=github)](https://github.com/binarynoir/vitepress-auto-navbar) [![npm version](https://img.shields.io/npm/v/@binarynoir/vitepress-auto-navbar)](https://www.npmjs.com/package/@binarynoir/vitepress-auto-navbar) [![CI](https://img.shields.io/github/actions/workflow/status/binarynoir/vitepress-auto-navbar/ci.yml?branch=main&label=CI)](https://github.com/binarynoir/vitepress-auto-navbar/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vitepress-auto-navbar)](https://github.com/binarynoir/vitepress-auto-navbar/blob/main/LICENSE)
 
 `@binarynoir/vitepress-auto-navbar` is the companion to [Auto Sidebar](/plugins/auto-sidebar). It builds `themeConfig.nav` from the same folder scan, with the same ordering and exclusion syntax, in `.nav` files.
 

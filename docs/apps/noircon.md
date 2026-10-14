@@ -6,7 +6,7 @@ title: NoirCon
 
 [[readingTime]]
 
-[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fnoircon-181717?logo=github)](https://github.com/binarynoir/noircon) [![Latest release](https://img.shields.io/github/v/release/binarynoir/noircon)](https://github.com/binarynoir/noircon/releases/latest) [![CI](https://github.com/binarynoir/noircon/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/noircon/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/noircon)](https://github.com/binarynoir/noircon/blob/main/LICENSE)
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fnoircon-181717?logo=github)](https://github.com/binarynoir/noircon) [![Latest release](https://img.shields.io/github/v/release/binarynoir/noircon)](https://github.com/binarynoir/noircon/releases/latest) [![CI](https://img.shields.io/github/actions/workflow/status/binarynoir/noircon/ci.yml?branch=main&label=CI)](https://github.com/binarynoir/noircon/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/noircon)](https://github.com/binarynoir/noircon/blob/main/LICENSE)
 
 NoirCon checks whether websites, servers and network services are reachable, and notifies you when one stops responding and again when it comes back. Notifications can go to your desktop (macOS, Linux and Windows) or to your phone through Pushover.
 

@@ -4,7 +4,7 @@ title: Reading Time Tag
 
 # Reading Time Tag ((tag|VitePress plugin|blue))
 
-[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvitepress--reading--time--tag-181717?logo=github)](https://github.com/binarynoir/vitepress-reading-time-tag) [![npm version](https://img.shields.io/npm/v/@binarynoir/vitepress-reading-time-tag)](https://www.npmjs.com/package/@binarynoir/vitepress-reading-time-tag) [![CI](https://github.com/binarynoir/vitepress-reading-time-tag/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/vitepress-reading-time-tag/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vitepress-reading-time-tag)](https://github.com/binarynoir/vitepress-reading-time-tag/blob/main/LICENSE)
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvitepress--reading--time--tag-181717?logo=github)](https://github.com/binarynoir/vitepress-reading-time-tag) [![npm version](https://img.shields.io/npm/v/@binarynoir/vitepress-reading-time-tag)](https://www.npmjs.com/package/@binarynoir/vitepress-reading-time-tag) [![CI](https://img.shields.io/github/actions/workflow/status/binarynoir/vitepress-reading-time-tag/ci.yml?branch=main&label=CI)](https://github.com/binarynoir/vitepress-reading-time-tag/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vitepress-reading-time-tag)](https://github.com/binarynoir/vitepress-reading-time-tag/blob/main/LICENSE)
 
 `@binarynoir/vitepress-reading-time-tag` turns `[[readingTime]]` into a tip block showing how long the page takes to read. The figure is calculated at build time from the page's own Markdown, so there is no component to register, no stylesheet, and nothing extra shipped to the browser.
 

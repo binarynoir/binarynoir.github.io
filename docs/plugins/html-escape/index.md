@@ -6,7 +6,7 @@ title: HTML Escape
 
 [[readingTime]]
 
-[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvitepress--html--escape-181717?logo=github)](https://github.com/binarynoir/vitepress-html-escape) [![npm version](https://img.shields.io/npm/v/@binarynoir/vitepress-html-escape)](https://www.npmjs.com/package/@binarynoir/vitepress-html-escape) [![CI](https://github.com/binarynoir/vitepress-html-escape/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/vitepress-html-escape/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vitepress-html-escape)](https://github.com/binarynoir/vitepress-html-escape/blob/main/LICENSE)
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvitepress--html--escape-181717?logo=github)](https://github.com/binarynoir/vitepress-html-escape) [![npm version](https://img.shields.io/npm/v/@binarynoir/vitepress-html-escape)](https://www.npmjs.com/package/@binarynoir/vitepress-html-escape) [![CI](https://img.shields.io/github/actions/workflow/status/binarynoir/vitepress-html-escape/ci.yml?branch=main&label=CI)](https://github.com/binarynoir/vitepress-html-escape/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vitepress-html-escape)](https://github.com/binarynoir/vitepress-html-escape/blob/main/LICENSE)
 
 `@binarynoir/vitepress-html-escape` keeps stray angle brackets and `{{ }}` in Markdown from breaking your build. VitePress compiles every page as a Vue template, so a sentence like "returns Array<string>" normally stops the build with `Element is missing end tag`. With this plugin it shows up as text. Real HTML and Vue components work exactly as before.
 

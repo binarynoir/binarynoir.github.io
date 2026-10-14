@@ -6,7 +6,7 @@ title: VitePress
 
 [[readingTime]]
 
-[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvitepress--markdown--tags-181717?logo=github)](https://github.com/binarynoir/vitepress-markdown-tags) [![npm version](https://img.shields.io/npm/v/@binarynoir/vitepress-markdown-tags)](https://www.npmjs.com/package/@binarynoir/vitepress-markdown-tags) [![CI](https://github.com/binarynoir/vitepress-markdown-tags/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/vitepress-markdown-tags/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vitepress-markdown-tags)](https://github.com/binarynoir/vitepress-markdown-tags/blob/main/LICENSE)
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fvitepress--markdown--tags-181717?logo=github)](https://github.com/binarynoir/vitepress-markdown-tags) [![npm version](https://img.shields.io/npm/v/@binarynoir/vitepress-markdown-tags)](https://www.npmjs.com/package/@binarynoir/vitepress-markdown-tags) [![CI](https://img.shields.io/github/actions/workflow/status/binarynoir/vitepress-markdown-tags/ci.yml?branch=main&label=CI)](https://github.com/binarynoir/vitepress-markdown-tags/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/vitepress-markdown-tags)](https://github.com/binarynoir/vitepress-markdown-tags/blob/main/LICENSE)
 
 `@binarynoir/vitepress-markdown-tags` turns `((tag|Done|green))` into styled badges on a VitePress 2 site. See the [syntax and a live demo](/plugins/markdown-tags/) first if you haven't.
 

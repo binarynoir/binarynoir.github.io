@@ -53,10 +53,11 @@ abbr {
   border-radius: 8px;
 }
 
-/* Repo badges (shields.io and GitHub Actions) sit in a row. VitePress makes every
-   img a block, which would stack them one per line. */
+/* Repo badges (shields.io, plus vsmarketplacebadges.dev for the VS Marketplace
+   badge shields retired) sit in a row. VitePress makes every img a block, which
+   would stack them one per line. */
 .vp-doc img[src^='https://img.shields.io/'],
-.vp-doc img[src$='/badge.svg'] {
+.vp-doc img[src^='https://vsmarketplacebadges.dev/'] {
   display: inline-block;
   vertical-align: middle;
   border-radius: 3px;

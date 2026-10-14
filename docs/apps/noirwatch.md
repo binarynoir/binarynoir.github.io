@@ -6,7 +6,7 @@ title: NoirWatch
 
 [[readingTime]]
 
-[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fnoirwatch-181717?logo=github)](https://github.com/binarynoir/noirwatch) [![Latest release](https://img.shields.io/github/v/release/binarynoir/noirwatch)](https://github.com/binarynoir/noirwatch/releases/latest) [![CI](https://github.com/binarynoir/noirwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/binarynoir/noirwatch/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/noirwatch)](https://github.com/binarynoir/noirwatch/blob/main/LICENSE)
+[![GitHub repo](https://img.shields.io/badge/GitHub-binarynoir%2Fnoirwatch-181717?logo=github)](https://github.com/binarynoir/noirwatch) [![Latest release](https://img.shields.io/github/v/release/binarynoir/noirwatch)](https://github.com/binarynoir/noirwatch/releases/latest) [![CI](https://img.shields.io/github/actions/workflow/status/binarynoir/noirwatch/ci.yml?branch=main&label=CI)](https://github.com/binarynoir/noirwatch/actions/workflows/ci.yml) [![License](https://img.shields.io/github/license/binarynoir/noirwatch)](https://github.com/binarynoir/noirwatch/blob/main/LICENSE)
 
 NoirWatch watches web pages and notifies you when one changes. Notifications can go to your desktop (macOS, Linux and Windows) or to your phone through Pushover.
 
