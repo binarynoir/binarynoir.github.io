@@ -20,6 +20,16 @@ const docsRoot = path.resolve(import.meta.dirname, '..');
 
 const SITE_URL = 'https://binarynoir.github.io';
 
+// @binarynoir/vitepress-auto-sidebar and -auto-navbar: how titles are written in both
+// menus. Markdown Tags syntax is stripped from titles by default (`stripTags`).
+const menuTitleOptions = {
+  // A title made from a file or folder name writes `github` as "GitHub".
+  titleReplacements: { github: 'GitHub' },
+  // An "Example: " prefix on a page's title is left out of the menus.
+  transformTitle: (title: string, { source }: { source: string }) =>
+    source === 'page' ? title.replace(/^Example: /, '') : undefined,
+};
+
 // @binarynoir/vitepress-downloads: the same options go to all three pieces below.
 const downloadsOptions = { folders: ['downloads', 'files'] };
 
@@ -79,12 +89,17 @@ export default defineConfig({
     nav: generateNav(docsRoot, {
       maxDepth: 2,
       configFilenames: ['.nav', '.sidebar'],
+      ...menuTitleOptions,
     }),
 
     // @binarynoir/vitepress-auto-sidebar: one sidebar per top-level folder.
+    // A folder no `.sidebar` names is labelled with its landing page's title
+    // (see plugins/auto-sidebar/titles-demo/).
     sidebar: generateSidebar(docsRoot, {
       maxDepth: 3,
       maxTitleLength: 50,
+      ...menuTitleOptions,
+      groupTitleFromIndex: true,
     }),
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/binarynoir' }],

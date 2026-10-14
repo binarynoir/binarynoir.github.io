@@ -1,0 +1,4 @@
+# titles-demo has no title here on purpose: its group label comes from its
+# landing page, with groupTitleFromIndex.
+index.md:Overview
+titles-demo

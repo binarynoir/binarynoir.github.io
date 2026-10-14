@@ -1,0 +1,8 @@
+# The demo pages are left untitled here, so each sidebar title is one the
+# new title options produce. Only the link below sets its own title, quoted
+# after a space.
+index.md
+github-actions-setup.md
+draft-notes.md
+example-renamed-page.md
+https://vitepress.dev: 'VitePress docs'

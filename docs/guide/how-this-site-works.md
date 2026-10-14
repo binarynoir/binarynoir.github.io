@@ -36,7 +36,7 @@ docs/
 | You see                         | Plugin                                        | Where it is wired                     |
 | ------------------------------- | --------------------------------------------- | ------------------------------------- |
 | Top navbar                      | [Auto Navbar](/plugins/auto-navbar)           | `themeConfig.nav` in `config.mts`     |
-| Left sidebar                    | [Auto Sidebar](/plugins/auto-sidebar)         | `themeConfig.sidebar` in `config.mts` |
+| Left sidebar                    | [Auto Sidebar](/plugins/auto-sidebar/)        | `themeConfig.sidebar` in `config.mts` |
 | Status badges                   | [Markdown Tags](/plugins/markdown-tags/)      | `markdown.config`, plus the theme     |
 | "Reading time" box              | [Reading Time Tag](/plugins/reading-time-tag) | `markdown.config`                     |
 | Dotted-underline hovers         | [Glossary Tooltips](/plugins/glossary/)       | `markdown.config`                     |

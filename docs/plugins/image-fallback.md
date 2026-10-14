@@ -43,7 +43,23 @@ export default defineConfig({
 });
 ```
 
-Only relative (`./foo.png`) and root-relative (`/foo.png`) imports are intercepted. Bare package specifiers still go through normal `node_modules` resolution, and images that exist are passed through untouched.
+Only relative (`./foo.png`) and root-relative (`/foo.png`) imports are intercepted. Bare package specifiers still go through normal `node_modules` resolution, and images that exist are passed through untouched. That includes images in Vite's `publicDir`, wherever it is: VitePress's default `<srcDir>/public`, or an absolute path outside the root.
+
+## In `vitepress dev`
+
+In dev, a Markdown image isn't an import: VitePress turns `![x](./missing.png)` into a plain URL that the browser requests. Without the plugin, a missing one gets the page's HTML back and shows as a broken image.
+
+The plugin answers those requests too. A missing image gets the placeholder, with the missing path written on it, and the terminal shows the same warning, naming the page that asked for it. A custom `fallback` data URI is served as is, and a custom `fallback` URL is redirected to.
+
+Run this site with `npm run docs:dev` and the demo image above looks like this:
+
+![The placeholder vitepress dev serves for the demo image, with its path written on it](../assets/image-fallback-dev.svg)
+
+```txt
+[vite-plugin-image-fallback] Could not find …/docs/plugins/missing-image-demo.png (requested by /plugins/image-fallback). Serving fallback image.
+```
+
+The hint popovers below need the `#image-fallback=` fragment the build adds, so they appear in builds only. In dev, read the path on the placeholder instead.
 
 ## Options
 

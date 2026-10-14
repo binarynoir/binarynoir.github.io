@@ -32,7 +32,7 @@ Those pages are not built, not in search and not in the sitemap. The files stay 
 
 This page's folder has a [`draft.md`](https://github.com/binarynoir/binarynoir.github.io/blob/main/docs/plugins/exclude/draft.md) next to it, and an [`.exclude`](https://github.com/binarynoir/binarynoir.github.io/blob/main/docs/plugins/exclude/.exclude) file that lists it. The draft is in the repository, but it is not on this site: it is missing from the sidebar, from search and from the build.
 
-[Auto Sidebar](/plugins/auto-sidebar) and [Auto Navbar](/plugins/auto-navbar) read the same `.exclude` files, so one line hides a page from the menus and keeps it out of the build.
+[Auto Sidebar](/plugins/auto-sidebar/) and [Auto Navbar](/plugins/auto-navbar) read the same `.exclude` files, so one line hides a page from the menus and keeps it out of the build.
 
 ## Install
 

@@ -3,7 +3,7 @@
 # [Group] lines match the groups on the home page and the plugins overview.
 index.md:Overview
 [Navigation from your folders]
-auto-sidebar.md:Auto Sidebar
+auto-sidebar:Auto Sidebar
 auto-navbar.md:Auto Navbar
 [Richer pages]
 markdown-tags:Markdown Tags

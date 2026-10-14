@@ -14,10 +14,10 @@ Pick by the job you need done. Each plugin's page has a live demo.
 
 Menus that follow your folder tree, so adding a page never means editing the config.
 
-| Plugin                                | Works with  | What it does                                    |
-| ------------------------------------- | ----------- | ----------------------------------------------- |
-| [Auto Sidebar](/plugins/auto-sidebar) | VitePress 2 | Builds `themeConfig.sidebar` from your folders. |
-| [Auto Navbar](/plugins/auto-navbar)   | VitePress 2 | Builds `themeConfig.nav` from your folders.     |
+| Plugin                                 | Works with  | What it does                                    |
+| -------------------------------------- | ----------- | ----------------------------------------------- |
+| [Auto Sidebar](/plugins/auto-sidebar/) | VitePress 2 | Builds `themeConfig.sidebar` from your folders. |
+| [Auto Navbar](/plugins/auto-navbar)    | VitePress 2 | Builds `themeConfig.nav` from your folders.     |
 
 ## Richer pages {#pages}
 

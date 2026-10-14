@@ -101,6 +101,6 @@ export default defineConfig({
 - **Rename at your own pace.** Folders you have already moved to `index.md` work as normal. A folder with both keeps `index.md` as its index, and its `README.md` stays a page of its own, with a warning in the log.
 - **Any case.** `README.md`, `Readme.md` and `readme.md` all count.
 - **Query strings and `#anchors` are kept.** External links, such as a `README.md` on GitHub, are left alone.
-- **Menus work as they are.** [Auto Sidebar](/plugins/auto-sidebar) and [Auto Navbar](/plugins/auto-navbar) already use a folder's `README.md` as its landing page and link to the folder URL.
+- **Menus work as they are.** [Auto Sidebar](/plugins/auto-sidebar/) and [Auto Navbar](/plugins/auto-navbar) already use a folder's `README.md` as its landing page and link to the folder URL.
 
 [Source and full README on GitHub](https://github.com/binarynoir/vitepress-readme-index)

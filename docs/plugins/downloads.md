@@ -76,7 +76,7 @@ withDownloads(config, { folders: ['downloads', 'files'], onMissing: 'error' });
 
 ## Keep downloads out of the sidebar
 
-If the sidebar is generated from the folder tree, a downloadable `notes.md` would show up as a dead sidebar page. With [Auto Sidebar](/plugins/auto-sidebar) and [Auto Navbar](/plugins/auto-navbar), list the folder in an `.exclude` file in the directory that contains it:
+If the sidebar is generated from the folder tree, a downloadable `notes.md` would show up as a dead sidebar page. With [Auto Sidebar](/plugins/auto-sidebar/) and [Auto Navbar](/plugins/auto-navbar), list the folder in an `.exclude` file in the directory that contains it:
 
 ```txt
 # docs/tools/ai/.exclude

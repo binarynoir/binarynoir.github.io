@@ -1,0 +1,10 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="100" viewBox="0 0 320 100">
+  <rect width="320" height="100" fill="#cccccc"/>
+  <text x="50%" y="40%" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="16" font-family="Arial, sans-serif">
+    Missing Image Asset
+  </text>
+  <text x="50%" y="66%" dominant-baseline="middle" text-anchor="middle" fill="#333333" font-size="11" font-family="Menlo, Consolas, monospace">
+    /plugins/missing-image-demo.png
+  </text>
+</svg>
