@@ -1,6 +1,6 @@
 # binarynoir.github.io
 
-The [BinaryNoir](https://github.com/binarynoir) developer hub, live at **https://binarynoir.github.io**.
+The [BinaryNoir](https://github.com/binarynoir) developer hub, live at **https://binarynoir.tech**.
 
 It documents BinaryNoir's open-source VitePress plugins, Vite plugins and command-line apps, and it is built with every one of those plugins, so it doubles as a working demo of how they fit together.
 
