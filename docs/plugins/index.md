@@ -6,7 +6,7 @@ title: Plugins
 
 [[readingTime]]
 
-Nine small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. All nine are running on the site you are looking at.
+Ten small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. All ten are running on the site you are looking at.
 
 | Plugin                                        | Works with                   | What it does                                                 |
 | --------------------------------------------- | ---------------------------- | ------------------------------------------------------------ |
@@ -17,6 +17,7 @@ Nine small packages that make a documentation site easier to build and nicer to 
 | [Downloads](/plugins/downloads)               | VitePress                    | Files in a `downloads` folder become linkable downloads.     |
 | [Glossary Tooltips](/plugins/glossary/)       | VitePress, markdown-it       | Hover definitions from one glossary file.                    |
 | [HTML Escape](/plugins/html-escape/)          | VitePress 2, markdown-it     | Stray `<tags>` and braces render as text, with fix-it hints. |
+| [Broken Links](/plugins/broken-links)         | VitePress 2                  | Dead links render as text, with fix-it hints.                |
 | [Optimize Images](/plugins/optimize-images)   | Vite                         | Re-compresses images in the build output.                    |
 | [Image Fallback](/plugins/image-fallback)     | Vite                         | Placeholder for missing images instead of a failed build.    |
 
@@ -30,6 +31,7 @@ npm install --save-dev \
   @binarynoir/vitepress-reading-time-tag \
   @binarynoir/vitepress-downloads \
   @binarynoir/vitepress-html-escape \
+  @binarynoir/vitepress-broken-links \
   @binarynoir/vite-plugin-optimize-images \
   @binarynoir/vite-plugin-image-fallback \
   markdown-it-glossary
@@ -37,7 +39,7 @@ npm install --save-dev \
 
 The VitePress plugins target VitePress 2 (currently an alpha release line). Node 22 or newer is required.
 
-## One config, all nine
+## One config, all ten
 
 This is this site's real `config.mts`, included straight from the repository, so it can't drift from what is deployed. [How this site works](/guide/how-this-site-works) walks through it.
 

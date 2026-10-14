@@ -15,6 +15,7 @@ It documents BinaryNoir's open-source VitePress plugins, Vite plugins and comman
 | [`@binarynoir/vitepress-downloads`](https://github.com/binarynoir/vitepress-downloads)                 | Downloadable files from a `downloads` folder                                                   |
 | [`markdown-it-glossary`](https://github.com/binarynoir/markdown-it-glossary)                           | Hover definitions from `docs/reference/glossary.md`                                            |
 | [`@binarynoir/vitepress-html-escape`](https://github.com/binarynoir/vitepress-html-escape)             | Stray tags like `Array<string>` and `{{ }}` render as text; hints underline them in `docs:dev` |
+| [`@binarynoir/vitepress-broken-links`](https://github.com/binarynoir/vitepress-broken-links)           | Dead links render as text with a fix-it popover instead of failing the build                   |
 | [`@binarynoir/vite-plugin-optimize-images`](https://github.com/binarynoir/vite-plugin-optimize-images) | Re-compresses images in the build output                                                       |
 | [`@binarynoir/vite-plugin-image-fallback`](https://github.com/binarynoir/vite-plugin-image-fallback)   | Placeholder for missing images (one is missing on purpose)                                     |
 
@@ -36,9 +37,11 @@ Pushing to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy
 
 The repository's Pages source must be set to **GitHub Actions** (Settings → Pages).
 
-## A note on the missing image
+## A note on the missing image and dead links
 
 `docs/plugins/image-fallback.md` references an image that does not exist, on purpose, to demonstrate the image-fallback plugin. The build logs a warning for it. That is expected.
+
+Likewise, `docs/plugins/broken-links.md` links to two pages that do not exist, to demonstrate the broken-links plugin. The build logs a warning for each one, and that is expected too.
 
 ## License
 

@@ -4,6 +4,7 @@ import { registerMarkdownTags } from '@binarynoir/vitepress-markdown-tags/theme'
 import '@binarynoir/vitepress-markdown-tags/style.css';
 import { enableGlossaryTooltips } from 'markdown-it-glossary/client';
 import { enableHtmlEscapeHints } from '@binarynoir/vitepress-html-escape/client';
+import { enableBrokenLinkHints } from '@binarynoir/vitepress-broken-links/client';
 import './custom.css';
 
 export default {
@@ -15,5 +16,7 @@ export default {
     enableGlossaryTooltips();
     // Wavy underlines and fix-it popovers on pages that turn on HTML Escape hints.
     enableHtmlEscapeHints();
+    // Wavy underlines and popovers on links to pages that don't exist.
+    enableBrokenLinkHints();
   },
 } satisfies Theme;

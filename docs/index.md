@@ -75,6 +75,15 @@ features:
     link: /plugins/html-escape/
     linkText: See the HTML Escape plugin
   - icon:
+      light: /icons/link-light.svg
+      dark: /icons/link-dark.svg
+      width: 28
+      height: 28
+    title: Broken Links
+    details: A link to a page that doesn't exist shows up as text with a fix-it hint instead of failing the build.
+    link: /plugins/broken-links
+    linkText: See the Broken Links plugin
+  - icon:
       light: /icons/image-light.svg
       dark: /icons/image-dark.svg
       width: 28
@@ -110,6 +119,7 @@ npm install --save-dev \
   @binarynoir/vitepress-reading-time-tag \
   @binarynoir/vitepress-downloads \
   @binarynoir/vitepress-html-escape \
+  @binarynoir/vitepress-broken-links \
   @binarynoir/vite-plugin-optimize-images \
   @binarynoir/vite-plugin-image-fallback \
   markdown-it-glossary

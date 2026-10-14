@@ -6,7 +6,7 @@ title: How this site works
 
 [[readingTime]]
 
-This site is plain VitePress 2 plus nine plugins. There is no hand-written navigation anywhere: add a Markdown file in the right folder and it shows up in the sidebar, the navbar, search and the sitemap.
+This site is plain VitePress 2 plus ten plugins. There is no hand-written navigation anywhere: add a Markdown file in the right folder and it shows up in the sidebar, the navbar, search and the sitemap.
 
 ## Folder layout
 
@@ -40,6 +40,7 @@ docs/
 | Dotted-underline hovers         | [Glossary Tooltips](/plugins/glossary/)       | `markdown.config`                     |
 | File download links             | [Downloads](/plugins/downloads)               | `markdown.config` and `vite.plugins`  |
 | Stray `<tags>` shown as text    | [HTML Escape](/plugins/html-escape/)          | `markdown.config`, plus the theme     |
+| Dead links shown as text        | [Broken Links](/plugins/broken-links)         | `markdown.config`, plus the theme     |
 | Smaller images                  | [Optimize Images](/plugins/optimize-images)   | `vite.plugins`                        |
 | Placeholder for a missing image | [Image Fallback](/plugins/image-fallback)     | `vite.plugins`                        |
 
@@ -49,7 +50,7 @@ docs/
 
 ## The theme
 
-The theme registers the badge component and loads its stylesheet, and turns on the two popovers: glossary definitions, and the HTML Escape hints that explain broken markup:
+The theme registers the badge component and loads its stylesheet, and turns on the three popovers: glossary definitions, the HTML Escape hints that explain broken markup, and the Broken Links hints that explain dead links:
 
 <<< @/.vitepress/theme/index.ts{ts}
 
@@ -57,6 +58,6 @@ The theme registers the badge component and loads its stylesheet, and turns on t
 
 1. Create `docs/<section>/my-page.md` with a `# Heading`.
 2. Optionally, add a line for it to that section's `.sidebar` file to choose its position and title. Pages without a line are listed alphabetically where the `...` line is, or at the end if there is none.
-3. Run `npm run docs:dev`. The page is already in the sidebar. Anything [HTML Escape](/plugins/html-escape/) had to fix, such as an `Array<T>` outside backticks, has a wavy underline there: hover it to see what is wrong and how to fix it. The deployed site leaves the underlines out.
+3. Run `npm run docs:dev`. The page is already in the sidebar. Anything [HTML Escape](/plugins/html-escape/) had to fix, such as an `Array<T>` outside backticks, has a wavy underline there: hover it to see what is wrong and how to fix it. The deployed site leaves the underlines out. A link to a page that doesn't exist yet doesn't stop the build either: [Broken Links](/plugins/broken-links) shows it as text, with a red underline that explains it, in both `docs:dev` and the deployed site.
 
 To add a whole new section, create a folder with an `index.md`. It becomes a navbar entry and its own sidebar automatically.

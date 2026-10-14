@@ -11,6 +11,7 @@ import { optimizeImagesPlugin } from '@binarynoir/vite-plugin-optimize-images';
 import { downloadsMarkdown, downloadsVitePlugin } from '@binarynoir/vitepress-downloads';
 import { downloadsSrcExclude } from '@binarynoir/vitepress-downloads/vitepress';
 import { markdownHtmlEscape } from '@binarynoir/vitepress-html-escape';
+import { markdownBrokenLinks } from '@binarynoir/vitepress-broken-links';
 
 // import.meta.dirname, not __dirname: VitePress configs are ESM.
 const docsRoot = path.resolve(import.meta.dirname, '..');
@@ -113,6 +114,9 @@ export default defineConfig({
       // render as text instead of breaking the Vue compile. It runs after every other rule.
       // In `vitepress dev`, hints underline each fix and explain it; `vitepress build` leaves them out.
       md.use(markdownHtmlEscape, { hints: process.env.NODE_ENV !== 'production' });
+      // @binarynoir/vitepress-broken-links: a link to a page that doesn't exist renders as text
+      // with a popover explaining it, and a warning in the log, instead of failing the build.
+      md.use(markdownBrokenLinks);
     },
   },
 

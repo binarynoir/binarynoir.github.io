@@ -26,6 +26,7 @@
     "@binarynoir/vite-plugin-optimize-images": "^0.1.7",
     "@binarynoir/vitepress-auto-navbar": "^0.2.4",
     "@binarynoir/vitepress-auto-sidebar": "^0.4.11",
+    "@binarynoir/vitepress-broken-links": "^0.1.0",
     "@binarynoir/vitepress-downloads": "^0.1.1",
     "@binarynoir/vitepress-html-escape": "^0.4.0",
     "@binarynoir/vitepress-markdown-tags": "^0.2.4",

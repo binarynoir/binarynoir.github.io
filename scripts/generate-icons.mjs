@@ -30,6 +30,8 @@ const ICONS = {
   download: `<path d="M12 8v7M8 11l4 4 4-4"/><path d="M4 15v5h16v-5"/><rect x="11" y="3" width="2" height="2" fill="C" stroke="none"/>`,
   // A tag's angle brackets with the square held safely between them.
   escape: `<path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/><rect x="11" y="11" width="2" height="2" fill="C" stroke="none"/>`,
+  // A chain link pulled apart; the square is the piece that went missing.
+  link: `<path d="M9 7H3v10h6M15 7h6v10h-6M7 12h2M15 12h2"/><rect x="11" y="11" width="2" height="2" fill="C" stroke="none"/>`,
 };
 
 const COLORS = { light: '#111111', dark: '#f0f0f0' };
