@@ -12,6 +12,8 @@ import { downloadsMarkdown, downloadsVitePlugin } from '@binarynoir/vitepress-do
 import { downloadsSrcExclude } from '@binarynoir/vitepress-downloads/vitepress';
 import { markdownHtmlEscape } from '@binarynoir/vitepress-html-escape';
 import { markdownBrokenLinks } from '@binarynoir/vitepress-broken-links';
+import { excludeSrc, excludeVitePlugin } from '@binarynoir/vitepress-exclude';
+import { readmeLinks, readmeRewrites } from '@binarynoir/vitepress-readme-index';
 
 // import.meta.dirname, not __dirname: VitePress configs are ESM.
 const docsRoot = path.resolve(import.meta.dirname, '..');
@@ -28,8 +30,17 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
 
-  // Files in a `downloads` or `files` folder are published as-is, never built as pages.
-  srcExclude: downloadsSrcExclude(downloadsOptions),
+  srcExclude: [
+    // Files in a `downloads` or `files` folder are published as-is, never built as pages.
+    ...downloadsSrcExclude(downloadsOptions),
+    // @binarynoir/vitepress-exclude: whatever a folder's `.exclude` file lists is not built.
+    // The same files hide those pages from the sidebar and navbar.
+    ...excludeSrc(docsRoot),
+  ],
+
+  // @binarynoir/vitepress-readme-index: a folder's README.md is served as its index page,
+  // as VuePress did, so a VuePress site can move over without renaming files.
+  rewrites: readmeRewrites(docsRoot),
 
   sitemap: { hostname: SITE_URL },
 
@@ -110,6 +121,8 @@ export default defineConfig({
       md.use(markdownTags);
       // @binarynoir/vitepress-downloads: links into a `downloads` or `files` folder become file downloads.
       md.use(downloadsMarkdown, downloadsOptions);
+      // @binarynoir/vitepress-readme-index: a link to README.md goes to the page it is served as.
+      md.use(readmeLinks);
       // @binarynoir/vitepress-html-escape: stray tags like Array<string>, and {{ }} in prose,
       // render as text instead of breaking the Vue compile. It runs after every other rule.
       // In `vitepress dev`, hints underline each fix and explain it; `vitepress build` leaves them out.
@@ -141,6 +154,8 @@ export default defineConfig({
       taggedPagesVitePlugin(),
       // Publishes the files in each `downloads` or `files` folder at their page-relative URL.
       downloadsVitePlugin(downloadsOptions),
+      // Restarts `vitepress dev` when an `.exclude` file changes, so new rules apply right away.
+      excludeVitePlugin(),
     ],
   },
 });

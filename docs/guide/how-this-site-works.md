@@ -6,7 +6,7 @@ title: How this site works
 
 [[readingTime]]
 
-This site is plain VitePress 2 plus ten plugins. There is no hand-written navigation anywhere: add a Markdown file in the right folder and it shows up in the sidebar, the navbar, search and the sitemap.
+This site is plain VitePress 2 plus twelve plugins. There is no hand-written navigation anywhere: add a Markdown file in the right folder and it shows up in the sidebar, the navbar, search and the sitemap.
 
 ## Folder layout
 
@@ -19,6 +19,8 @@ docs/
   plugins/              developer docs for each plugin
     .sidebar            order and titles for this section
     downloads/          files the Downloads demo publishes as-is
+    exclude/            a .exclude file and the draft it keeps out of the build
+    readme-index/       pages served from README.md, as in VuePress
   apps/                 user docs for the CLI apps
   guide/                this section
   reference/            glossary terms and the generated list of every tag
@@ -41,6 +43,8 @@ docs/
 | File download links             | [Downloads](/plugins/downloads)               | `markdown.config` and `vite.plugins`  |
 | Stray `<tags>` shown as text    | [HTML Escape](/plugins/html-escape/)          | `markdown.config`, plus the theme     |
 | Dead links shown as text        | [Broken Links](/plugins/broken-links)         | `markdown.config`, plus the theme     |
+| Pages left out by `.exclude`    | [Exclude](/plugins/exclude/)                  | `srcExclude` and `vite.plugins`       |
+| `README.md` as a folder's index | [README Index](/plugins/readme-index/)        | `rewrites` and `markdown.config`      |
 | Smaller images                  | [Optimize Images](/plugins/optimize-images)   | `vite.plugins`                        |
 | Placeholder for a missing image | [Image Fallback](/plugins/image-fallback)     | `vite.plugins`                        |
 

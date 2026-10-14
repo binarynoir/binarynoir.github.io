@@ -32,6 +32,8 @@ const ICONS = {
   escape: `<path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/><rect x="11" y="11" width="2" height="2" fill="C" stroke="none"/>`,
   // A chain link pulled apart; the square is the piece that went missing.
   link: `<path d="M9 7H3v10h6M15 7h6v10h-6M7 12h2M15 12h2"/><rect x="11" y="11" width="2" height="2" fill="C" stroke="none"/>`,
+  // A folder with its pages; the square is the file you came for. Used for content plugins.
+  folder: `<path d="M3 5h7l2 2h9v13H3z"/><path d="M7 12h6M7 16h4"/><rect x="16" y="11" width="2" height="2" fill="C" stroke="none"/>`,
 };
 
 const COLORS = { light: '#111111', dark: '#f0f0f0' };

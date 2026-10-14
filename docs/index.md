@@ -25,73 +25,46 @@ features:
       dark: /icons/layout-dark.svg
       width: 28
       height: 28
-    title: Auto Sidebar & Navbar
-    details: Menus built from your folder structure, ordered and titled by tiny plain-text files.
-    link: /plugins/auto-sidebar
-    linkText: See the sidebar plugin
+    title: Navigation from your folders
+    details: Auto Sidebar and Auto Navbar build the menus from your folder tree, ordered and titled by small plain-text files.
+    link: /plugins/#navigation
+    linkText: Navigation plugins
   - icon:
       light: /icons/tag-light.svg
       dark: /icons/tag-dark.svg
       width: 28
       height: 28
-    title: Markdown Tags
-    details: Inline status badges for VitePress, VS Code and Obsidian, plus site-wide pages that list every tag.
-    link: /plugins/markdown-tags/
-    linkText: See the tags plugin
+    title: Richer pages
+    details: Markdown Tags, Glossary Tooltips and Reading Time add status badges, hover definitions and reading-time estimates.
+    link: /plugins/#pages
+    linkText: Page plugins
   - icon:
-      light: /icons/book-light.svg
-      dark: /icons/book-dark.svg
+      light: /icons/folder-light.svg
+      dark: /icons/folder-dark.svg
       width: 28
       height: 28
-    title: Glossary Tooltips
-    details: Define a term once and every mention in your docs gets a hover definition.
-    link: /plugins/glossary
-    linkText: See the glossary plugin
-  - icon:
-      light: /icons/clock-light.svg
-      dark: /icons/clock-dark.svg
-      width: 28
-      height: 28
-    title: Reading Time
-    details: One line in a page gets an estimated reading time, computed at build time.
-    link: /plugins/reading-time-tag
-    linkText: See the reading-time plugin
-  - icon:
-      light: /icons/download-light.svg
-      dark: /icons/download-dark.svg
-      width: 28
-      height: 28
-    title: Downloads
-    details: Keep a .sql, .zip or .xlsx next to the page that links to it, and the link downloads the file.
-    link: /plugins/downloads
-    linkText: See the downloads plugin
+    title: Content where it lives
+    details: Downloads next to the page that links them, drafts left out with a .exclude file, and README.md index pages for VuePress migrations.
+    link: /plugins/#content
+    linkText: Content plugins
   - icon:
       light: /icons/escape-light.svg
       dark: /icons/escape-dark.svg
       width: 28
       height: 28
-    title: HTML Escape
-    details: A stray Array&lt;string&gt; or {{ }} in your Markdown shows up as text instead of breaking the build.
-    link: /plugins/html-escape/
-    linkText: See the HTML Escape plugin
-  - icon:
-      light: /icons/link-light.svg
-      dark: /icons/link-dark.svg
-      width: 28
-      height: 28
-    title: Broken Links
-    details: A link to a page that doesn't exist shows up as text with a fix-it hint instead of failing the build.
-    link: /plugins/broken-links
-    linkText: See the Broken Links plugin
+    title: Builds that don't break
+    details: HTML Escape and Broken Links turn a stray Array&lt;string&gt; or a dead link into a fix-it hint instead of a failed build.
+    link: /plugins/#builds
+    linkText: Build plugins
   - icon:
       light: /icons/image-light.svg
       dark: /icons/image-dark.svg
       width: 28
       height: 28
-    title: Image Optimization & Fallback
-    details: Smaller images in the build output, and a placeholder instead of a failed build when one goes missing.
-    link: /plugins/optimize-images
-    linkText: See the image plugins
+    title: Images handled
+    details: Optimize Images shrinks every image in the build output, and Image Fallback stands in for one that goes missing.
+    link: /plugins/#images
+    linkText: Image plugins
   - icon:
       light: /icons/terminal-light.svg
       dark: /icons/terminal-dark.svg
@@ -109,23 +82,9 @@ features:
 - **Want a tool for your terminal?** Pick one on the [apps page](/apps/). Each installs with one Homebrew command.
 - **Building a site like this one?** Read [how this site works](/guide/how-this-site-works) and copy what is useful.
 
-## Install the whole VitePress toolkit
+## Install the VitePress toolkit
 
-```sh
-npm install --save-dev \
-  @binarynoir/vitepress-auto-sidebar \
-  @binarynoir/vitepress-auto-navbar \
-  @binarynoir/vitepress-markdown-tags \
-  @binarynoir/vitepress-reading-time-tag \
-  @binarynoir/vitepress-downloads \
-  @binarynoir/vitepress-html-escape \
-  @binarynoir/vitepress-broken-links \
-  @binarynoir/vite-plugin-optimize-images \
-  @binarynoir/vite-plugin-image-fallback \
-  markdown-it-glossary
-```
-
-Every plugin is optional and independent. Take one, or take them all. Each plugin's page shows how to register it, and the VitePress plugins need Node 22 or newer.
+Every plugin is optional and independent: take one, or take them all. The [plugins overview](/plugins/#install-them-all) has the one-line install for the whole set, and each plugin's page shows how to register it. The VitePress plugins need Node 22 or newer.
 
 ## Support the work
 

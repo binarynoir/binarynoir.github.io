@@ -16,6 +16,8 @@ It documents BinaryNoir's open-source VitePress plugins, Vite plugins and comman
 | [`markdown-it-glossary`](https://github.com/binarynoir/markdown-it-glossary)                           | Hover definitions from `docs/reference/glossary.md`                                            |
 | [`@binarynoir/vitepress-html-escape`](https://github.com/binarynoir/vitepress-html-escape)             | Stray tags like `Array<string>` and `{{ }}` render as text; hints underline them in `docs:dev` |
 | [`@binarynoir/vitepress-broken-links`](https://github.com/binarynoir/vitepress-broken-links)           | Dead links render as text with a fix-it popover instead of failing the build                   |
+| [`@binarynoir/vitepress-exclude`](https://github.com/binarynoir/vitepress-exclude)                     | `.exclude` files keep pages out of the build (a draft in `docs/plugins/exclude/` on purpose)   |
+| [`@binarynoir/vitepress-readme-index`](https://github.com/binarynoir/vitepress-readme-index)           | `README.md` served as a folder's index page, for VuePress migrations                           |
 | [`@binarynoir/vite-plugin-optimize-images`](https://github.com/binarynoir/vite-plugin-optimize-images) | Re-compresses images in the build output                                                       |
 | [`@binarynoir/vite-plugin-image-fallback`](https://github.com/binarynoir/vite-plugin-image-fallback)   | Placeholder for missing images (one is missing on purpose)                                     |
 

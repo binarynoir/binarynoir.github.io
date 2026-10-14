@@ -1,0 +1,3 @@
+# Demo for the Exclude plugin: draft.md stays in the repository but is not built,
+# and Auto Sidebar leaves it out of the menu.
+draft.md

@@ -1,13 +1,21 @@
 # Titles are set here, not in each page's H1, so the ((tag|...)) badges in the
 # headings stay out of the menu. The navbar reuses these titles automatically.
+# [Group] lines match the groups on the home page and the plugins overview.
 index.md:Overview
+[Navigation from your folders]
 auto-sidebar.md:Auto Sidebar
 auto-navbar.md:Auto Navbar
+[Richer pages]
 markdown-tags:Markdown Tags
-reading-time-tag.md:Reading Time Tag
-downloads.md:Downloads
 glossary:Glossary Tooltips
+reading-time-tag.md:Reading Time Tag
+[Content where it lives]
+downloads.md:Downloads
+exclude:Exclude
+readme-index:README Index
+[Builds that don't break]
 html-escape:HTML Escape
 broken-links.md:Broken Links
+[Images handled]
 optimize-images.md:Optimize Images
 image-fallback.md:Image Fallback
