@@ -110,6 +110,8 @@ generateSidebar(docsRoot, {
 
 A folder's group label comes from, in order: its line in the parent's `.sidebar`, a `section-title` in its landing page's frontmatter, then the formatted folder name. With `groupTitleFromIndex: true`, the landing page's `title` or first `# Heading` is tried before the folder name.
 
+<!--@include: ../shared/title-helpers.md-->
+
 Pairs with [Auto Navbar](/plugins/auto-navbar): one folder structure drives both menus.
 
 [Source and full README on GitHub](https://github.com/binarynoir/vitepress-auto-sidebar)

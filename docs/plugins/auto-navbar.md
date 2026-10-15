@@ -93,4 +93,6 @@ generateNav(docsRoot, {
 });
 ```
 
+<!--@include: ./shared/title-helpers.md-->
+
 [Source and full README on GitHub](https://github.com/binarynoir/vitepress-auto-navbar)
