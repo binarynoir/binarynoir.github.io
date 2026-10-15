@@ -59,7 +59,7 @@ Run this site with `npm run docs:dev` and the demo image above looks like this:
 [vite-plugin-image-fallback] Could not find …/docs/plugins/missing-image-demo.png (requested by /plugins/image-fallback). Serving fallback image.
 ```
 
-The hint popovers below need the `#image-fallback=` fragment the build adds, so they appear in builds only. In dev, read the path on the placeholder instead.
+The hint popovers below work in dev too. Each placeholder response carries an `X-Image-Fallback` header with the missing path, and on a dev-server page the client script asks about each image with one `HEAD` request, then outlines and explains the placeholders it finds. In dev, the popover names the missing path but not the file and line, which only the build knows.
 
 ## Options
 
@@ -96,6 +96,14 @@ export default {
 
 Each placeholder gets a dashed outline and a popover that names the missing import, and the file and line that imported it. The plugin records them in a `#image-fallback=…` fragment on the placeholder's URL, which the browser ignores when it loads the image.
 
-`enableImageFallbackHints(options)` takes `hover` (default `true`), `hoverDelay` (default `300` milliseconds) and `injectStyles` (default `true`), the same options as Broken Links. The colors follow the VitePress theme and can be changed with the `--image-fallback-hint-error` CSS variable.
+`enableImageFallbackHints(options)` takes `hover` (default `true`), `hoverDelay` (default `300` milliseconds) and `injectStyles` (default `true`), the same options as Broken Links. It also takes `devPlaceholders`, on by default when the Vite dev server served the page, which turns the `HEAD` checks on or off. The colors follow the VitePress theme and can be changed with the `--image-fallback-hint-error` CSS variable.
+
+To skip placeholders in your own code, for example in a click-to-zoom handler, use `isImageFallback(img)`. It is true for built placeholders, and for dev ones once they have been found:
+
+```ts
+import { isImageFallback } from '@binarynoir/vite-plugin-image-fallback/client';
+
+if (isImageFallback(img)) return; // nothing to zoom
+```
 
 [Source and full README on GitHub](https://github.com/binarynoir/vite-plugin-image-fallback)
