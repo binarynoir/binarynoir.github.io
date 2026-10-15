@@ -6,7 +6,7 @@ title: Plugins
 
 [[readingTime]]
 
-Thirteen small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. All thirteen are running on the site you are looking at.
+Fourteen small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. All fourteen are running on the site you are looking at.
 
 Pick by the job you need done. Each plugin's page has a live demo.
 
@@ -14,10 +14,11 @@ Pick by the job you need done. Each plugin's page has a live demo.
 
 Menus that follow your folder tree, so adding a page never means editing the config.
 
-| Plugin                                 | Works with  | What it does                                    |
-| -------------------------------------- | ----------- | ----------------------------------------------- |
-| [Auto Sidebar](/plugins/auto-sidebar/) | VitePress 2 | Builds `themeConfig.sidebar` from your folders. |
-| [Auto Navbar](/plugins/auto-navbar)    | VitePress 2 | Builds `themeConfig.nav` from your folders.     |
+| Plugin                                          | Works with  | What it does                                      |
+| ----------------------------------------------- | ----------- | ------------------------------------------------- |
+| [Auto Sidebar](/plugins/auto-sidebar/)          | VitePress 2 | Builds `themeConfig.sidebar` from your folders.   |
+| [Auto Navbar](/plugins/auto-navbar)             | VitePress 2 | Builds `themeConfig.nav` from your folders.       |
+| [Sidebar Accordion](/plugins/sidebar-accordion) | VitePress   | One open sidebar group per level, as in VuePress. |
 
 ## Richer pages {#pages}
 
@@ -64,6 +65,7 @@ Smaller images in the output, and no failed build over a missing one.
 npm install --save-dev \
   @binarynoir/vitepress-auto-sidebar \
   @binarynoir/vitepress-auto-navbar \
+  @binarynoir/vitepress-sidebar-accordion \
   @binarynoir/vitepress-markdown-tags \
   @binarynoir/vitepress-reading-time-tag \
   @binarynoir/vitepress-downloads \
@@ -79,7 +81,7 @@ npm install --save-dev \
 
 The VitePress plugins target VitePress 2 (currently an alpha release line). Node 22 or newer is required.
 
-## One config, all thirteen
+## One config, all fourteen
 
 This is this site's real `config.mts`, included straight from the repository, so it can't drift from what is deployed. [How this site works](/guide/how-this-site-works) walks through it.
 

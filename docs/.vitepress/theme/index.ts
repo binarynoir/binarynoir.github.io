@@ -6,6 +6,7 @@ import { enableGlossaryTooltips } from 'markdown-it-glossary/client';
 import { enableHtmlEscapeHints } from '@binarynoir/vitepress-html-escape/client';
 import { enableBrokenLinkHints } from '@binarynoir/vitepress-broken-links/client';
 import { enableImageFallbackHints } from '@binarynoir/vite-plugin-image-fallback/client';
+import { useSidebarAccordion } from '@binarynoir/vitepress-sidebar-accordion';
 import './custom.css';
 
 export default {
@@ -21,5 +22,9 @@ export default {
     enableBrokenLinkHints();
     // Dashed outlines and popovers on placeholders for images that are missing.
     enableImageFallbackHints();
+  },
+  setup() {
+    // One open sidebar group per level, and only the current page's branch open after navigating.
+    useSidebarAccordion();
   },
 } satisfies Theme;

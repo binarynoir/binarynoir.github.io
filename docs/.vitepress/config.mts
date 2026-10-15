@@ -101,6 +101,8 @@ export default defineConfig({
       maxTitleLength: 50,
       ...menuTitleOptions,
       groupTitleFromIndex: true,
+      // Groups start closed, so @binarynoir/vitepress-sidebar-accordion (in the theme) has a caret to toggle.
+      collapsed: true,
     }),
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/binarynoir' }],

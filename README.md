@@ -10,6 +10,7 @@ It documents BinaryNoir's open-source VitePress plugins, Vite plugins and comman
 | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
 | [`@binarynoir/vitepress-auto-sidebar`](https://github.com/binarynoir/vitepress-auto-sidebar)           | Builds the sidebar from the folder tree                                                        |
 | [`@binarynoir/vitepress-auto-navbar`](https://github.com/binarynoir/vitepress-auto-navbar)             | Builds the top navbar from the folder tree                                                     |
+| [`@binarynoir/vitepress-sidebar-accordion`](https://github.com/binarynoir/vitepress-sidebar-accordion) | One open sidebar group per level, as in VuePress                                               |
 | [`@binarynoir/vitepress-markdown-tags`](https://github.com/binarynoir/vitepress-markdown-tags)         | Status badges and tagged-page lists                                                            |
 | [`@binarynoir/vitepress-reading-time-tag`](https://github.com/binarynoir/vitepress-reading-time-tag)   | `[[readingTime]]` tip blocks                                                                   |
 | [`@binarynoir/vitepress-downloads`](https://github.com/binarynoir/vitepress-downloads)                 | Downloadable files from a `downloads` folder                                                   |

@@ -26,7 +26,7 @@ features:
       width: 28
       height: 28
     title: Navigation from your folders
-    details: Auto Sidebar and Auto Navbar build the menus from your folder tree, ordered and titled by small plain-text files.
+    details: Auto Sidebar and Auto Navbar build the menus from your folder tree, ordered and titled by small plain-text files. Sidebar Accordion keeps one group open at a time.
     link: /plugins/#navigation
     linkText: Navigation plugins
   - icon:
