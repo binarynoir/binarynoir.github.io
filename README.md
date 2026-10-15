@@ -14,6 +14,7 @@ It documents BinaryNoir's open-source VitePress plugins, Vite plugins and comman
 | [`@binarynoir/vitepress-reading-time-tag`](https://github.com/binarynoir/vitepress-reading-time-tag)   | `[[readingTime]]` tip blocks                                                                   |
 | [`@binarynoir/vitepress-downloads`](https://github.com/binarynoir/vitepress-downloads)                 | Downloadable files from a `downloads` folder                                                   |
 | [`markdown-it-glossary`](https://github.com/binarynoir/markdown-it-glossary)                           | Hover definitions from `docs/reference/glossary.md`                                            |
+| [`@binarynoir/vitepress-text-style`](https://github.com/binarynoir/vitepress-text-style)               | `[t:red]text[/t]` colored and sized text                                                       |
 | [`@binarynoir/vitepress-html-escape`](https://github.com/binarynoir/vitepress-html-escape)             | Stray tags like `Array<string>` and `{{ }}` render as text; hints underline them in `docs:dev` |
 | [`@binarynoir/vitepress-broken-links`](https://github.com/binarynoir/vitepress-broken-links)           | Dead links render as text with a fix-it popover instead of failing the build                   |
 | [`@binarynoir/vitepress-exclude`](https://github.com/binarynoir/vitepress-exclude)                     | `.exclude` files keep pages out of the build (a draft in `docs/plugins/exclude/` on purpose)   |

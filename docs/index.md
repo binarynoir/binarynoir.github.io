@@ -35,7 +35,7 @@ features:
       width: 28
       height: 28
     title: Richer pages
-    details: Markdown Tags, Glossary Tooltips and Reading Time add status badges, hover definitions and reading-time estimates.
+    details: Markdown Tags, Glossary Tooltips, Reading Time and Text Style add status badges, hover definitions, reading-time estimates and colored text.
     link: /plugins/#pages
     linkText: Page plugins
   - icon:

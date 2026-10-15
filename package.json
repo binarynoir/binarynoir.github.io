@@ -33,6 +33,7 @@
     "@binarynoir/vitepress-markdown-tags": "^0.2.6",
     "@binarynoir/vitepress-reading-time-tag": "^0.1.8",
     "@binarynoir/vitepress-readme-index": "^0.1.1",
+    "@binarynoir/vitepress-text-style": "^0.1.0",
     "@types/node": "^24.19.2",
     "markdown-it-glossary": "^0.4.3",
     "prettier": "^3.9.10",

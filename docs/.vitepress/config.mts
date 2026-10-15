@@ -14,6 +14,7 @@ import { markdownHtmlEscape } from '@binarynoir/vitepress-html-escape';
 import { markdownBrokenLinks } from '@binarynoir/vitepress-broken-links';
 import { excludeSrc, excludeVitePlugin } from '@binarynoir/vitepress-exclude';
 import { readmeLinks, readmeRewrites } from '@binarynoir/vitepress-readme-index';
+import { markdownTextStyle } from '@binarynoir/vitepress-text-style';
 
 // import.meta.dirname, not __dirname: VitePress configs are ESM.
 const docsRoot = path.resolve(import.meta.dirname, '..');
@@ -134,6 +135,8 @@ export default defineConfig({
       md.use(readingTimeTag);
       // @binarynoir/vitepress-markdown-tags: ((tag|Done|green)) becomes a badge.
       md.use(markdownTags);
+      // @binarynoir/vitepress-text-style: [t:red:1.2em]text[/t] becomes colored, sized text.
+      md.use(markdownTextStyle);
       // @binarynoir/vitepress-downloads: links into a `downloads` or `files` folder become file downloads.
       md.use(downloadsMarkdown, downloadsOptions);
       // @binarynoir/vitepress-readme-index: a link to README.md goes to the page it is served as.

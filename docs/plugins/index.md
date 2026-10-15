@@ -6,7 +6,7 @@ title: Plugins
 
 [[readingTime]]
 
-Twelve small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. All twelve are running on the site you are looking at.
+Thirteen small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. All thirteen are running on the site you are looking at.
 
 Pick by the job you need done. Each plugin's page has a live demo.
 
@@ -28,6 +28,7 @@ Small additions that help a reader scan and understand a page.
 | [Markdown Tags](/plugins/markdown-tags/)      | VitePress, VS Code, Obsidian | Inline status badges and tagged-pages lists.        |
 | [Glossary Tooltips](/plugins/glossary/)       | VitePress, markdown-it       | Hover definitions from one glossary file.           |
 | [Reading Time Tag](/plugins/reading-time-tag) | VitePress 2                  | `[[readingTime]]` becomes a reading-time tip block. |
+| [Text Style](/plugins/text-style)             | VitePress, markdown-it       | `[t:red]text[/t]` colors and sizes text inline.     |
 
 ## Content where it lives {#content}
 
@@ -70,6 +71,7 @@ npm install --save-dev \
   @binarynoir/vitepress-broken-links \
   @binarynoir/vitepress-exclude \
   @binarynoir/vitepress-readme-index \
+  @binarynoir/vitepress-text-style \
   @binarynoir/vite-plugin-optimize-images \
   @binarynoir/vite-plugin-image-fallback \
   markdown-it-glossary
@@ -77,7 +79,7 @@ npm install --save-dev \
 
 The VitePress plugins target VitePress 2 (currently an alpha release line). Node 22 or newer is required.
 
-## One config, all twelve
+## One config, all thirteen
 
 This is this site's real `config.mts`, included straight from the repository, so it can't drift from what is deployed. [How this site works](/guide/how-this-site-works) walks through it.
 

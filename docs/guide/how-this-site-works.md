@@ -6,7 +6,7 @@ title: How this site works
 
 [[readingTime]]
 
-This site is plain VitePress 2 plus twelve plugins. There is no hand-written navigation anywhere: add a Markdown file in the right folder and it shows up in the sidebar, the navbar, search and the sitemap.
+This site is plain VitePress 2 plus thirteen plugins. There is no hand-written navigation anywhere: add a Markdown file in the right folder and it shows up in the sidebar, the navbar, search and the sitemap.
 
 ## Folder layout
 
@@ -40,6 +40,7 @@ docs/
 | Status badges                   | [Markdown Tags](/plugins/markdown-tags/)      | `markdown.config`, plus the theme     |
 | "Reading time" box              | [Reading Time Tag](/plugins/reading-time-tag) | `markdown.config`                     |
 | Dotted-underline hovers         | [Glossary Tooltips](/plugins/glossary/)       | `markdown.config`                     |
+| Colored and sized text          | [Text Style](/plugins/text-style)             | `markdown.config`                     |
 | File download links             | [Downloads](/plugins/downloads)               | `markdown.config` and `vite.plugins`  |
 | Stray `<tags>` shown as text    | [HTML Escape](/plugins/html-escape/)          | `markdown.config`, plus the theme     |
 | Dead links shown as text        | [Broken Links](/plugins/broken-links)         | `markdown.config`, plus the theme     |
