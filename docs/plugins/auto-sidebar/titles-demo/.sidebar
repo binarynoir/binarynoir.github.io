@@ -3,6 +3,7 @@
 # after a space.
 index.md
 github-actions-setup.md
+guide-to-the-cli.md
 draft-notes.md
 example-renamed-page.md
 https://vitepress.dev: 'VitePress docs'

@@ -56,6 +56,7 @@ Each top-level folder becomes a navbar entry: a dropdown if it has several pages
 | `flattenSinglePage` | `true`         | A folder with one entry becomes a plain link.                         |
 | `activeMatch`       | `true`         | Keep items highlighted on every page beneath them.                    |
 | `titleReplacements` | `{}`           | Words to replace in titles made from file and folder names.           |
+| `titleCase`         | `true`         | Title-case titles made from file and folder names.                    |
 | `stripTags`         | `true`         | Remove Markdown Tags syntax (`((tag\|draft))`) from titles.           |
 | `transformTitle`    | none           | A function that gets every title before truncation.                   |
 | `verbose`           | `false`        | Log each folder as it is processed.                                   |
@@ -68,7 +69,9 @@ A folder's landing page is its `index.md`, or its `README.md`. VitePress serves 
 
 This site passes the same title options to both menus. See them working in the [Sidebar Titles Demo](/plugins/auto-sidebar/titles-demo/), and in this site's [config](https://github.com/binarynoir/binarynoir.github.io/blob/main/docs/.vitepress/config.mts).
 
-A title made from a file or folder name is formatted: `getting-started.md` becomes "Getting Started". Only first letters are capitalised, so use `titleReplacements` for words with other casing. Keys match whole words, ignoring case:
+A title made from a file or folder name is formatted: `getting-started.md` becomes "Getting Started". It is title-cased, so articles, short conjunctions and prepositions (`a`, `the`, `and`, `of`, `to`, …) stay lowercase unless they are the first or last word: `guide-to-the-cli.md` becomes "Guide to the Cli". Set `titleCase: false` to capitalise every word instead.
+
+Only first letters change case, so use `titleReplacements` for words with other casing. Keys match whole words, ignoring case:
 
 ```ts
 generateNav(docsRoot, {

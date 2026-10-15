@@ -72,6 +72,7 @@ Files need their `.md` extension in these lines. A `.exclude` file removes draft
 | `collapsed`           | `false`        | Initial collapsed state for section headers.                          |
 | `flattenSinglePage`   | `true`         | A folder with one page becomes a plain link instead of its own group. |
 | `titleReplacements`   | `{}`           | Words to replace in titles made from file and folder names.           |
+| `titleCase`           | `true`         | Title-case titles made from file and folder names.                    |
 | `stripTags`           | `true`         | Remove Markdown Tags syntax (`((tag\|draft))`) from titles.           |
 | `transformTitle`      | none           | A function that gets every title before truncation.                   |
 | `groupTitleFromIndex` | `false`        | Label a folder's group with its landing page's title.                 |
@@ -83,7 +84,9 @@ Files need their `.md` extension in these lines. A `.exclude` file removes draft
 The [Sidebar Titles Demo](./titles-demo/) folder, in the sidebar under **Auto Sidebar**, uses each option below on this site's real sidebar.
 :::
 
-A title made from a file or folder name is formatted: `getting-started.md` becomes "Getting Started". Only first letters are capitalised, so use `titleReplacements` for words with other casing. Keys match whole words, ignoring case:
+A title made from a file or folder name is formatted: `getting-started.md` becomes "Getting Started". It is title-cased, so articles, short conjunctions and prepositions (`a`, `the`, `and`, `of`, `to`, …) stay lowercase unless they are the first or last word: `guide-to-the-cli.md` becomes "Guide to the Cli". Set `titleCase: false` to capitalise every word instead.
+
+Only first letters change case, so use `titleReplacements` for words with other casing. Keys match whole words, ignoring case:
 
 ```ts
 generateSidebar(docsRoot, {
