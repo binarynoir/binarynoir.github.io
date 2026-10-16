@@ -25,6 +25,8 @@ export default {
   },
   setup() {
     // One open sidebar group per level, and only the current page's branch open after navigating.
-    useSidebarAccordion();
+    // The filter field only appears on sidebars with 20 or more links: the Plugins
+    // sidebar (nearly 40, with the demo pages) gets one; Guide, Apps and Reference don't.
+    useSidebarAccordion({ filter: { minItems: 20 } });
   },
 } satisfies Theme;
