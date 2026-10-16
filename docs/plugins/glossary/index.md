@@ -20,6 +20,8 @@ Hover over the dotted-underlined words in this paragraph. Every push to `main` r
 npm install --save-dev markdown-it-glossary
 ```
 
+Needs Node 22 or later and markdown-it 15. VitePress 1 and 2 are both supported, and VitePress is optional: the plugin works with any markdown-it setup.
+
 ## Use
 
 ```ts
@@ -38,7 +40,27 @@ export default defineConfig({
 });
 ```
 
-Or wrap the config with `withGlossary` from `markdown-it-glossary/vitepress`. It plays nicely with other `withX()` wrappers.
+Every page now tooltips every term in `glossary.md`. Ship that file as a normal page (add it to your nav) and it doubles as a browsable reference; it isn't a special page type.
+
+### `withGlossary` shortcut
+
+If you'd rather wrap your config than touch `markdown.config`, use `withGlossary`, the same idea as `withMermaid`:
+
+```ts
+// .vitepress/config.mts
+import { withGlossary } from 'markdown-it-glossary/vitepress';
+
+export default withGlossary(
+  defineConfig({
+    // ...your normal config
+  }),
+  { file: path.resolve(import.meta.dirname, '../glossary.md') },
+);
+```
+
+It won't overwrite a `markdown.config` you already have, including one set by another `withX()` wrapper: it installs the glossary plugin, then calls whatever was already there.
+
+It also works with plain markdown-it: `new MarkdownIt().use(glossaryAbbr, { file: 'glossary.md' })`.
 
 ### Hover, click and tap
 
@@ -67,7 +89,7 @@ export default {
 | `touchOnly`    | `false`         | Respond to touch input only, leaving mouse users the native tooltip.                  |
 | `injectStyles` | `true`          | Inject the default popover styles. `false` lets you style `.glossary-popover`.        |
 
-The default look follows VitePress theme colors and can be overridden with the `--glossary-popover-bg`, `--glossary-popover-fg`, and `--glossary-popover-border` CSS variables. `enableGlossaryTooltips()` returns a function that removes its listeners.
+Terms get a help (question mark) cursor for mouse users, which you can override in your own CSS. On touch screens they get a pointer cursor instead, which iOS Safari needs before it will deliver taps. The default look follows VitePress theme colors and can be overridden with the `--glossary-popover-bg`, `--glossary-popover-fg`, and `--glossary-popover-border` CSS variables. `enableGlossaryTooltips()` returns a function that removes its listeners.
 
 ## Writing the glossary file
 
@@ -83,9 +105,54 @@ Continuous Integration: automatically building and testing every change before i
 The block of YAML at the very top of a Markdown file that holds page settings.
 ```
 
-- Matching is exact-text and case-sensitive, and only applies to plain prose, never inline code.
+- The definition becomes the tooltip text. Markdown formatting (bold, code, links) is stripped to plain text, so keep it to a sentence or two.
+- Matching ignores case by default (`CI` also matches `ci`), matches whole words only, and only applies to plain prose, never inline code. To match exact case only, see [Case sensitivity](#case-sensitivity).
 - A comma-separated heading defines aliases: `### frontmatter, front matter` tooltips both spellings. Try it: frontmatter, front matter.
 - A heading with a parenthetical qualifier is parsed but never tooltipped, for words that mean something else elsewhere. The last term in [the glossary](/reference/glossary) does this with the word Pages.
+- Headings inside fenced code blocks are ignored, so a glossary page can show example syntax without it becoming terms.
+
+## Case sensitivity
+
+Terms match regardless of case by default. Turn exact-case matching on or off at five levels. The closest setting to the term wins:
+
+| Where                        | Setting                         | Applies to                            |
+| ---------------------------- | ------------------------------- | ------------------------------------- |
+| Plugin options               | `caseSensitive: true`           | the whole site (the base default)     |
+| Master glossary frontmatter  | `glossary-case-sensitive: true` | the whole site, overriding the option |
+| Section glossary frontmatter | `glossary-case-sensitive: true` | that folder and every folder below it |
+| Any page's frontmatter       | `glossary-case-sensitive: true` | that page only                        |
+| The term's heading           | `### IT {.exact}`               | that term, on every page              |
+
+Use `false` at any level to turn it back off from that point down. For example, a case-sensitive site with one section that ignores case again:
+
+```md
+---
+# glossary.md (the master)
+glossary-case-sensitive: true
+---
+```
+
+```md
+---
+# team-a/glossary.md: team-a/ and below ignore case
+glossary-case-sensitive: false
+---
+```
+
+- **It follows folders, not terms.** The setting controls how every term on a page is matched, whichever glossary the term came from. A section glossary marked `glossary-scope: site` still only sets case sensitivity for its own folder.
+- **Short acronyms can collide with ordinary words** when case is ignored: `IT` matches "it", `US` matches "us". Flag those terms `{.exact}`.
+
+### Per-term flags
+
+End a heading with `{.exact}` to match that term in exact case only, or `{.anycase}` to match any case, whatever the site, section or page says:
+
+```md
+### IT, Information Technology {.exact}
+
+The team that runs our laptops and servers.
+```
+
+The flag covers the whole heading, aliases included. It combines with a custom anchor (`{#it .exact}`), and VitePress hides the block on the rendered glossary page. With `entries`, set `caseSensitive` on the entry instead.
 
 ## Section glossaries
 
@@ -109,9 +176,9 @@ docs/
 └─ team-b/index.md
 ```
 
-To use a different file name, set the `scopedFile` option. This site sets `scopedFile: 'section-glossary.md'` so that its own [Glossary](/reference/glossary) page, `reference/glossary.md`, is never mistaken for a section glossary. See it working on the [live section glossary demo](/plugins/glossary/section-demo/).
+To use a different file name, set the `scopedFile` option, or list section glossaries explicitly with `scopes` (see the [README](https://github.com/binarynoir/markdown-it-glossary#readme)). This site sets `scopedFile: 'section-glossary.md'` so that its own [Glossary](/reference/glossary) page, `reference/glossary.md`, is never mistaken for a section glossary. See it working on the [live section glossary demo](/plugins/glossary/section-demo/).
 
-To apply a section glossary to the whole site instead, set `glossary-scope: site` in that file's frontmatter. Section glossaries are found when the config loads, so adding or editing one needs a dev-server restart.
+To apply a section glossary to the whole site instead, set `glossary-scope: site` in that file's frontmatter (`section` is the default). Section glossaries are found when the config loads, skipping `node_modules`, `dist` and folders that start with a dot like `.vitepress`, so adding or editing one needs a dev-server restart. The master glossary file is never mistaken for a section glossary.
 
 ### Which definition wins
 
@@ -137,7 +204,7 @@ glossary:
 ---
 ```
 
-Use `local: false` to skip all section glossaries and keep the master. `glossary: false` still turns everything off.
+Use `local: false` to skip all section glossaries, including site-wide ones from other folders, and keep the master. `glossary: false` still turns everything off. Page-local `*[Term]: …` definitions work in every case.
 
 ## Opt a page out
 
@@ -163,7 +230,7 @@ We cut a release every sprint, and each one is gated on CI passing.
 *[CI]: Continuous Integration, only this page's definition applies.
 ```
 
-Every exact, case-sensitive occurrence of `CI` on that page becomes an `<abbr title>`, and nothing else from the glossary does. The definition line itself isn't rendered. Use this to keep a few terms on an otherwise opted-out page, or to define terms that aren't in the glossary at all.
+Every occurrence of `CI` on that page (in any case, unless the page is [case-sensitive](#case-sensitivity)) becomes an `<abbr title>`, and nothing else from the glossary does. The definition line itself isn't rendered. Use this to keep a few terms on an otherwise opted-out page, or to define terms that aren't in the glossary at all.
 
 ### Override one term on one page
 
@@ -175,16 +242,33 @@ The same syntax works on a page that has _not_ opted out. A page-local definitio
 
 ## Options
 
-| Option           | Default         | Description                                                                  |
-| ---------------- | --------------- | ---------------------------------------------------------------------------- |
-| `file`           | none            | Path to a glossary Markdown file. Give this or `entries`.                    |
-| `entries`        | none            | Pre-parsed entries, for sourcing terms from somewhere else.                  |
-| `headingLevel`   | `3`             | Heading level that marks a term.                                             |
-| `frontmatterKey` | `'glossary'`    | Frontmatter key for the opt-out. `false` disables it.                        |
-| `root`           | none            | Docs folder. Enables section glossaries found below it.                      |
-| `scopedFile`     | `'glossary.md'` | File name that marks a section glossary.                                     |
-| `scopes`         | `[]`            | Section glossaries declared explicitly (`dir`, `file` or `entries`, `site`). |
+The same options work for `glossaryAbbr(md, options)` and `withGlossary(config, options)`.
+
+| Option           | Default         | Description                                                                                             |
+| ---------------- | --------------- | ------------------------------------------------------------------------------------------------------- |
+| `file`           | none            | Path to a glossary Markdown file. Give this or `entries`.                                               |
+| `entries`        | none            | Pre-parsed entries, for sourcing terms from somewhere else.                                             |
+| `headingLevel`   | `3`             | Heading level that marks a term.                                                                        |
+| `frontmatterKey` | `'glossary'`    | Frontmatter key for the opt-out. `false` disables it.                                                   |
+| `caseSensitive`  | `false`         | Match terms only in their exact case. The site-wide default; see [Case sensitivity](#case-sensitivity). |
+| `root`           | none            | Docs folder. Enables section glossaries found below it.                                                 |
+| `scopedFile`     | `'glossary.md'` | File name that marks a section glossary.                                                                |
+| `scopes`         | `[]`            | Section glossaries declared explicitly (`dir`, `file` or `entries`, `site`, `caseSensitive`).           |
+
+### Frontmatter keys
+
+| Key                       | Where                     | Values                                               |
+| ------------------------- | ------------------------- | ---------------------------------------------------- |
+| `glossary`                | any page                  | `false`, or `{ master: false }` / `{ local: false }` |
+| `glossary-scope`          | a section glossary        | `section` (default) or `site`                        |
+| `glossary-case-sensitive` | any glossary file or page | `true` or `false`                                    |
+
+On a term heading, `{.exact}` and `{.anycase}` set that term's case rule.
+
+## Styling
 
 The plugin itself emits plain `<abbr title>` tags and injects no CSS. This site adds a dotted underline in its theme so the terms are discoverable, and `enableGlossaryTooltips()` adds the popover and a help (question mark) cursor.
+
+The full README also covers the exported parser API, for sourcing terms from somewhere other than one Markdown file.
 
 [Source and full README on GitHub](https://github.com/binarynoir/markdown-it-glossary)

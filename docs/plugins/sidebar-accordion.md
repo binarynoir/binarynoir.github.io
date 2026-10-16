@@ -78,6 +78,20 @@ export default defineConfig({
 
 Groups without `collapsed` are always open, and the accordion leaves them alone.
 
+### Options
+
+`useSidebarAccordion()` takes an options object:
+
+| Option        | Default | What it does                                                                                                                  |
+| ------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `closeOthers` | `true`  | Close the other groups at the same level when a group is opened, and the branches beside the current page's after navigating. |
+
+Set `closeOthers: false` to let readers open and close groups one by one without the others closing. They can keep several groups open, or start with every group closed and open only the ones they want. After each navigation the current page's branch is still opened, but nothing else is closed.
+
+```ts
+useSidebarAccordion({ closeOthers: false });
+```
+
 ### With Auto Sidebar
 
 [Auto Sidebar](/plugins/auto-sidebar/) sets `collapsed` on every group it generates through its `collapsed` option. This site does exactly that:
@@ -107,6 +121,7 @@ It reads VitePress's own class names (`.VPSidebarItem`, `.collapsible`, `.collap
 | ---------------------------- | ---------------------------------------------------------------------- |
 | `handleSidebarClick(event)`  | The capture-phase click handler `useSidebarAccordion` adds.            |
 | `keepActiveBranchOnly(root)` | Opens the current page's branch and closes the rest.                   |
+| `openActiveBranch(root)`     | Opens the current page's branch and leaves the rest as they are.       |
 | `closeOpenSiblings(item)`    | Closes the open groups beside `item`, and any open groups inside them. |
 | `getSiblingItems(item)`      | The sidebar items at the same level as `item`.                         |
 | `toggleGroup(group)`         | Opens or closes a group by clicking its caret.                         |
