@@ -136,7 +136,7 @@ blog:
 | `category`      | none                                       | Written to the feed and `article:section`.                                                                                                                |
 | `scope`         | `section`                                  | `site` (or `global`) also lists the post on the main blog. See [Scopes](#scopes).                                                                         |
 | `sticky`        | `false`                                    | Pinned to the top of its blog pages, above the paginated posts, with a Pinned badge. See [Sticky posts](#sticky-posts).                                   |
-| `draft`         | `false`                                    | Left out of lists and feeds. The page is still built: use [Exclude](/plugins/exclude/) to hide it.                                                        |
+| `draft`         | `false`                                    | Left out of lists and feeds. To leave drafts out of the build and the menus too, see [Drafts](#drafts).                                                   |
 | `byline`        | the `byline` option                        | `false` hides this post's byline.                                                                                                                         |
 | `cover`         | the `cover` option                         | `true` shows this post's image under its byline.                                                                                                          |
 | `postNav`       | the `postNav` option                       | `false` hides this post's newer / older links.                                                                                                            |
@@ -167,6 +167,12 @@ blog:
 - **Times without an offset are in the `timeZone` option**, `UTC` unless you set one, so the same frontmatter means the same moment on every build machine. This site sets `timeZone: 'America/New_York'` and writes New York times; daylight saving is taken care of. Dates and times are shown in that time zone too.
 - **Posts on the same day sort by their times**, and a date alone counts as the start of its day. Feeds and social tags use the exact moment.
 - **The sidebar and navbar sort the same way.** [Auto Sidebar](/plugins/auto-sidebar/#sorting) and [Auto Navbar](/plugins/auto-navbar#settings) read dates with times too, so `.sort: date desc` puts this afternoon's post above this morning's.
+
+### Drafts
+
+`draft: true` keeps a post out of blog lists, `::: blog-posts` blocks and feeds, but on its own the page is still built and can be opened by its URL. With the `drafts` option on, drafts are listed too, with a Draft badge.
+
+This site goes further: [Exclude](/plugins/exclude/#drafts-in-frontmatter)'s `excludeFrontmatter` option, with `blog.draft` in its list, leaves drafts out of the production build, and the same option in Auto Sidebar and Auto Navbar hides them from the menus. In `vitepress dev`, drafts are built and listed with their badge, for preview.
 
 ## Making a blog page
 

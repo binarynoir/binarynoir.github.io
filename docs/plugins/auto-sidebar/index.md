@@ -188,23 +188,24 @@ index.md:All decisions
 
 ## Options
 
-| Option                | Default        | Description                                                                              |
-| --------------------- | -------------- | ---------------------------------------------------------------------------------------- |
-| `maxDepth`            | `3`            | How many folder levels deep to recurse.                                                  |
-| `maxTitleLength`      | `50`           | Truncate generated titles beyond this length.                                            |
-| `configFilenames`     | `['.sidebar']` | Per-folder ordering file names.                                                          |
-| `excludeFilenames`    | `['.exclude']` | Per-folder exclusion file names.                                                         |
-| `collapsed`           | `false`        | Initial collapsed state for section headers.                                             |
-| `flattenSinglePage`   | `true`         | A folder with one page becomes a plain link instead of its own group.                    |
-| `titleReplacements`   | `{}`           | Words to replace in titles made from file and folder names.                              |
-| `titleCase`           | `true`         | Title-case titles made from file and folder names.                                       |
-| `stripTags`           | `true`         | Remove Markdown Tags syntax (`((tag\|draft))`) from titles.                              |
-| `transformTitle`      | none           | A function that gets every title before truncation.                                      |
-| `sort`                | `'name'`       | Order for unlisted entries in every folder, e.g. `'date desc'`. See [Sorting](#sorting). |
-| `limit`               | `0`            | Most unlisted entries every folder shows, after sorting. See [Limiting](#limiting).      |
-| `more`                | none           | Link text for the landing page when a limit left entries out.                            |
-| `groupTitleFromIndex` | `false`        | Label a folder's group with its landing page's title.                                    |
-| `verbose`             | `false`        | Log each folder as it is processed.                                                      |
+| Option                | Default        | Description                                                                                                                               |
+| --------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `maxDepth`            | `3`            | How many folder levels deep to recurse.                                                                                                   |
+| `maxTitleLength`      | `50`           | Truncate generated titles beyond this length.                                                                                             |
+| `configFilenames`     | `['.sidebar']` | Per-folder ordering file names.                                                                                                           |
+| `excludeFilenames`    | `['.exclude']` | Per-folder exclusion file names.                                                                                                          |
+| `excludeFrontmatter`  | `[]`           | Frontmatter keys that hide a page when `true`, such as `['draft', 'blog.draft']`. See [Exclude](/plugins/exclude/#drafts-in-frontmatter). |
+| `collapsed`           | `false`        | Initial collapsed state for section headers.                                                                                              |
+| `flattenSinglePage`   | `true`         | A folder with one page becomes a plain link instead of its own group.                                                                     |
+| `titleReplacements`   | `{}`           | Words to replace in titles made from file and folder names.                                                                               |
+| `titleCase`           | `true`         | Title-case titles made from file and folder names.                                                                                        |
+| `stripTags`           | `true`         | Remove Markdown Tags syntax (`((tag\|draft))`) from titles.                                                                               |
+| `transformTitle`      | none           | A function that gets every title before truncation.                                                                                       |
+| `sort`                | `'name'`       | Order for unlisted entries in every folder, e.g. `'date desc'`. See [Sorting](#sorting).                                                  |
+| `limit`               | `0`            | Most unlisted entries every folder shows, after sorting. See [Limiting](#limiting).                                                       |
+| `more`                | none           | Link text for the landing page when a limit left entries out.                                                                             |
+| `groupTitleFromIndex` | `false`        | Label a folder's group with its landing page's title.                                                                                     |
+| `verbose`             | `false`        | Log each folder as it is processed.                                                                                                       |
 
 ## Titles
 

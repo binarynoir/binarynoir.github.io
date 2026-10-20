@@ -34,6 +34,8 @@ This page's folder has a [`draft.md`](https://github.com/binarynoir/binarynoir.g
 
 [Auto Sidebar](/plugins/auto-sidebar/) and [Auto Navbar](/plugins/auto-navbar) read the same `.exclude` files, so one line hides a page from the menus and keeps it out of the build.
 
+A second page, [`frontmatter-draft.md`](https://github.com/binarynoir/binarynoir.github.io/blob/main/docs/plugins/exclude/frontmatter-draft.md), is left out a different way: its own frontmatter says `draft: true`. See [Drafts in frontmatter](#drafts-in-frontmatter).
+
 ## Install
 
 ```sh
@@ -92,14 +94,48 @@ Two kinds of rule are skipped, with a warning in the log:
 - `!keep.md`: VitePress cannot re-include a file that another rule excluded.
 - `../other.md`: a rule cannot reach outside its own folder. Put a `.exclude` file in that folder instead.
 
+## Drafts in frontmatter
+
+A `.exclude` file lists what to leave out from the folder. A page can also say it for itself, in its frontmatter. List the keys with `excludeFrontmatter`, and any page that sets one of them to `true` is left out of the build:
+
+```md
+---
+title: Pricing changes
+draft: true
+---
+```
+
+```ts
+const isBuild = process.env.NODE_ENV === 'production';
+const excludeFrontmatter = isBuild ? ['draft', 'blog.draft'] : [];
+
+export default defineConfig({
+  srcExclude: excludeSrc(docsRoot, { excludeFrontmatter }),
+  themeConfig: {
+    sidebar: generateSidebar(docsRoot, { excludeFrontmatter }),
+    nav: generateNav(docsRoot, { excludeFrontmatter }),
+  },
+  vite: { plugins: [excludeVitePlugin({ excludeFrontmatter })] },
+});
+```
+
+That is this site's setup:
+
+- **Only `true` counts.** `draft: false`, `draft: "yes"` or no `draft` at all leave the page in.
+- **Dotted keys read nested values.** `blog.draft` covers [Blog](/plugins/blog/) posts marked `blog: { draft: true }`. The blog only lists pages that are built, so a draft is never in a blog list or feed either.
+- **The menus follow.** [Auto Sidebar](/plugins/auto-sidebar/) and [Auto Navbar](/plugins/auto-navbar) take the same option and hide the same pages, so they never link to a page that isn't there.
+- **Drafts can be previewed.** `vitepress build` sets `NODE_ENV` to `production` before it loads the config, so with the line above, `vitepress dev` still builds drafts.
+- **Live in `vitepress dev`.** With the option on, a page that gains or loses `draft: true` restarts the dev server, as an edited `.exclude` file does.
+
 ## Options
 
-| Option             | Default        | Description                                                |
-| ------------------ | -------------- | ---------------------------------------------------------- |
-| `excludeFilenames` | `[".exclude"]` | Filenames read in each folder.                             |
-| `verbose`          | `false`        | Log each `.exclude` file, its rules and the globs it made. |
+| Option               | Default        | Description                                                                            |
+| -------------------- | -------------- | -------------------------------------------------------------------------------------- |
+| `excludeFilenames`   | `[".exclude"]` | Filenames read in each folder.                                                         |
+| `excludeFrontmatter` | `[]`           | Frontmatter keys that leave a page out when `true`, such as `['draft', 'blog.draft']`. |
+| `verbose`            | `false`        | Log each `.exclude` file, its rules and the globs it made.                             |
 
-`withExclude(config, srcDir, options)` and `excludeSrc(srcDir, options)` take both. `excludeVitePlugin(options)` takes `excludeFilenames`; pass it the same list.
+`withExclude(config, srcDir, options)` and `excludeSrc(srcDir, options)` take all three. `excludeVitePlugin(options)` takes `excludeFilenames` and `excludeFrontmatter`; pass it the same lists.
 
 ## Good to know
 

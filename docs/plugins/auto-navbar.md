@@ -50,23 +50,24 @@ Each top-level folder becomes a navbar entry: a dropdown if it has several pages
 
 ## Options
 
-| Option              | Default        | Description                                                                                |
-| ------------------- | -------------- | ------------------------------------------------------------------------------------------ |
-| `maxDepth`          | `2`            | Navbar levels, 1 to 3.                                                                     |
-| `maxTitleLength`    | `50`           | Truncate generated titles beyond this length.                                              |
-| `configFilenames`   | `['.nav']`     | Per-folder config file names, checked in order.                                            |
-| `excludeFilenames`  | `['.exclude']` | Per-folder exclusion file names.                                                           |
-| `indexTitle`        | `'Overview'`   | Label for the dropdown entry that links to the folder's landing page.                      |
-| `flattenSinglePage` | `true`         | A folder with one entry becomes a plain link.                                              |
-| `activeMatch`       | `true`         | Keep items highlighted on every page beneath them.                                         |
-| `titleReplacements` | `{}`           | Words to replace in titles made from file and folder names.                                |
-| `titleCase`         | `true`         | Title-case titles made from file and folder names.                                         |
-| `stripTags`         | `true`         | Remove Markdown Tags syntax (`((tag\|draft))`) from titles.                                |
-| `transformTitle`    | none           | A function that gets every title before truncation.                                        |
-| `sort`              | `'name'`       | Order for unlisted entries in every folder, e.g. `'date desc'`. See [Settings](#settings). |
-| `limit`             | `0`            | Most unlisted entries every dropdown shows, after sorting.                                 |
-| `more`              | none           | Link text for the landing page when a limit left entries out.                              |
-| `verbose`           | `false`        | Log each folder as it is processed.                                                        |
+| Option               | Default        | Description                                                                                                                               |
+| -------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `maxDepth`           | `2`            | Navbar levels, 1 to 3.                                                                                                                    |
+| `maxTitleLength`     | `50`           | Truncate generated titles beyond this length.                                                                                             |
+| `configFilenames`    | `['.nav']`     | Per-folder config file names, checked in order.                                                                                           |
+| `excludeFilenames`   | `['.exclude']` | Per-folder exclusion file names.                                                                                                          |
+| `excludeFrontmatter` | `[]`           | Frontmatter keys that hide a page when `true`, such as `['draft', 'blog.draft']`. See [Exclude](/plugins/exclude/#drafts-in-frontmatter). |
+| `indexTitle`         | `'Overview'`   | Label for the dropdown entry that links to the folder's landing page.                                                                     |
+| `flattenSinglePage`  | `true`         | A folder with one entry becomes a plain link.                                                                                             |
+| `activeMatch`        | `true`         | Keep items highlighted on every page beneath them.                                                                                        |
+| `titleReplacements`  | `{}`           | Words to replace in titles made from file and folder names.                                                                               |
+| `titleCase`          | `true`         | Title-case titles made from file and folder names.                                                                                        |
+| `stripTags`          | `true`         | Remove Markdown Tags syntax (`((tag\|draft))`) from titles.                                                                               |
+| `transformTitle`     | none           | A function that gets every title before truncation.                                                                                       |
+| `sort`               | `'name'`       | Order for unlisted entries in every folder, e.g. `'date desc'`. See [Settings](#settings).                                                |
+| `limit`              | `0`            | Most unlisted entries every dropdown shows, after sorting.                                                                                |
+| `more`               | none           | Link text for the landing page when a limit left entries out.                                                                             |
+| `verbose`            | `false`        | Log each folder as it is processed.                                                                                                       |
 
 Titles can be single- or double-quoted, with a space after the colon if you like, and a line that can't be parsed logs a warning with its file and line number.
 

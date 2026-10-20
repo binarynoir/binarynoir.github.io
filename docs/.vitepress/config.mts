@@ -44,6 +44,12 @@ const menuTitleOptions = {
 // @binarynoir/vitepress-downloads: the same options go to all three pieces below.
 const downloadsOptions = { folders: ['downloads', 'files'] };
 
+// @binarynoir/vitepress-exclude, -auto-sidebar and -auto-navbar: a page with `draft: true` in its
+// frontmatter (or a blog post with `blog: { draft: true }`) is left out of the production build,
+// its sidebar and its navbar. `docs:dev` still builds drafts so they can be previewed.
+const isBuild = process.env.NODE_ENV === 'production';
+const excludeFrontmatter = isBuild ? ['draft', 'blog.draft'] : [];
+
 // @binarynoir/vitepress-blog: the same options go to all five pieces below.
 const blogOptions = {
   siteUrl: SITE_URL,
@@ -52,8 +58,8 @@ const blogOptions = {
   // Post times without an offset (`date: 2026-10-20 14:30`) are New York time, and every date
   // and time is shown in it, with its zone: "October 20, 2026 at 2:30 PM EDT".
   timeZone: 'America/New_York',
-  // Posts marked `draft: true` are listed (with a Draft badge) in `docs:dev` only.
-  drafts: process.env.NODE_ENV !== 'production',
+  // Drafts are listed (with a Draft badge) in `docs:dev`; production builds leave them out.
+  drafts: !isBuild,
 };
 
 export default defineConfig({
@@ -66,9 +72,9 @@ export default defineConfig({
   srcExclude: [
     // Files in a `downloads` or `files` folder are published as-is, never built as pages.
     ...downloadsSrcExclude(downloadsOptions),
-    // @binarynoir/vitepress-exclude: whatever a folder's `.exclude` file lists is not built.
-    // The same files hide those pages from the sidebar and navbar.
-    ...excludeSrc(docsRoot),
+    // @binarynoir/vitepress-exclude: whatever a folder's `.exclude` file lists is not built, nor
+    // a draft (see excludeFrontmatter above). The same rules hide those pages from the sidebar and navbar.
+    ...excludeSrc(docsRoot, { excludeFrontmatter }),
   ],
 
   // @binarynoir/vitepress-readme-index: a folder's README.md is served as its index page,
@@ -112,6 +118,7 @@ export default defineConfig({
     nav: generateNav(docsRoot, {
       maxDepth: 2,
       configFilenames: ['.nav', '.sidebar'],
+      excludeFrontmatter,
       ...menuTitleOptions,
     }),
 
@@ -121,6 +128,7 @@ export default defineConfig({
     sidebar: generateSidebar(docsRoot, {
       maxDepth: 3,
       maxTitleLength: 50,
+      excludeFrontmatter,
       ...menuTitleOptions,
       groupTitleFromIndex: true,
       // Groups start closed, so @binarynoir/vitepress-sidebar-accordion (in the theme) has a caret to toggle.
@@ -212,7 +220,7 @@ export default defineConfig({
       // Publishes the files in each `downloads` or `files` folder at their page-relative URL.
       downloadsVitePlugin(downloadsOptions),
       // Restarts `vitepress dev` when an `.exclude` file changes, so new rules apply right away.
-      excludeVitePlugin(),
+      excludeVitePlugin({ excludeFrontmatter }),
       // Keeps blog lists current while running `vitepress dev`, and serves the feeds there.
       blogVitePlugin(blogOptions),
     ],
