@@ -17,6 +17,16 @@ title: Blog
 
 Open any post to see its byline under the title, and links to the newer and older posts at the end.
 
+## Why this plugin
+
+VitePress has no blog of its own. The usual approach is a [data loader](https://vitepress.dev/guide/data-loading#createcontentloader) that collects your posts, and a Vue component you write to list them. Or you switch to a blog theme, and your docs take on that theme. This plugin is built for the other case: **a documentation site that also needs to publish news**, without leaving the default theme or writing components.
+
+- **Posts live where their subject lives.** A release note can sit next to the API page it changes, and a team's update in the team's folder. The frontmatter decides which blog lists it, not a `posts/` folder.
+- **One site, many blogs.** Each part of the site can have its own section blog, and the main blog still gathers what everyone should see. Other approaches give you one list, and filtering it is up to you.
+- **A feed for each blog.** Readers subscribe to only the part of the site they care about: one product's releases, one team's updates. Every blog page and block has its own "Subscribe" link.
+- **Plain pages, built ahead of time.** Lists are Markdown written at build time, so they are in the static HTML and in local search, and they work without JavaScript. Pagination and keyword filters are an enhancement on top.
+- **It fits with the other plugins.** Posts sort into the sidebar with [Auto Sidebar](/plugins/auto-sidebar/#recipes)'s `.sort` and `.limit`, titles lose their [Markdown Tags](/plugins/markdown-tags/) badges in lists and feeds, and pages that [Exclude](/plugins/exclude/) leaves out are never listed.
+
 ## Install
 
 ```sh
@@ -98,8 +108,8 @@ A page is a post when its frontmatter has a `blog` key. `blog: true` is a post w
 ---
 title: We launched
 blog:
-  date: 2026-10-01
-  updated: 2026-10-05
+  date: 2026-10-01 09:00
+  updated: 2026-10-05 16:30
   summary: Team A's first release is out.
   image: ./launch.png
   imageAlt: The release dashboard
@@ -115,8 +125,8 @@ blog:
 | --------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `title`         | the page's `title`, then its `#` heading   | Title in lists, feeds and social cards.                                                                                                                   |
 | `summary`       | the page's `description`, then first prose | One or two sentences for cards, feeds and the page's description.                                                                                         |
-| `date`          | none                                       | Publication date. Newest first; undated posts go last.                                                                                                    |
-| `updated`       | none                                       | Shown in the byline and used as the feed's last-updated time.                                                                                             |
+| `date`          | none                                       | When the post was published: a date, or a date and time. See [Dates and times](#dates-and-times). Newest first; undated posts go last.                    |
+| `updated`       | none                                       | When the post was last changed, in the same forms. The byline shows both, and it is the feed's last-updated time.                                         |
 | `image`         | none                                       | Card, social and feed image: relative to the post, a public path (`/cover.png`) or a URL. `{ src, alt, fit, position }` works.                            |
 | `imageAlt`      | `''`                                       | Alt text for the image.                                                                                                                                   |
 | `imageFit`      | `cover`                                    | How cards fit the image in their frame: `cover` crops it to fill the frame, `contain` shows all of it, letterboxed. Use `contain` for logos and diagrams. |
@@ -132,6 +142,31 @@ blog:
 | `postNav`       | the `postNav` option                       | `false` hides this post's newer / older links.                                                                                                            |
 
 Title, description, date, author, image and tags can also be written at the top level of the frontmatter, as other blog tools expect. A value under `blog` wins.
+
+### Dates and times
+
+`date` and `updated` take a date, or a date and a time, in any of these forms:
+
+| Written                     | Means                                       |
+| --------------------------- | ------------------------------------------- |
+| `2026-10-20`                | A day. Shows "October 20, 2026".            |
+| `2026-10-20 14:30`          | A day and a time, in the `timeZone` option. |
+| `2026-10-20T14:30:00`       | The same, with a `T` and seconds.           |
+| `2026-10-20T14:30:00-04:00` | An exact moment, with its offset from UTC.  |
+| `2026-10-20T18:30:00Z`      | An exact moment, in UTC.                    |
+
+Every post on [this site's blog](/blog/) gives its exact moment, with its offset from UTC. [Introducing the Blog plugin](/blog/introducing-the-blog-plugin) was published, then edited later the same day, so its byline reads "Published October 20, 2026 at 2:34 PM EDT · Updated October 20, 2026 at 2:47 PM EDT":
+
+```yaml
+blog:
+  date: 2026-10-20T14:34:56-04:00
+  updated: 2026-10-20T14:47:00-04:00
+```
+
+- **A time shows only when you give one.** A date alone is shown as a date, never as "12:00 AM".
+- **Times without an offset are in the `timeZone` option**, `UTC` unless you set one, so the same frontmatter means the same moment on every build machine. This site sets `timeZone: 'America/New_York'` and writes New York times; daylight saving is taken care of. Dates and times are shown in that time zone too.
+- **Posts on the same day sort by their times**, and a date alone counts as the start of its day. Feeds and social tags use the exact moment.
+- **The sidebar and navbar sort the same way.** [Auto Sidebar](/plugins/auto-sidebar/#sorting) and [Auto Navbar](/plugins/auto-navbar#settings) read dates with times too, so `.sort: date desc` puts this afternoon's post above this morning's.
 
 ## Making a blog page
 
@@ -259,6 +294,18 @@ docs/
 
 A post's newer and older links stay within its own blog: the deepest section blog that lists it, otherwise the main blog.
 
+### When a section blog helps
+
+A section blog is worth it whenever one part of a site has its own audience. Some realistic cases:
+
+- **Release notes per product.** A docs site for several products gives each one a `releases/` section blog. Users of one product subscribe to its feed alone. The major releases say `scope: site` and also reach the main blog.
+- **Packages in a monorepo.** Each package's docs folder holds its own changelog posts, so `docs/packages/cli/` and `docs/packages/sdk/` each get a blog and a feed, and the main blog has the releases that affect everyone. This site could do the same for each plugin.
+- **Teams in a handbook.** An internal handbook gives each team a section blog for its updates. Company-wide announcements are marked `scope: site`, so the main blog is what everyone reads, and each team's page shows only its own news in a `::: blog-posts` block.
+- **Incident reviews.** A `postmortems/` section blog keeps every review in date order for the people who need them, while only the ones customers should know about are marked `scope: site`.
+- **Courses or cohorts.** A learning site gives each course its announcements: due dates, new lessons, office hours. Students follow their own course's feed, and site-wide news stays on the main blog.
+
+In each case the posts stay next to the docs they belong to, and a reader can follow all of it on the main blog or just one section.
+
 ## Feeds
 
 Each blog page's RSS 2.0 feed is written next to it at the end of the build: `news/index.md` gets `news/feed.xml`, and `news/archive.md` gets `news/archive-feed.xml`. Set `feed.path` to name it yourself. A feed holds the newest 20 posts (`feedLimit`, or the page's `feed.limit`), never drafts, and each item has its title, link, date, summary, authors, tags and image.
@@ -271,25 +318,27 @@ A post image given as a relative path is also copied to `blog-images/` under a n
 
 ## Options
 
-| Option           | Default                 | What it does                                                                               |
-| ---------------- | ----------------------- | ------------------------------------------------------------------------------------------ |
-| `siteUrl`        | `sitemap.hostname`      | Absolute URL of the published site, for feeds and social tags.                             |
-| `authors`        | `{}`                    | Authors posts can name by key: `{ jane: { name, url, email } }` or `{ jane: 'Jane Doe' }`. |
-| `defaultAuthor`  | none                    | Author for posts that don't name one.                                                      |
-| `locale`         | `'en-US'`               | Locale for dates and author lists ("Jane and Sam").                                        |
-| `dateFormat`     | `{ dateStyle: 'long' }` | `Intl.DateTimeFormat` options. Dates are shown in UTC.                                     |
-| `wordsPerMinute` | `200`                   | For "5 min read". `0` hides reading time.                                                  |
-| `byline`         | `true`                  | Author, date and tags under each post's title.                                             |
-| `cover`          | `false`                 | Each post's image under its byline.                                                        |
-| `postNav`        | `true`                  | Newer and older post links at the end of each post.                                        |
-| `drafts`         | `false`                 | List drafts, marked. This site passes `process.env.NODE_ENV !== 'production'`: dev only.   |
-| `stripTags`      | `true`                  | Remove [Markdown Tags](/plugins/markdown-tags/) syntax from titles and summaries.          |
-| `feedLimit`      | `20`                    | Most posts in each feed.                                                                   |
-| `imagesDir`      | `'blog-images'`         | Output folder for copied post images.                                                      |
-| `pageSize`       | `10`                    | Posts per page on blog pages that don't set `pageSize`. `0` turns pages off.               |
-| `stickyLimit`    | `0` (all)               | Most pinned sticky posts on blog pages that don't set `stickyLimit`.                       |
-| `rssLink`        | `true`                  | A "Subscribe" RSS link on blog pages and blocks that don't set `rssLink`.                  |
-| `labels`         | English                 | Every word the plugin writes (`by`, `readingTime: '{n} min read'`, …), for translating.    |
+| Option           | Default                                                         | What it does                                                                                                                        |
+| ---------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `siteUrl`        | `sitemap.hostname`                                              | Absolute URL of the published site, for feeds and social tags.                                                                      |
+| `authors`        | `{}`                                                            | Authors posts can name by key: `{ jane: { name, url, email } }` or `{ jane: 'Jane Doe' }`.                                          |
+| `defaultAuthor`  | none                                                            | Author for posts that don't name one.                                                                                               |
+| `locale`         | `'en-US'`                                                       | Locale for dates and author lists ("Jane and Sam").                                                                                 |
+| `dateFormat`     | `{ dateStyle: 'long' }`                                         | `Intl.DateTimeFormat` options for dates.                                                                                            |
+| `timeFormat`     | `{ hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }` | `Intl.DateTimeFormat` options for times, as in "2:30 PM EDT".                                                                       |
+| `timeZone`       | `'UTC'`                                                         | The IANA time zone that times without an offset are in, and that dates and times are shown in. This site uses `'America/New_York'`. |
+| `wordsPerMinute` | `200`                                                           | For "5 min read". `0` hides reading time.                                                                                           |
+| `byline`         | `true`                                                          | Author, date and tags under each post's title.                                                                                      |
+| `cover`          | `false`                                                         | Each post's image under its byline.                                                                                                 |
+| `postNav`        | `true`                                                          | Newer and older post links at the end of each post.                                                                                 |
+| `drafts`         | `false`                                                         | List drafts, marked. This site passes `process.env.NODE_ENV !== 'production'`: dev only.                                            |
+| `stripTags`      | `true`                                                          | Remove [Markdown Tags](/plugins/markdown-tags/) syntax from titles and summaries.                                                   |
+| `feedLimit`      | `20`                                                            | Most posts in each feed.                                                                                                            |
+| `imagesDir`      | `'blog-images'`                                                 | Output folder for copied post images.                                                                                               |
+| `pageSize`       | `10`                                                            | Posts per page on blog pages that don't set `pageSize`. `0` turns pages off.                                                        |
+| `stickyLimit`    | `0` (all)                                                       | Most pinned sticky posts on blog pages that don't set `stickyLimit`.                                                                |
+| `rssLink`        | `true`                                                          | A "Subscribe" RSS link on blog pages and blocks that don't set `rssLink`.                                                           |
+| `labels`         | English                                                         | Every word the plugin writes (`by`, `readingTime: '{n} min read'`, …), for translating.                                             |
 
 ## Styling
 

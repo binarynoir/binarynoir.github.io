@@ -1,7 +1,7 @@
 ---
 title: 'Glossary Tooltips 0.6: exact-case terms'
 blog:
-  date: 2026-10-16
+  date: 2026-10-16T09:46:20-04:00
   summary: markdown-it-glossary 0.6.0 lets a single term match in exact case, or in any case, whatever the rest of the site does.
   tags: [release, glossary]
   category: Plugins

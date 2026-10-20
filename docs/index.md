@@ -76,12 +76,6 @@ features:
     linkText: Meet the apps
 ---
 
-## Start here
-
-- **Improving a docs site?** Start with the [plugins overview](/plugins/). Every plugin has a live demo on its page.
-- **Want a tool for your terminal?** Pick one on the [apps page](/apps/). Each installs with one Homebrew command.
-- **Building a site like this one?** Read [how this site works](/guide/how-this-site-works) and copy what is useful.
-
 ## Latest from the blog
 
 ::: blog-posts
@@ -90,6 +84,12 @@ stickyLimit: 1
 layout: grid
 more: Read the blog →
 :::
+
+## Start here
+
+- **Improving a docs site?** Start with the [plugins overview](/plugins/). Every plugin has a live demo on its page.
+- **Want a tool for your terminal?** Pick one on the [apps page](/apps/). Each installs with one Homebrew command.
+- **Building a site like this one?** Read [how this site works](/guide/how-this-site-works) and copy what is useful.
 
 ## Install the VitePress toolkit
 

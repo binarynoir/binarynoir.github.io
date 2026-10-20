@@ -1,7 +1,7 @@
 ---
 title: 'Example: a post no section blog covers'
 blog:
-  date: 2026-10-16
+  date: 2026-10-16 09:00
   summary: This post has no scope setting, and no section blog covers its folder, so it falls to the main blog.
   image: ./cover.svg
   imageAlt: A placeholder cover that reads "Example post"
@@ -14,7 +14,7 @@ This post lives in `plugins/blog/demo/`, next to the demo's [main blog](/plugins
 
 ```yaml
 blog:
-  date: 2026-10-16
+  date: 2026-10-16 09:00
   summary: This post has no scope setting, and no section blog covers its folder, so it falls to the main blog.
   image: ./cover.svg
   tags: [example, unsorted]

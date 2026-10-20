@@ -90,6 +90,7 @@ This site's [blog](/blog/) sidebar lists sticky posts first, then the rest newes
 
 - The direction is `asc` (A to Z, oldest first, smallest first) unless you write `desc`.
 - Dates and numbers compare as dates and numbers, so `2` sorts before `10`.
+- Dates can carry a time: `2026-10-20`, `2026-10-20 14:30`, `2026-10-20T14:30:00`, or either with an offset (`-04:00`, `Z`). Pages from the same day sort by their times, and a date alone counts as the start of its day. A time without an offset is read as UTC, so the order is the same on every build machine; write offsets if your pages mix time zones.
 - Several keys, separated by commas, sort by the first and break ties with the
   next: `.sort: blog.sticky desc, date desc` puts sticky blog posts on top,
   each group newest first.
@@ -107,6 +108,83 @@ A folder with hundreds of pages makes a sidebar too long to use, and VitePress s
 - Only entries the file doesn't list count toward the limit, and listed entries always show, so "All posts" stays on top.
 - `.more: Older posts` ends the list with a link to the folder's landing page, but only when entries were left out. The blog doesn't need one: its landing page is already listed as "All posts".
 - `.limit: 0` means no limit. The `limit` and `more` options set both for every folder; a folder's own lines win.
+
+### Recipes
+
+`.sort` and `.limit` turn a folder that grows every week into a sidebar that stays short and current. Some realistic setups:
+
+**Meeting notes.** One page per meeting, each with a `date`. The sidebar shows the last few, newest first, and a link to the rest:
+
+```txt
+# docs/meetings/.sidebar
+index.md:All meeting notes
+.sort: date desc
+.limit: 8
+.more: Older notes →
+```
+
+```md
+---
+title: Weekly sync, October 13
+date: 2026-10-13 09:30
+---
+```
+
+The file names don't matter, so `2026-10-13-weekly-sync.md` and `platform-review.md` sort together by their dates. Give each meeting its time, and two meetings on the same day sort by it: a 4:00 PM review comes above that morning's 9:30 sync. A date alone works too, and sorts as the start of its day.
+
+**Product release notes.** One page per release. Sort by a `version` field, and the newest release is always on top:
+
+```txt
+# docs/releases/.sidebar
+index.md:All releases
+.sort: version desc
+.limit: 5
+.more: Older releases →
+```
+
+Numbers in versions compare as numbers, so `1.10.0` sorts above `1.9.0`, which sorting by file name gets wrong. Pre-releases don't follow version rules, though: `2.0.0-beta.1` sorts above `2.0.0`. If you publish betas, sort by `date desc` instead.
+
+**A blog.** Sticky posts first, then the newest posts, cut to ten. Posts can give a date (`2026-10-20`) or a date and time (`2026-10-20 14:34`), and the newest is on top either way. This site's [blog](/blog/) does exactly this with the [Blog](/plugins/blog/) plugin:
+
+```txt
+# docs/blog/.sidebar
+index.md:All posts
+.sort: blog.sticky desc, date desc
+.limit: 10
+```
+
+The page itself lists every post, paginated, so the sidebar only needs the latest.
+
+**A tutorial series.** Give each step an `order` and sort by it. Steps can be reordered, or one added between two others, without renaming files or changing URLs:
+
+```txt
+# docs/tutorial/.sidebar
+index.md:Overview
+.sort: order
+```
+
+```md
+---
+title: Deploy your site
+order: 7
+---
+```
+
+Numbers compare as numbers here too, so step 10 comes after step 9, not after step 1.
+
+**Decision records.** Architecture decision records are numbered, but file names like `adr-2.md` and `adr-10.md` sort in the wrong order by name. A number in the frontmatter fixes it, and `.limit` keeps the newest decisions in view:
+
+```txt
+# docs/decisions/.sidebar
+index.md:All decisions
+.sort: adr desc
+.limit: 15
+.more: Earlier decisions →
+```
+
+**Pages whose titles don't match their files.** `.sort: title` orders a folder by the titles readers see, so `getting-started.md` titled "Quick start" sorts under Q, not G.
+
+[Auto Navbar](/plugins/auto-navbar#settings) reads the same settings from the same files, so a "Releases" dropdown can show the latest five releases with the same three lines.
 
 ## Options
 

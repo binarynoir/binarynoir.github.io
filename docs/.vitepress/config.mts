@@ -49,6 +49,9 @@ const blogOptions = {
   siteUrl: SITE_URL,
   authors: { binarynoir: { name: 'BinaryNoir', url: 'https://github.com/binarynoir' } },
   defaultAuthor: 'binarynoir',
+  // Post times without an offset (`date: 2026-10-20 14:30`) are New York time, and every date
+  // and time is shown in it, with its zone: "October 20, 2026 at 2:30 PM EDT".
+  timeZone: 'America/New_York',
   // Posts marked `draft: true` are listed (with a Draft badge) in `docs:dev` only.
   drafts: process.env.NODE_ENV !== 'production',
 };

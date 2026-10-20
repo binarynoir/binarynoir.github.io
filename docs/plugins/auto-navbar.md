@@ -83,7 +83,17 @@ A line in a `.nav` or `.sidebar` file that starts with a dot is a setting for th
 | `.inherit`                  | Borrow `name:Title` overrides from the other config files.                                                                                                              |
 | `.hide` / `.hideall`        | Hide this folder's own link, or the whole folder.                                                                                                                       |
 
-A `.sort` line in a `.sidebar` file orders the sidebar and the navbar dropdown alike. The `sort` option sets an order for every folder; a folder's own `.sort` still wins.
+A `.sort` line in a `.sidebar` file orders the sidebar and the navbar dropdown alike. For example, a **Releases** dropdown that always shows the latest five releases, with a link to the rest:
+
+```txt
+# docs/releases/.sidebar (read by both menus)
+index.md:All releases
+.sort: version desc
+.limit: 5
+.more: Older releases →
+```
+
+[Auto Sidebar's recipes](/plugins/auto-sidebar/#recipes) cover more: meeting notes, a blog, tutorials and decision records. Each works in the navbar too. The `sort` option sets an order for every folder; a folder's own `.sort` still wins.
 
 A folder's landing page is its `index.md`, or its `README.md`. VitePress serves a `README.md` at `README.html`, so add [README Index](/plugins/readme-index/) to serve it at the folder's URL.
 
