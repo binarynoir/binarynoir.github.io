@@ -15,6 +15,7 @@ text-style.md:Text Style
 downloads.md:Downloads
 exclude:Exclude
 readme-index:README Index
+blog:Blog
 [Builds that don't break]
 html-escape:HTML Escape
 broken-links.md:Broken Links

@@ -108,7 +108,7 @@ The block of YAML at the very top of a Markdown file that holds page settings.
 - The definition becomes the tooltip text. Markdown formatting (bold, code, links) is stripped to plain text, so keep it to a sentence or two.
 - Matching ignores case by default (`CI` also matches `ci`), matches whole words only, and only applies to plain prose, never inline code. To match exact case only, see [Case sensitivity](#case-sensitivity).
 - A comma-separated heading defines aliases: `### frontmatter, front matter` tooltips both spellings. Try it: frontmatter, front matter.
-- A heading with a parenthetical qualifier is parsed but never tooltipped, for words that mean something else elsewhere. The last term in [the glossary](/reference/glossary) does this with the word Pages.
+- A heading with a parenthetical qualifier is parsed but never tooltipped, for words that mean something else elsewhere. The last term in [the glossary](/reference/glossary) does this with the word Pages. `{.off}` at the end of the heading does the same without a qualifier: `### sharp {.off}`.
 - Headings inside fenced code blocks are ignored, so a glossary page can show example syntax without it becoming terms.
 
 ## Case sensitivity
@@ -153,6 +153,10 @@ The team that runs our laptops and servers.
 ```
 
 The flag covers the whole heading, aliases included. It combines with a custom anchor (`{#it .exact}`), and VitePress hides the block on the rendered glossary page. With `entries`, set `caseSensitive` on the entry instead.
+
+## First mention only
+
+To tooltip only the first mention of each term on a page, set `firstOnly: true` in the options. Like case sensitivity, `glossary-first-only: true | false` in the master glossary, a section glossary or a page overrides it there. A term and its aliases count as one term.
 
 ## Section glossaries
 
@@ -206,6 +210,17 @@ glossary:
 
 Use `local: false` to skip all section glossaries, including site-wide ones from other folders, and keep the master. `glossary: false` still turns everything off. Page-local `*[Term]: …` definitions work in every case.
 
+### Drop single terms from a page
+
+```md
+---
+glossary:
+  exclude: [sharp, Homebrew]
+---
+```
+
+Spellings match ignoring case, a term's aliases are dropped with it, and no farther glossary fills the gap. To turn a term off for a whole section instead, mark it `{.off}` in that section's glossary.
+
 ## Opt a page out
 
 ```md
@@ -251,19 +266,21 @@ The same options work for `glossaryAbbr(md, options)` and `withGlossary(config, 
 | `headingLevel`   | `3`             | Heading level that marks a term.                                                                        |
 | `frontmatterKey` | `'glossary'`    | Frontmatter key for the opt-out. `false` disables it.                                                   |
 | `caseSensitive`  | `false`         | Match terms only in their exact case. The site-wide default; see [Case sensitivity](#case-sensitivity). |
+| `firstOnly`      | `false`         | Tooltip only the first mention of each term on a page; see [First mention only](#first-mention-only).   |
 | `root`           | none            | Docs folder. Enables section glossaries found below it.                                                 |
 | `scopedFile`     | `'glossary.md'` | File name that marks a section glossary.                                                                |
 | `scopes`         | `[]`            | Section glossaries declared explicitly (`dir`, `file` or `entries`, `site`, `caseSensitive`).           |
 
 ### Frontmatter keys
 
-| Key                       | Where                     | Values                                               |
-| ------------------------- | ------------------------- | ---------------------------------------------------- |
-| `glossary`                | any page                  | `false`, or `{ master: false }` / `{ local: false }` |
-| `glossary-scope`          | a section glossary        | `section` (default) or `site`                        |
-| `glossary-case-sensitive` | any glossary file or page | `true` or `false`                                    |
+| Key                       | Where                     | Values                                                                      |
+| ------------------------- | ------------------------- | --------------------------------------------------------------------------- |
+| `glossary`                | any page                  | `false`, or `{ master: false }` / `{ local: false }` / `{ exclude: [...] }` |
+| `glossary-scope`          | a section glossary        | `section` (default) or `site`                                               |
+| `glossary-case-sensitive` | any glossary file or page | `true` or `false`                                                           |
+| `glossary-first-only`     | any glossary file or page | `true` or `false`                                                           |
 
-On a term heading, `{.exact}` and `{.anycase}` set that term's case rule.
+On a term heading, `{.exact}` and `{.anycase}` set that term's case rule, and `{.off}` turns it off.
 
 ## Styling
 

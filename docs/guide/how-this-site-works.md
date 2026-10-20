@@ -6,7 +6,7 @@ title: How this site works
 
 [[readingTime]]
 
-This site is plain VitePress 2 plus fourteen plugins. There is no hand-written navigation anywhere: add a Markdown file in the right folder and it shows up in the sidebar, the navbar, search and the sitemap.
+This site is plain VitePress 2 plus fifteen plugins. There is no hand-written navigation anywhere: add a Markdown file in the right folder and it shows up in the sidebar, the navbar, search and the sitemap.
 
 ## Folder layout
 
@@ -22,6 +22,7 @@ docs/
     exclude/            a .exclude file and the draft it keeps out of the build
     readme-index/       pages served from README.md, as in VuePress
   apps/                 user docs for the CLI apps
+  blog/                 the BinaryNoir blog: news and release notes
   guide/                this section
   reference/            glossary terms and the generated list of every tag
   assets/               images imported by pages
@@ -33,22 +34,23 @@ docs/
 
 ## Which plugin does what
 
-| You see                                                            | Plugin                                          | Where it is wired                                |
-| ------------------------------------------------------------------ | ----------------------------------------------- | ------------------------------------------------ |
-| Top navbar                                                         | [Auto Navbar](/plugins/auto-navbar)             | `themeConfig.nav` in `config.mts`                |
-| One open sidebar group per level, and the Plugins sidebar's filter | [Sidebar Accordion](/plugins/sidebar-accordion) | The theme, plus `collapsed: true` on the sidebar |
-| Left sidebar                                                       | [Auto Sidebar](/plugins/auto-sidebar/)          | `themeConfig.sidebar` in `config.mts`            |
-| Status badges                                                      | [Markdown Tags](/plugins/markdown-tags/)        | `markdown.config`, plus the theme                |
-| "Reading time" box                                                 | [Reading Time Tag](/plugins/reading-time-tag)   | `markdown.config`                                |
-| Dotted-underline hovers                                            | [Glossary Tooltips](/plugins/glossary/)         | `markdown.config`                                |
-| Colored and sized text                                             | [Text Style](/plugins/text-style)               | `markdown.config`                                |
-| File download links                                                | [Downloads](/plugins/downloads)                 | `markdown.config` and `vite.plugins`             |
-| Stray `<tags>` shown as text                                       | [HTML Escape](/plugins/html-escape/)            | `markdown.config`, plus the theme                |
-| Dead links shown as text                                           | [Broken Links](/plugins/broken-links)           | `markdown.config`, plus the theme                |
-| Pages left out by `.exclude`                                       | [Exclude](/plugins/exclude/)                    | `srcExclude` and `vite.plugins`                  |
-| `README.md` as a folder's index                                    | [README Index](/plugins/readme-index/)          | `rewrites` and `markdown.config`                 |
-| Smaller images                                                     | [Optimize Images](/plugins/optimize-images)     | `vite.plugins`                                   |
-| Placeholder for a missing image                                    | [Image Fallback](/plugins/image-fallback)       | `vite.plugins`, plus the theme                   |
+| You see                                                            | Plugin                                          | Where it is wired                                                                                      |
+| ------------------------------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Top navbar                                                         | [Auto Navbar](/plugins/auto-navbar)             | `themeConfig.nav` in `config.mts`                                                                      |
+| One open sidebar group per level, and the Plugins sidebar's filter | [Sidebar Accordion](/plugins/sidebar-accordion) | The theme, plus `collapsed: true` on the sidebar                                                       |
+| Left sidebar                                                       | [Auto Sidebar](/plugins/auto-sidebar/)          | `themeConfig.sidebar` in `config.mts`                                                                  |
+| Status badges                                                      | [Markdown Tags](/plugins/markdown-tags/)        | `markdown.config`, plus the theme                                                                      |
+| "Reading time" box                                                 | [Reading Time Tag](/plugins/reading-time-tag)   | `markdown.config`                                                                                      |
+| Dotted-underline hovers                                            | [Glossary Tooltips](/plugins/glossary/)         | `markdown.config`                                                                                      |
+| Colored and sized text                                             | [Text Style](/plugins/text-style)               | `markdown.config`                                                                                      |
+| File download links                                                | [Downloads](/plugins/downloads)                 | `markdown.config` and `vite.plugins`                                                                   |
+| Stray `<tags>` shown as text                                       | [HTML Escape](/plugins/html-escape/)            | `markdown.config`, plus the theme                                                                      |
+| Dead links shown as text                                           | [Broken Links](/plugins/broken-links)           | `markdown.config`, plus the theme                                                                      |
+| Pages left out by `.exclude`                                       | [Exclude](/plugins/exclude/)                    | `srcExclude` and `vite.plugins`                                                                        |
+| `README.md` as a folder's index                                    | [README Index](/plugins/readme-index/)          | `rewrites` and `markdown.config`                                                                       |
+| The blog, its post lists, bylines and RSS feeds                    | [Blog](/plugins/blog/)                          | `markdown.config`, `transformHead`, `transformPageData`, `buildEnd` and `vite.plugins`, plus the theme |
+| Smaller images                                                     | [Optimize Images](/plugins/optimize-images)     | `vite.plugins`                                                                                         |
+| Placeholder for a missing image                                    | [Image Fallback](/plugins/image-fallback)       | `vite.plugins`, plus the theme                                                                         |
 
 ## The config
 
@@ -56,7 +58,7 @@ docs/
 
 ## The theme
 
-The theme registers the badge component and loads its stylesheet, and turns on the four popovers: glossary definitions, the HTML Escape hints that explain broken markup, the Broken Links hints that explain dead links, and the Image Fallback hints that explain missing images:
+The theme registers the badge component, loads the badge and blog stylesheets, and turns on the four popovers: glossary definitions, the HTML Escape hints that explain broken markup, the Broken Links hints that explain dead links, and the Image Fallback hints that explain missing images:
 
 <<< @/.vitepress/theme/index.ts{ts}
 

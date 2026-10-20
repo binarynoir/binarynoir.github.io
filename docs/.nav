@@ -3,6 +3,7 @@ plugins
 apps
 guide
 reference
+blog
 -legal.md
 -privacy.md
 -terms.md

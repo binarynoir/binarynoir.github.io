@@ -15,11 +15,21 @@ import { markdownBrokenLinks } from '@binarynoir/vitepress-broken-links';
 import { excludeSrc, excludeVitePlugin } from '@binarynoir/vitepress-exclude';
 import { readmeLinks, readmeRewrites } from '@binarynoir/vitepress-readme-index';
 import { markdownTextStyle } from '@binarynoir/vitepress-text-style';
+import { blogMarkdown } from '@binarynoir/vitepress-blog';
+import {
+  blogHead,
+  blogPageData,
+  blogVitePlugin,
+  writeBlogFeeds,
+} from '@binarynoir/vitepress-blog/vitepress';
 
 // import.meta.dirname, not __dirname: VitePress configs are ESM.
 const docsRoot = path.resolve(import.meta.dirname, '..');
 
-const SITE_URL = 'https://binarynoir.github.io';
+// The address the site is served at; binarynoir.github.io redirects here. Used by the sitemap,
+// Open Graph tags and blog feeds. Feed readers use each post's URL as its permanent ID, so
+// this must not change once the feed is public.
+const SITE_URL = 'https://binarynoir.tech';
 
 // @binarynoir/vitepress-auto-sidebar and -auto-navbar: how titles are written in both
 // menus. Markdown Tags syntax is stripped from titles by default (`stripTags`).
@@ -33,6 +43,15 @@ const menuTitleOptions = {
 
 // @binarynoir/vitepress-downloads: the same options go to all three pieces below.
 const downloadsOptions = { folders: ['downloads', 'files'] };
+
+// @binarynoir/vitepress-blog: the same options go to all five pieces below.
+const blogOptions = {
+  siteUrl: SITE_URL,
+  authors: { binarynoir: { name: 'BinaryNoir', url: 'https://github.com/binarynoir' } },
+  defaultAuthor: 'binarynoir',
+  // Posts marked `draft: true` are listed (with a Draft badge) in `docs:dev` only.
+  drafts: process.env.NODE_ENV !== 'production',
+};
 
 export default defineConfig({
   title: 'BinaryNoir',
@@ -105,7 +124,11 @@ export default defineConfig({
       collapsed: true,
     }),
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/binarynoir' }],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/binarynoir' },
+      // The blog's RSS feed. `_self`, so the router doesn't try to open it as a page.
+      { icon: 'rss', link: '/blog/feed.xml', ariaLabel: 'Blog RSS feed', target: '_self' },
+    ],
 
     search: { provider: 'local' },
 
@@ -139,6 +162,9 @@ export default defineConfig({
       md.use(markdownTags);
       // @binarynoir/vitepress-text-style: [t:red:1.2em]text[/t] becomes colored, sized text.
       md.use(markdownTextStyle);
+      // @binarynoir/vitepress-blog: `blog-index` pages list posts; `blog` pages get a byline
+      // and newer / older links.
+      md.use(blogMarkdown, blogOptions);
       // @binarynoir/vitepress-downloads: links into a `downloads` or `files` folder become file downloads.
       md.use(downloadsMarkdown, downloadsOptions);
       // @binarynoir/vitepress-readme-index: a link to README.md goes to the page it is served as.
@@ -153,15 +179,23 @@ export default defineConfig({
     },
   },
 
-  // Keep ((tag|...)) syntax out of <title>, search results and the page outline.
-  transformPageData(pageData) {
+  transformPageData(pageData, context) {
+    // Keep ((tag|...)) syntax out of <title>, search results and the page outline.
     if (typeof pageData.title === 'string') {
       pageData.title = stripTags(pageData.title);
     }
     if (typeof pageData.frontmatter?.title === 'string') {
       pageData.frontmatter.title = stripTags(pageData.frontmatter.title);
     }
+    // @binarynoir/vitepress-blog: a post's summary becomes its <meta name="description">.
+    blogPageData(pageData, context, blogOptions);
   },
+
+  // @binarynoir/vitepress-blog: social-card tags on posts, and RSS links on blogs and their posts.
+  transformHead: (context) => blogHead(context, blogOptions),
+
+  // @binarynoir/vitepress-blog: writes each blog's feed.xml once the pages are built.
+  buildEnd: (siteConfig) => writeBlogFeeds(siteConfig, blogOptions),
 
   vite: {
     plugins: [
@@ -176,6 +210,8 @@ export default defineConfig({
       downloadsVitePlugin(downloadsOptions),
       // Restarts `vitepress dev` when an `.exclude` file changes, so new rules apply right away.
       excludeVitePlugin(),
+      // Keeps blog lists current while running `vitepress dev`, and serves the feeds there.
+      blogVitePlugin(blogOptions),
     ],
   },
 });

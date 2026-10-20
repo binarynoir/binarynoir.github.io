@@ -6,7 +6,7 @@ title: Plugins
 
 [[readingTime]]
 
-Fourteen small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. All fourteen are running on the site you are looking at.
+Fifteen small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. All fifteen are running on the site you are looking at.
 
 Pick by the job you need done. Each plugin's page has a live demo.
 
@@ -40,6 +40,7 @@ Keep files where they make sense, and let the build work out what to publish.
 | [Downloads](/plugins/downloads)        | VitePress              | Files in a `downloads` folder become linkable downloads.       |
 | [Exclude](/plugins/exclude/)           | VitePress              | A `.exclude` file in a folder keeps pages out of the build.    |
 | [README Index](/plugins/readme-index/) | VitePress, markdown-it | `README.md` as a folder's index page, for VuePress migrations. |
+| [Blog](/plugins/blog/)                 | VitePress 2            | Posts anywhere, a main blog and section blogs, with RSS feeds. |
 
 ## Builds that don't break {#builds}
 
@@ -74,6 +75,7 @@ npm install --save-dev \
   @binarynoir/vitepress-exclude \
   @binarynoir/vitepress-readme-index \
   @binarynoir/vitepress-text-style \
+  @binarynoir/vitepress-blog \
   @binarynoir/vite-plugin-optimize-images \
   @binarynoir/vite-plugin-image-fallback \
   markdown-it-glossary
@@ -81,7 +83,7 @@ npm install --save-dev \
 
 The VitePress plugins target VitePress 2 (currently an alpha release line). Node 22 or newer is required.
 
-## One config, all fourteen
+## One config, all fifteen
 
 This is this site's real `config.mts`, included straight from the repository, so it can't drift from what is deployed. [How this site works](/guide/how-this-site-works) walks through it.
 
