@@ -80,7 +80,7 @@ features:
 
 ::: blog-posts
 limit: 3
-stickyLimit: 1
+pinLimit: 1
 layout: grid
 more: Read the blog →
 :::

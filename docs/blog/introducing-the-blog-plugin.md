@@ -8,9 +8,9 @@ blog:
   imageAlt: The BinaryNoir logo
   # A wide logo, not a photo: show all of it rather than cropping it to fill the card.
   imageFit: contain
-  tags: [release, vitepress]
-  category: Plugins
-  sticky: true
+  tags: [blog]
+  category: Releases
+  pinned: true
 ---
 
 # Introducing the Blog plugin

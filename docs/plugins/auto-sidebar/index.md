@@ -77,7 +77,7 @@ A line that starts with a dot is a setting for the folder, not an entry. Every s
 
 ### Sorting
 
-This site's [blog](/blog/) sidebar lists sticky posts first, then the rest newest first. Its whole `.sidebar` file (the `.link` line is for [Auto Navbar](/plugins/auto-navbar#settings)):
+This site's [blog](/blog/) sidebar lists pinned posts first, then the rest newest first. Its whole `.sidebar` file (the `.link` line is for [Auto Navbar](/plugins/auto-navbar#settings)):
 
 <<< @/blog/.sidebar{txt}
 
@@ -92,11 +92,11 @@ This site's [blog](/blog/) sidebar lists sticky posts first, then the rest newes
 - Dates and numbers compare as dates and numbers, so `2` sorts before `10`.
 - Dates can carry a time: `2026-10-20`, `2026-10-20 14:30`, `2026-10-20T14:30:00`, or either with an offset (`-04:00`, `Z`). Pages from the same day sort by their times, and a date alone counts as the start of its day. A time without an offset is read as UTC, so the order is the same on every build machine; write offsets if your pages mix time zones.
 - Several keys, separated by commas, sort by the first and break ties with the
-  next: `.sort: blog.sticky desc, date desc` puts sticky blog posts on top,
+  next: `.sort: blog.pinned desc, date desc` puts pinned blog posts on top,
   each group newest first.
 - Pages without a value go last for that key, in either direction, and are
   ordered by the next key. A `false` value counts as no value, so pages with
-  `sticky: false` sort with those that don't say. Final ties go by name.
+  `pinned: false` sort with those that don't say. Final ties go by name.
 - A subfolder sorts by its landing page's frontmatter.
 - Only entries the file doesn't list are sorted. Listed entries keep their place, so the overview above stays first.
 - A setting covers its own folder, not the folders below it. The `sort` option sets an order for every folder; a folder's own `.sort` still wins.
@@ -144,12 +144,12 @@ index.md:All releases
 
 Numbers in versions compare as numbers, so `1.10.0` sorts above `1.9.0`, which sorting by file name gets wrong. Pre-releases don't follow version rules, though: `2.0.0-beta.1` sorts above `2.0.0`. If you publish betas, sort by `date desc` instead.
 
-**A blog.** Sticky posts first, then the newest posts, cut to ten. Posts can give a date (`2026-10-20`) or a date and time (`2026-10-20 14:34`), and the newest is on top either way. This site's [blog](/blog/) does exactly this with the [Blog](/plugins/blog/) plugin:
+**A blog.** Pinned posts first, then the newest posts, cut to ten. Posts can give a date (`2026-10-20`) or a date and time (`2026-10-20 14:34`), and the newest is on top either way. This site's [blog](/blog/) does exactly this with the [Blog](/plugins/blog/) plugin:
 
 ```txt
 # docs/blog/.sidebar
 index.md:All posts
-.sort: blog.sticky desc, date desc
+.sort: blog.pinned desc, date desc
 .limit: 10
 ```
 

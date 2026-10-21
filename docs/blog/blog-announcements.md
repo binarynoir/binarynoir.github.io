@@ -3,8 +3,8 @@ title: 'Blog 0.3: announcements'
 blog:
   date: 2026-10-20T20:15:00-04:00
   summary: Blog 0.3.0 adds announcements, a one-line banner above the nav bar for the posts that matter most.
-  tags: [release, blog]
-  category: Plugins
+  tags: [blog]
+  category: Releases
   announcement: 'New in the Blog plugin: announcement banners'
 ---
 

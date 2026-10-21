@@ -33,7 +33,8 @@ export default {
     // The filter field only appears on sidebars with 20 or more links: the Plugins
     // sidebar (nearly 40, with the demo pages) gets one; Guide, Apps and Reference don't.
     useSidebarAccordion({ filter: { minItems: 20 } });
-    // Blog pages: one page of posts at a time (?page=2), and keyword filters (?tag=release).
+    // Blog pages: one page of posts at a time (?page=2), and filters by category, keyword,
+    // year and month (?category=plugins, ?tag=release, ?year=2026, ?month=2026-10).
     useBlog();
   },
 } satisfies Theme;

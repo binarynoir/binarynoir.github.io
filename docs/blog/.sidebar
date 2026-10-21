@@ -1,6 +1,6 @@
-# The overview stays first; sticky posts come next, then every other post, newest first.
+# The overview stays first; pinned posts come next, then every other post, newest first.
 index.md:All posts
-.sort: blog.sticky desc, date desc
+.sort: blog.pinned desc, date desc
 # Only the 10 newest posts are listed here; the blog page has them all.
 .limit: 10
 # In the navbar, Blog is one link to the blog page rather than a dropdown of every post.

@@ -3,8 +3,8 @@ title: 'Sidebar Accordion 0.3: filter long sidebars'
 blog:
   date: 2026-10-16T13:27:54-04:00
   summary: Sidebar Accordion 0.3.0 adds a filter field that narrows a long sidebar to the pages that match.
-  tags: [release, sidebar-accordion]
-  category: Plugins
+  tags: [sidebar-accordion]
+  category: Releases
 ---
 
 # Sidebar Accordion 0.3: filter long sidebars

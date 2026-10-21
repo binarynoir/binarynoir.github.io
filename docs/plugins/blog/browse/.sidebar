@@ -1,0 +1,3 @@
+# The overview first, then the pinned post, then the rest newest first, as on the demo's blog page.
+index.md:Overview
+.sort: blog.pinned desc, date desc
