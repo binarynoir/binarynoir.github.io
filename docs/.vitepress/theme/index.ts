@@ -1,3 +1,4 @@
+import { h } from 'vue';
 import DefaultTheme from 'vitepress/theme';
 import type { Theme } from 'vitepress';
 import { registerMarkdownTags } from '@binarynoir/vitepress-markdown-tags/theme';
@@ -7,12 +8,14 @@ import { enableHtmlEscapeHints } from '@binarynoir/vitepress-html-escape/client'
 import { enableBrokenLinkHints } from '@binarynoir/vitepress-broken-links/client';
 import { enableImageFallbackHints } from '@binarynoir/vite-plugin-image-fallback/client';
 import { useSidebarAccordion } from '@binarynoir/vitepress-sidebar-accordion';
-import { useBlog } from '@binarynoir/vitepress-blog/client';
+import { BlogAnnouncementBanner, useBlog } from '@binarynoir/vitepress-blog/client';
 import '@binarynoir/vitepress-blog/style.css';
 import './custom.css';
 
 export default {
   extends: DefaultTheme,
+  // Blog posts marked `announcement` show in a one-line banner above the nav bar.
+  Layout: () => h(DefaultTheme.Layout, null, { 'layout-top': () => h(BlogAnnouncementBanner) }),
   enhanceApp({ app }) {
     // Registers the <MarkdownTag> component that ((tag|...)) compiles to.
     registerMarkdownTags(app);

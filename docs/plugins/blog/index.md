@@ -136,6 +136,7 @@ blog:
 | `category`      | none                                       | Written to the feed and `article:section`.                                                                                                                |
 | `scope`         | `section`                                  | `site` (or `global`) also lists the post on the main blog. See [Scopes](#scopes).                                                                         |
 | `sticky`        | `false`                                    | Pinned to the top of its blog pages, above the paginated posts, with a Pinned badge. See [Sticky posts](#sticky-posts).                                   |
+| `announcement`  | `false`                                    | `true`, or the banner's text, shows the post in the banner above the nav bar. See [Announcements](#announcements).                                        |
 | `draft`         | `false`                                    | Left out of lists and feeds. To leave drafts out of the build and the menus too, see [Drafts](#drafts).                                                   |
 | `byline`        | the `byline` option                        | `false` hides this post's byline.                                                                                                                         |
 | `cover`         | the `cover` option                         | `true` shows this post's image under its byline.                                                                                                          |
@@ -228,6 +229,38 @@ Every post is written into the blog page's HTML, so search engines, local search
 - `?tag=release` shows only posts tagged `release`, in any case, with a "Posts tagged release · Show all posts" line above them. Pages then count the matching posts only.
 
 Keywords are links everywhere they appear: in the keyword list at the top of a blog page, on each card, and in a post's byline, where they link to the post's own blog, filtered. They are ordinary links, so VitePress follows them without reloading the page, and each filtered view has its own URL to share.
+
+## Announcements
+
+`announcement: true` puts a post in a banner across the top of every page, above the nav bar: one line, the full width of the window, linked to the post. A string sets the banner's text instead of the post's title. The [post announcing this feature](/blog/blog-announcements) is one.
+
+```md
+---
+blog:
+  date: 2026-10-20 09:00
+  announcement: Scheduled maintenance on Friday, 18:00 UTC
+---
+```
+
+Add the banner to your theme's `layout-top` slot:
+
+```ts
+// .vitepress/theme/index.ts
+import { h } from 'vue';
+import DefaultTheme from 'vitepress/theme';
+import { BlogAnnouncementBanner } from '@binarynoir/vitepress-blog/client';
+
+export default {
+  extends: DefaultTheme,
+  Layout: () => h(DefaultTheme.Layout, null, { 'layout-top': () => h(BlogAnnouncementBanner) }),
+};
+```
+
+- **The newest one wins.** With several, the banner shows the newest and a badge with how many there are. The badge opens the blog page filtered to announcements, as in `/blog/?announcements`.
+- **Visitors can clear it.** The close button dismisses every current announcement, remembered in the browser. A newer one brings the banner back, counting only the ones not yet dismissed. Changing a post's `date` announces it again.
+- **No jump on load.** The banner is in the static HTML, and a dismissed one is hidden before the page shows. While it shows, the nav bar, sidebar and content move down to make room.
+
+The banner's posts come from VitePress's site data, which `blogVitePlugin` (or `withBlog`) fills in.
 
 ## Latest posts on any page
 
@@ -348,7 +381,7 @@ A post image given as a relative path is also copied to `blog-images/` under a n
 
 ## Styling
 
-The stylesheet uses VitePress's theme variables, so it follows light and dark mode. Override `--vp-blog-card-bg`, `--vp-blog-card-border`, `--vp-blog-card-radius`, `--vp-blog-meta-color`, `--vp-blog-tag-bg`, `--vp-blog-tag-color` or `--vp-blog-accent` to restyle it. Every generated element has a `vp-blog-` class for anything more.
+The stylesheet uses VitePress's theme variables, so it follows light and dark mode. Override `--vp-blog-card-bg`, `--vp-blog-card-border`, `--vp-blog-card-radius`, `--vp-blog-meta-color`, `--vp-blog-tag-bg`, `--vp-blog-tag-color` or `--vp-blog-accent` to restyle it, and `--vp-blog-announcement-height`, `--vp-blog-announcement-bg` or `--vp-blog-announcement-color` for the announcement banner. Every generated element has a `vp-blog-` class for anything more.
 
 ## Notes
 
