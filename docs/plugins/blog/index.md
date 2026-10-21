@@ -16,7 +16,7 @@ title: Blog
 - **[The Scopes Demo](/plugins/blog/demo/)** is a small main blog with a [section blog](/plugins/blog/demo/team/) inside it, and example posts that show which blog lists which post. It is limited to its own folder, so the examples stay off the real blog.
 - **[The Browse Demo](/plugins/blog/browse/)** is a section blog of example posts in three categories over two years, for trying the browse panel: filter by category, keyword, year and month, combine them, and open a long row with "+N more".
 
-Open any post to see its byline under the title, and links to the newer and older posts at the end.
+Open any post to see its byline under the title, and links to the newer and older posts in its blog at the end, in place of VitePress's previous / next links.
 
 ## Why this plugin
 
@@ -141,7 +141,7 @@ blog:
 | `draft`         | `false`                                    | Left out of lists and feeds. To leave drafts out of the build and the menus too, see [Drafts](#drafts).                                                                                                   |
 | `byline`        | the `byline` option                        | `false` hides this post's byline.                                                                                                                                                                         |
 | `cover`         | the `cover` option                         | `true` shows this post's image under its byline.                                                                                                                                                          |
-| `postNav`       | the `postNav` option                       | `false` hides this post's newer / older links.                                                                                                                                                            |
+| `postNav`       | the `postNav` option                       | `false` hides this post's newer / older links, and VitePress's previous / next links come back. See [Newer and older links](#newer-and-older-links).                                                      |
 
 Title, description, date, author, image and tags can also be written at the top level of the frontmatter, as other blog tools expect. A value under `blog` wins.
 
@@ -373,7 +373,16 @@ docs/
   notes.md            blog: true                    no section blog covers it
 ```
 
-A post's newer and older links stay within its own blog: the deepest section blog that lists it, otherwise the main blog.
+### Newer and older links
+
+A post's newer and older links stay within its own blog: the deepest section blog that lists it, otherwise the main blog. They are in date order, the order readers see on the blog page.
+
+They take the place of VitePress's previous / next links at the foot of the page, which follow the sidebar instead, so a post has one set of links, not two that disagree. To change that for one post:
+
+- **`prev` or `next` in its frontmatter** still sets VitePress's link, as on any page, and it shows beside the newer / older links.
+- **`postNav: false`** hides the newer / older links, and VitePress's previous / next come back.
+
+A post that no blog lists keeps VitePress's links, since it has no blog to link within.
 
 ### When a section blog helps
 
@@ -411,7 +420,7 @@ A post image given as a relative path is also copied to `blog-images/` under a n
 | `wordsPerMinute` | `200`                                                           | For "5 min read". `0` hides reading time.                                                                                           |
 | `byline`         | `true`                                                          | Author, date and tags under each post's title.                                                                                      |
 | `cover`          | `false`                                                         | Each post's image under its byline.                                                                                                 |
-| `postNav`        | `true`                                                          | Newer and older post links at the end of each post.                                                                                 |
+| `postNav`        | `true`                                                          | Newer and older post links at the end of each post, in place of VitePress's previous / next links.                                  |
 | `drafts`         | `false`                                                         | List drafts, marked. This site passes `process.env.NODE_ENV !== 'production'`: dev only.                                            |
 | `stripTags`      | `true`                                                          | Remove [Markdown Tags](/plugins/markdown-tags/) syntax from titles and summaries.                                                   |
 | `feedLimit`      | `20`                                                            | Most posts in each feed.                                                                                                            |
