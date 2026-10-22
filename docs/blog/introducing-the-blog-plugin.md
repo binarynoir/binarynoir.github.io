@@ -4,10 +4,8 @@ blog:
   date: 2026-10-20T14:34:56-04:00
   updated: 2026-10-20T14:47:00-04:00
   summary: Any page can now be a blog post, with a main blog, folder-scoped section blogs and an RSS feed for each.
-  image: /logo-wide-dark.png
+  image: /blog-cover.png
   imageAlt: The BinaryNoir logo
-  # A wide logo, not a photo: show all of it rather than cropping it to fill the card.
-  imageFit: contain
   tags: [blog]
   category: Releases
   pinned: true
