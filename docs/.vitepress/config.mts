@@ -131,6 +131,9 @@ export default defineConfig({
       excludeFrontmatter,
       ...menuTitleOptions,
       groupTitleFromIndex: true,
+      // Blog folders list posts as their blog pages do: pinned, then newest first, and the main
+      // blog's folder also lists the `scope: site` posts from the section blogs inside it.
+      blog: true,
       // Groups start closed, so @binarynoir/vitepress-sidebar-accordion (in the theme) has a caret to toggle.
       collapsed: true,
     }),

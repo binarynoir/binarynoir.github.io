@@ -26,8 +26,8 @@
   "devDependencies": {
     "@binarynoir/vite-plugin-image-fallback": "^0.4.3",
     "@binarynoir/vite-plugin-optimize-images": "^0.2.0",
-    "@binarynoir/vitepress-auto-navbar": "^0.8.1",
-    "@binarynoir/vitepress-auto-sidebar": "^0.10.1",
+    "@binarynoir/vitepress-auto-navbar": "^0.8.2",
+    "@binarynoir/vitepress-auto-sidebar": "^0.11.0",
     "@binarynoir/vitepress-blog": "^0.7.1",
     "@binarynoir/vitepress-broken-links": "^0.1.4",
     "@binarynoir/vitepress-downloads": "^0.1.5",

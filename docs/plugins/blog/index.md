@@ -236,7 +236,7 @@ The list goes where `<!-- blog-posts -->` is, or after the page's content if the
 
 Before 0.4.0, these settings were called `sticky` and `stickyLimit`. The old names are still read, so older posts keep working.
 
-To keep pinned posts on top of the sidebar too, sort the blog folder with [Auto Sidebar](/plugins/auto-sidebar/#sorting)'s `.sort` setting, by pinning and then date. This site's blog does:
+To keep pinned posts on top of the sidebar too, turn on [Auto Sidebar](/plugins/auto-sidebar/#blogs)'s `blog` option, or sort the blog folder with its `.sort` setting, by pinning and then date. This site's blog does both:
 
 <<< @/blog/.sidebar{txt}
 
@@ -362,6 +362,8 @@ Scopes decide which blog lists a post.
   - posts in folders that don't have a section blog of their own
 
 So a site with only a main blog needs no scope settings at all, and a post inside a section only reaches the main blog when it says `scope: site`. The [Scopes Demo](/plugins/blog/demo/) shows all three cases live.
+
+[Auto Sidebar](/plugins/auto-sidebar/#blogs)'s `blog` option follows the same scopes: a `scope: site` post is listed in its section's folder and in the main blog's folder. A post in a folder with no section blog of its own stays in that folder's group.
 
 ```txt
 docs/

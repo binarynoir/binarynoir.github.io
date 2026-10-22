@@ -72,6 +72,7 @@ A line that starts with a dot is a setting for the folder, not an entry. Every s
 | `.sort: key [asc\|desc], …` | Order the entries this file doesn't list by `key`. Default: `name`.                      |
 | `.limit: n`                 | Show at most `n` of the entries this file doesn't list, after sorting. `0` for no limit. |
 | `.more: Text`               | When `.limit` left entries out, end with a link to the landing page titled `Text`.       |
+| `.group: year\|month\|blog` | Put the entries this file doesn't list in groups. See [Grouping](#grouping).             |
 | `.hide`                     | Hide this folder's own link, but keep showing its children.                              |
 | `.hideall` or `.hide-all`   | Leave this folder and everything under it out of the sidebar.                            |
 
@@ -108,6 +109,27 @@ A folder with hundreds of pages makes a sidebar too long to use, and VitePress s
 - Only entries the file doesn't list count toward the limit, and listed entries always show, so "All posts" stays on top.
 - `.more: Older posts` ends the list with a link to the folder's landing page, but only when entries were left out. The blog doesn't need one: its landing page is already listed as "All posts".
 - `.limit: 0` means no limit. The `limit` and `more` options set both for every folder; a folder's own lines win.
+
+### Grouping
+
+`.group: month` puts the entries a `.sidebar` doesn't list into one group per month of their date ("October 2026"), after sorting and `.limit`; `.group: year` into one per year. `.group: blog` groups a main blog's site-wide posts by the section blog they came from (see [Blogs](#blogs)).
+
+- Each group sits where its first entry falls, so with posts newest first, the months run newest first too.
+- The month is the one the date is written in, whatever its offset.
+- Listed entries, subfolders and undated pages stay outside the groups.
+
+### Blogs
+
+With `blog: true`, each [Blog](/plugins/blog/) folder lists the posts its blog page lists. This site turns it on.
+
+- A folder whose landing page is a blog (`blog-index`) and has no `.sort` lists its posts pinned first, then newest first.
+- The main blog's folder (`blog-index: { scope: site }`) also lists every `scope: site` post in the folders it covers, sorted in with its own. So a site-wide post in a section blog shows twice: in its section and in the main blog.
+- Those posts count toward `.limit`, and `.exclude` files and `excludeFrontmatter` hide them like any page.
+- `.group: blog` in the main blog's `.sidebar` puts them in one group per section blog, linked to its page. A section blog whose folder is right inside the main blog's already has its group there, so its posts aren't repeated.
+
+The [Scopes Demo](/plugins/blog/demo/) in this sidebar shows it: its site-wide team post is listed under Scopes Demo and under Team Blog, and the section-only post only under Team Blog. The demo's `.sidebar` keeps the Team Blog group below the posts:
+
+<<< @/plugins/blog/demo/.sidebar{txt}
 
 ### Recipes
 
@@ -204,6 +226,7 @@ index.md:All decisions
 | `sort`                | `'name'`       | Order for unlisted entries in every folder, e.g. `'date desc'`. See [Sorting](#sorting).                                                  |
 | `limit`               | `0`            | Most unlisted entries every folder shows, after sorting. See [Limiting](#limiting).                                                       |
 | `more`                | none           | Link text for the landing page when a limit left entries out.                                                                             |
+| `blog`                | `false`        | Follow [Blog](/plugins/blog/#scopes) scopes in blog folders. See [Blogs](#blogs).                                                         |
 | `groupTitleFromIndex` | `false`        | Label a folder's group with its landing page's title.                                                                                     |
 | `verbose`             | `false`        | Log each folder as it is processed.                                                                                                       |
 
