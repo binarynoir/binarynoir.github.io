@@ -79,8 +79,8 @@ features:
 ## Latest from the blog
 
 ::: blog-posts
-limit: 3
-pinLimit: 1
+limit: 4
+pinLimit: 2
 layout: grid
 more: Read the blog →
 :::
