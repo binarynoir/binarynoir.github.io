@@ -1,0 +1,185 @@
+{
+  "new": "blog",
+  "categories": [
+    { "id": "vitepress", "name": "VitePress plugins" },
+    { "id": "vite", "name": "Vite plugins" },
+    { "id": "editor", "name": "editor extensions" },
+    { "id": "cli", "name": "command-line tools" }
+  ],
+  "products": [
+    {
+      "id": "auto-sidebar",
+      "name": "Auto Sidebar",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/auto-sidebar/",
+      "pitch": "sidebar built from your folders",
+      "repo": "vitepress-auto-sidebar",
+      "related": ["auto-navbar", "sidebar-accordion", "readme-index"]
+    },
+    {
+      "id": "auto-navbar",
+      "name": "Auto Navbar",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/auto-navbar",
+      "pitch": "navbar built from your folders",
+      "repo": "vitepress-auto-navbar",
+      "related": ["auto-sidebar", "sidebar-accordion"]
+    },
+    {
+      "id": "sidebar-accordion",
+      "name": "Sidebar Accordion",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/sidebar-accordion",
+      "pitch": "one open sidebar group at a time, and a sidebar filter",
+      "repo": "vitepress-sidebar-accordion",
+      "related": ["auto-sidebar", "auto-navbar"]
+    },
+    {
+      "id": "markdown-tags",
+      "name": "Markdown Tags",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/markdown-tags/",
+      "pitch": "inline status badges and tagged-pages lists",
+      "repo": "vitepress-markdown-tags",
+      "related": ["markdown-tags-vscode", "markdown-tags-obsidian", "reading-time-tag"]
+    },
+    {
+      "id": "reading-time-tag",
+      "name": "Reading Time Tag",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/reading-time-tag",
+      "pitch": "reading-time estimates",
+      "repo": "vitepress-reading-time-tag",
+      "related": ["markdown-tags", "text-style"]
+    },
+    {
+      "id": "glossary",
+      "name": "Glossary Tooltips",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/glossary/",
+      "pitch": "hover definitions from one glossary file",
+      "repo": "markdown-it-glossary",
+      "related": ["markdown-tags", "text-style", "html-escape"]
+    },
+    {
+      "id": "text-style",
+      "name": "Text Style",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/text-style",
+      "pitch": "colored and sized text inline",
+      "repo": "vitepress-text-style",
+      "related": ["markdown-tags", "glossary", "reading-time-tag"]
+    },
+    {
+      "id": "downloads",
+      "name": "Downloads",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/downloads",
+      "pitch": "downloadable files next to your pages",
+      "repo": "vitepress-downloads",
+      "related": ["exclude", "readme-index", "auto-sidebar"]
+    },
+    {
+      "id": "exclude",
+      "name": "Exclude",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/exclude/",
+      "pitch": "keep pages out of the build with a `.exclude` file",
+      "repo": "vitepress-exclude",
+      "related": ["broken-links", "downloads"]
+    },
+    {
+      "id": "readme-index",
+      "name": "README Index",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/readme-index/",
+      "pitch": "`README.md` index pages for VuePress migrations",
+      "repo": "vitepress-readme-index",
+      "related": ["auto-sidebar", "html-escape", "broken-links"]
+    },
+    {
+      "id": "blog",
+      "name": "Blog",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/blog/",
+      "pitch": "posts anywhere, a main blog and section blogs, with RSS feeds",
+      "repo": "vitepress-blog",
+      "related": ["reading-time-tag", "markdown-tags", "exclude"]
+    },
+    {
+      "id": "html-escape",
+      "name": "HTML Escape",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/html-escape/",
+      "pitch": "stray tags and braces shown as text, not build errors",
+      "repo": "vitepress-html-escape",
+      "related": ["broken-links", "image-fallback", "readme-index"]
+    },
+    {
+      "id": "broken-links",
+      "name": "Broken Links",
+      "category": "vitepress",
+      "url": "https://binarynoir.tech/plugins/broken-links",
+      "pitch": "dead links shown as text, not build errors",
+      "repo": "vitepress-broken-links",
+      "related": ["html-escape", "image-fallback", "exclude"]
+    },
+    {
+      "id": "optimize-images",
+      "name": "Optimize Images",
+      "category": "vite",
+      "url": "https://binarynoir.tech/plugins/optimize-images",
+      "pitch": "smaller images in the build output",
+      "repo": "vite-plugin-optimize-images",
+      "related": ["image-fallback"]
+    },
+    {
+      "id": "image-fallback",
+      "name": "Image Fallback",
+      "category": "vite",
+      "url": "https://binarynoir.tech/plugins/image-fallback",
+      "pitch": "a placeholder instead of a failed build",
+      "repo": "vite-plugin-image-fallback",
+      "related": ["optimize-images", "broken-links"]
+    },
+    {
+      "id": "markdown-tags-vscode",
+      "name": "Tags for Markdown for VS Code",
+      "category": "editor",
+      "url": "https://binarynoir.tech/plugins/markdown-tags/vscode",
+      "pitch": "status badges in the VS Code Markdown preview",
+      "repo": "vscode-markdown-tags",
+      "related": ["markdown-tags-obsidian", "markdown-tags"]
+    },
+    {
+      "id": "markdown-tags-obsidian",
+      "name": "Tags for Markdown for Obsidian",
+      "category": "editor",
+      "url": "https://binarynoir.tech/plugins/markdown-tags/obsidian",
+      "pitch": "status badges in Obsidian",
+      "repo": "obsidian-markdown-tags",
+      "related": ["markdown-tags-vscode", "markdown-tags"]
+    },
+    {
+      "id": "noirwatch",
+      "name": "NoirWatch",
+      "category": "cli",
+      "url": "https://binarynoir.tech/apps/noirwatch",
+      "pitch": "get notified when a web page changes"
+    },
+    {
+      "id": "noircon",
+      "name": "NoirCon",
+      "category": "cli",
+      "url": "https://binarynoir.tech/apps/noircon",
+      "pitch": "get notified when a site, server or port goes down"
+    },
+    {
+      "id": "callrx",
+      "name": "callrx",
+      "category": "cli",
+      "url": "https://binarynoir.tech/apps/callrx",
+      "pitch": "amateur radio callsign lookup"
+    }
+  ]
+}

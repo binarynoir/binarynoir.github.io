@@ -14,7 +14,7 @@ title: Blog
 
 - **[The BinaryNoir blog](/blog/)** is this site's real blog, built with this plugin. Its [feed](/blog/feed.xml){target="_self"} is the one the navbar's RSS icon links to.
 - **[The Scopes Demo](/plugins/blog/demo/)** is a small main blog with a [section blog](/plugins/blog/demo/team/) inside it, and example posts that show which blog lists which post. It is limited to its own folder, so the examples stay off the real blog.
-- **[The Browse Demo](/plugins/blog/browse/)** is a section blog of example posts in three categories over two years, for trying the browse panel: filter by category, keyword, year and month, combine them, and open a long row with "+N more".
+- **[The Browse Demo](/plugins/blog/browse/)** is a section blog of example posts in three categories over two years, for trying the browse panel: filter by category, keyword, year and month, combine them, and open the full keyword list with "+N more".
 
 Open any post to see its byline under the title, and links to the newer and older posts in its blog at the end, in place of VitePress's previous / next links.
 
@@ -149,7 +149,7 @@ Title, description, date, author, image and tags can also be written at the top 
 
 Both sort posts, in different ways:
 
-- **`category` is the one way you slice the blog.** Each post has exactly one, from a short list that rarely changes. It is the label above the title on cards, and the first row of the browse panel. Pick the axis your readers browse by most: the kind of post (Releases, Guides, News), the team, or the product line.
+- **`category` is the one way you slice the blog.** Each post has exactly one, from a short list that rarely changes. It is the label above the title on cards, and a tab in the browse panel. Pick the axis your readers browse by most: the kind of post (Releases, Guides, News), the team, or the product line.
 - **`tags` are everything else a post is about.** A post can have several, and new ones can appear at any time: the product it changes, the feature, the topic.
 - **Don't say the same thing twice.** If a post's category is Releases, a `release` tag adds nothing.
 - **`categories:` on a blog page is a filter, not a label.** `blog-index: { categories: [Releases] }` makes a page that lists only releases. `tags:` works the same way there, and both work in `::: blog-posts` blocks.
@@ -219,12 +219,12 @@ The list goes where `<!-- blog-posts -->` is, or after the page's content if the
 | `groupBy`       | none                          | `year` or `month` puts a heading ("2026", "October 2026") above each year's or month's posts.   |
 | `showTags`      | `true`                        | `false` hides tag chips on cards.                                                               |
 | `showCategory`  | `true`                        | `false` hides the category above each card's title.                                             |
-| `categoryList`  | `true`                        | A row of categories in the browse panel, each with its count. `false` leaves it out.            |
-| `categoryLimit` | `8`                           | Categories shown before "+N more", most used first. `0` shows them all.                         |
-| `tagList`       | `true`                        | A row of keywords in the browse panel, each with its count. `false` leaves it out.              |
-| `tagLimit`      | `12`                          | Keywords shown before "+N more", most used first. `0` shows them all.                           |
+| `categoryList`  | `true`                        | Category tabs in the browse panel. `false` leaves them out.                                     |
+| `categoryLimit` | `5`                           | Category tabs, most used first; the rest go under "More". `0` makes them all tabs.              |
+| `tagList`       | `true`                        | A line of keyword chips in the browse panel, each with its count. `false` leaves it out.        |
+| `tagLimit`      | `12`                          | Keyword chips shown, most used first, before "+N more". `0` shows them all.                     |
 | `tagMinCount`   | `1`                           | Leave keywords used by fewer posts out of the browse panel. They still show on cards.           |
-| `archive`       | `true`                        | Rows of years, and each year's months, in the browse panel. `false` leaves them out.            |
+| `archive`       | `true`                        | A date drop-down of years and their months in the browse panel. `false` leaves it out.          |
 | `pageSize`      | `10` (the `pageSize` option)  | Posts per page. `0` shows them all on one page.                                                 |
 | `pinLimit`      | all (the `pinLimit` option)   | Most pinned posts kept at the top. Extra ones take their place by date.                         |
 | `rssLink`       | `true` (the `rssLink` option) | A "Subscribe" link with the RSS icon to this blog's feed. `false` leaves it out.                |
@@ -257,16 +257,18 @@ Every post is written into the blog page's HTML, so search engines, local search
 
 Filters combine: `?category=engineering&tag=api&year=2026` shows the engineering posts tagged `api` from 2026, and pages count the matching posts only. The [Browse Demo](/plugins/blog/browse/) has posts in three categories over two years, so you can try every filter; its [Design posts tagged `ux`](/plugins/blog/browse/?category=design&tag=ux) is one combined view.
 
-**The browse panel** above the posts has a row each for categories, keywords and the archive, each chip with its post count. It is a flat toolbar between two rules, with the blog's "Subscribe" link at the end of its first row:
+**The browse panel** above the posts is a bar on a single rule, then a line of keywords. On the bar, a blog's categories, the few kinds of post it has, are tabs with their counts, "All" first; the date drop-down and the blog's RSS link sit at its end. Keywords, the topics readers browse by, are one click away as chips below it:
 
-- **Chips combine.** A chip adds its filter to the ones in view. Another chip in the same row replaces it, and clicking the active chip takes it off again.
-- **Counts follow the view.** Each count says how many posts the chip would show with the other filters kept, so readers see where a click leads. Chips that would show nothing are dimmed.
-- **Years open into months.** Choosing a year shows a row of its months below the years; with only one year, its months always show. A month keeps its year active, and clicking it again steps back out to the whole year.
-- **It stays short with many values.** Categories and keywords are ranked by how many posts use them, and a row shows its first `categoryLimit` (8) or `tagLimit` (12), then "+N more". That opens the full list alphabetically, and a row of more than 30 values also gets a field to narrow it. An active chip always shows. `tagMinCount: 2` leaves out keywords used only once.
-- **One line per row on phones.** On screens narrower than 640px, each row is a single line that scrolls sideways, its end fading while there is more. Chips are 32px high on touch screens.
-- **Rows appear only when they can narrow the posts.** No categories, or one category every post is in, means no category row. That is why [this site's blog](/blog/), where every post so far is a release, shows only its keywords. The archive needs posts from more than one month, and with only one year, it is that year's months alone.
+- **Filters combine.** Each tab, chip and date adds its filter to the ones in view, replacing another value of the same kind; choosing the active one again takes it off.
+- **The panel shows what is on.** The active tab is underlined, the active keyword chip is highlighted, and the date drop-down shows its value in place of its name ("October 2026"), with a × beside it that takes it off.
+- **Counts follow the view.** Each tab, keyword and date says how many posts it would show with the other filters kept, so readers see where a click leads. Those that would show nothing are dimmed.
+- **Dates are years and their months.** The date drop-down lists each year with its months beneath it. A month keeps its year active, and choosing it again steps back out to the whole year.
+- **It stays short with many values.** Categories and keywords are ranked by how many posts use them. The first `categoryLimit` (5) categories are tabs, and the rest go under "More". The first `tagLimit` (12) keywords show, then "+N more", which opens the full list alphabetically, with a field to narrow it past 30. `tagMinCount: 2` leaves out keywords used only once.
+- **Phones keep it to two lines.** On screens narrower than 640px, the tabs and the keywords each scroll sideways, and the date drop-down opens across the full width.
+- **It works without JavaScript.** Every tab, chip and date is a link, and the drop-downs are `<details>` elements. With `useBlog()`, a drop-down closes on a click outside it, on Escape, and once a choice is followed.
+- **Parts appear only when they can narrow the posts.** No categories, or one category every post is in, means no tabs, and the keywords take their place on the bar. That is why [this site's blog](/blog/), where every post so far is a release, shows its keywords on the bar. The date drop-down needs posts from more than one month.
 
-**The active filters** show above the posts while any filter is on: how many posts match, a chip for each filter that removes just that one, and "Show all posts" to clear them all. Screen readers announce the new count.
+**While a filter is on**, a line under the panel says how many posts match, with "Show all posts" beside it to take every filter off. Screen readers announce the new count.
 
 Categories and keywords are links wherever they appear: in the browse panel, on each card, and in a post's byline, where they link to the post's own blog, filtered. They are ordinary links, so VitePress follows them without reloading the page, and each filtered view has its own URL to share.
 
@@ -432,7 +434,7 @@ A post image given as a relative path is also copied to `blog-images/` under a n
 
 ## Styling
 
-The stylesheet uses VitePress's theme variables, so it follows light and dark mode. Override `--vp-blog-card-bg`, `--vp-blog-card-border`, `--vp-blog-card-radius`, `--vp-blog-meta-color`, `--vp-blog-tag-bg`, `--vp-blog-tag-color` or `--vp-blog-accent` to restyle it, `--vp-blog-browse-bg` (`transparent`) and `--vp-blog-facet-label-width` for the browse panel, and `--vp-blog-announcement-height`, `--vp-blog-announcement-bg` or `--vp-blog-announcement-color` for the announcement banner. Every generated element has a `vp-blog-` class for anything more.
+The stylesheet uses VitePress's theme variables, so it follows light and dark mode. Override `--vp-blog-card-bg`, `--vp-blog-card-border`, `--vp-blog-card-radius`, `--vp-blog-meta-color`, `--vp-blog-tag-bg`, `--vp-blog-tag-color` or `--vp-blog-accent` to restyle it, `--vp-blog-browse-bg` (`transparent`) for the browse panel, and `--vp-blog-announcement-height`, `--vp-blog-announcement-bg` or `--vp-blog-announcement-color` for the announcement banner. Every generated element has a `vp-blog-` class for anything more.
 
 ## Notes
 
