@@ -4,11 +4,10 @@ blog:
   date: 2026-10-20T14:34:56-04:00
   updated: 2026-10-20T14:47:00-04:00
   summary: Any page can now be a blog post, with a main blog, folder-scoped section blogs and an RSS feed for each.
-  image: /blog-cover.png
-  imageAlt: The BinaryNoir logo
+  image: /covers/blog.png
+  imageAlt: 'The BinaryNoir detective beside the words "VitePress plugin: Blog"'
   tags: [blog]
   category: Releases
-  pinned: true
 ---
 
 # Introducing the Blog plugin

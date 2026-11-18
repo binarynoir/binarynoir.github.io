@@ -3,8 +3,8 @@ layout: home
 title: BinaryNoir
 
 hero:
-  text: Open-source tools for developers, homelabbers and tinkerers
-  tagline: VitePress and Vite plugins, plus command-line apps for homelabs and ham radio. This site is the hub for all of them, and it is built with the plugins it documents.
+  text: Open-source tools, and the team to set them up
+  tagline: VitePress and Vite plugins, plus command-line apps for homelabs and ham radio, all free and MIT-licensed. Want it running for your team? We also set up docs sites, Markdown tickets and AI reporting as a paid service.
   image:
     src: /full-logo.svg
     alt: BinaryNoir Studios logo
@@ -16,8 +16,8 @@ hero:
       text: Browse the apps
       link: /apps/
     - theme: alt
-      text: How this site is built
-      link: /guide/how-this-site-works
+      text: Services and rates
+      link: /services/
 
 features:
   - icon:
@@ -76,6 +76,25 @@ features:
     linkText: Meet the apps
 ---
 
+## Start here
+
+- **Improving a docs site?** Start with the [plugins overview](/plugins/). Every plugin has a live demo on its page.
+- **Want a tool for your terminal?** Pick one on the [apps page](/apps/). Each installs with one Homebrew command.
+- **Building a site like this one?** Read [how this site works](/guide/how-this-site-works) and copy what is useful.
+- **Want it set up for your team?** See [services and rates](/services/). We build the docs site, ticket structure and AI reporting for you.
+
+## Hire us to set it up ((tag|Services|blue))
+
+The tools are free. Our time is what you pay for. We set up internal docs sites for small teams, using the same plugins as this site, and connect them to your tickets, meeting notes and AI.
+
+| Service                                        | What you get                                 | Price        |
+| ---------------------------------------------- | -------------------------------------------- | ------------ |
+| [Strategy session](/services/strategy-session) | 2 hours with us, a plan and starter files    | $450         |
+| [Starter build](/services/#starter-build)      | A working docs site, set up and handed over  | From $4,500  |
+| [Ongoing help](/services/#ongoing-help)        | A monthly block of hours for upkeep and more | $1,200/month |
+
+[See everything that's included →](/services/)
+
 ## Latest from the blog
 
 ::: blog-posts
@@ -85,19 +104,13 @@ layout: grid
 more: Read the blog →
 :::
 
-## Start here
-
-- **Improving a docs site?** Start with the [plugins overview](/plugins/). Every plugin has a live demo on its page.
-- **Want a tool for your terminal?** Pick one on the [apps page](/apps/). Each installs with one Homebrew command.
-- **Building a site like this one?** Read [how this site works](/guide/how-this-site-works) and copy what is useful.
-
 ## Install the VitePress toolkit
 
 Every plugin is optional and independent: take one, or take them all. The [plugins overview](/plugins/#install-them-all) has the one-line install for the whole set, and each plugin's page shows how to register it. The VitePress plugins need Node 22 or newer.
 
 ## Support the work
 
-Every plugin and app here is free and MIT-licensed. There are no paid tiers and nothing held back. If one of them saved you time, a contribution helps keep them maintained, documented and moving along the [roadmap](/apps/roadmap).
+Every plugin and app here is free and MIT-licensed. There are no paid tiers and nothing held back: the [paid services](/services/) cover setup help, not features. If one of them saved you time, a contribution helps keep them maintained, documented and moving along the [roadmap](/apps/roadmap).
 
 <div class="bn-support">
   <a class="bn-support-link" href="https://buymeacoffee.com/binarynoir" target="_blank" rel="noopener">Buy Me a Coffee<span class="bn-support-ext" aria-hidden="true">↗</span><span class="bn-sr-only"> (opens in a new tab)</span></a>

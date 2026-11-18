@@ -21,14 +21,16 @@
     "readmes:sync": "node scripts/sync-readmes.mjs",
     "readmes:check": "node scripts/sync-readmes.mjs --check",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "cover": "node scripts/generate-blog-cover.mjs",
+    "covers": "node scripts/generate-product-covers.mjs"
   },
   "devDependencies": {
     "@binarynoir/vite-plugin-image-fallback": "^0.4.3",
     "@binarynoir/vite-plugin-optimize-images": "^0.2.0",
     "@binarynoir/vitepress-auto-navbar": "^0.8.2",
     "@binarynoir/vitepress-auto-sidebar": "^0.11.0",
-    "@binarynoir/vitepress-blog": "^0.7.1",
+    "@binarynoir/vitepress-blog": "^0.7.2",
     "@binarynoir/vitepress-broken-links": "^0.1.4",
     "@binarynoir/vitepress-downloads": "^0.1.5",
     "@binarynoir/vitepress-exclude": "^0.2.1",

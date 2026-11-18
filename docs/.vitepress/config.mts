@@ -60,11 +60,14 @@ const blogOptions = {
   timeZone: 'America/New_York',
   // Drafts are listed (with a Draft badge) in `docs:dev`; production builds leave them out.
   drafts: !isBuild,
+  // Every post shows its image under its byline, as well as on cards and in link previews.
+  cover: true,
 };
 
 export default defineConfig({
   title: 'BinaryNoir',
-  description: 'Open-source tools and VitePress plugins by BinaryNoir, with live demos.',
+  description:
+    'Open-source VitePress plugins and command-line tools by BinaryNoir, plus docs site setup for teams.',
   lang: 'en-US',
   cleanUrls: true,
   lastUpdated: true,
@@ -103,7 +106,8 @@ export default defineConfig({
       'meta',
       {
         property: 'og:description',
-        content: 'Open-source tools and VitePress plugins by BinaryNoir, with live demos.',
+        content:
+          'Open-source VitePress plugins and command-line tools by BinaryNoir, plus docs site setup for teams.',
       },
     ],
     ['meta', { property: 'og:url', content: SITE_URL }],
@@ -155,7 +159,7 @@ export default defineConfig({
       message:
         'Code released under the MIT License. BinaryNoir name and logos are trademarks of BinaryNoir. <a href="/legal">Legal</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a>',
       copyright:
-        'Copyright © 2026 John Smith III / BinaryNoir. All rights reserved except where licensed.',
+        'Copyright © 2026 <a href="mailto:hello@binarynoir.tech">John Smith III / BinaryNoir Studios</a>. All rights reserved except where licensed.',
     },
   },
 

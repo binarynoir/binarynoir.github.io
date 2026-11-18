@@ -1,10 +1,22 @@
 {
   "new": "blog",
   "categories": [
-    { "id": "vitepress", "name": "VitePress plugins" },
-    { "id": "vite", "name": "Vite plugins" },
-    { "id": "editor", "name": "editor extensions" },
-    { "id": "cli", "name": "command-line tools" }
+    {
+      "id": "vitepress",
+      "name": "VitePress plugins"
+    },
+    {
+      "id": "vite",
+      "name": "Vite plugins"
+    },
+    {
+      "id": "editor",
+      "name": "editor extensions"
+    },
+    {
+      "id": "cli",
+      "name": "command-line tools"
+    }
   ],
   "products": [
     {
@@ -14,7 +26,11 @@
       "url": "https://binarynoir.tech/plugins/auto-sidebar/",
       "pitch": "sidebar built from your folders",
       "repo": "vitepress-auto-sidebar",
-      "related": ["auto-navbar", "sidebar-accordion", "readme-index"]
+      "related": ["auto-navbar", "sidebar-accordion", "readme-index"],
+      "cover": {
+        "title": "AUTO|SIDEBAR",
+        "line": "A sidebar from your folders."
+      }
     },
     {
       "id": "auto-navbar",
@@ -23,7 +39,11 @@
       "url": "https://binarynoir.tech/plugins/auto-navbar",
       "pitch": "navbar built from your folders",
       "repo": "vitepress-auto-navbar",
-      "related": ["auto-sidebar", "sidebar-accordion"]
+      "related": ["auto-sidebar", "sidebar-accordion"],
+      "cover": {
+        "title": "AUTO|NAVBAR",
+        "line": "A navbar from your folders."
+      }
     },
     {
       "id": "sidebar-accordion",
@@ -32,7 +52,11 @@
       "url": "https://binarynoir.tech/plugins/sidebar-accordion",
       "pitch": "one open sidebar group at a time, and a sidebar filter",
       "repo": "vitepress-sidebar-accordion",
-      "related": ["auto-sidebar", "auto-navbar"]
+      "related": ["auto-sidebar", "auto-navbar"],
+      "cover": {
+        "title": "SIDEBAR|ACCORDION",
+        "line": "One open group at a time."
+      }
     },
     {
       "id": "markdown-tags",
@@ -41,7 +65,11 @@
       "url": "https://binarynoir.tech/plugins/markdown-tags/",
       "pitch": "inline status badges and tagged-pages lists",
       "repo": "vitepress-markdown-tags",
-      "related": ["markdown-tags-vscode", "markdown-tags-obsidian", "reading-time-tag"]
+      "related": ["markdown-tags-vscode", "markdown-tags-obsidian", "reading-time-tag"],
+      "cover": {
+        "title": "MARKDOWN|TAGS",
+        "line": "Status badges in Markdown."
+      }
     },
     {
       "id": "reading-time-tag",
@@ -50,7 +78,11 @@
       "url": "https://binarynoir.tech/plugins/reading-time-tag",
       "pitch": "reading-time estimates",
       "repo": "vitepress-reading-time-tag",
-      "related": ["markdown-tags", "text-style"]
+      "related": ["markdown-tags", "text-style"],
+      "cover": {
+        "title": "READING|TIME",
+        "line": "Reading time on every page."
+      }
     },
     {
       "id": "glossary",
@@ -59,7 +91,11 @@
       "url": "https://binarynoir.tech/plugins/glossary/",
       "pitch": "hover definitions from one glossary file",
       "repo": "markdown-it-glossary",
-      "related": ["markdown-tags", "text-style", "html-escape"]
+      "related": ["markdown-tags", "text-style", "html-escape"],
+      "cover": {
+        "title": "GLOSSARY|TOOLTIPS",
+        "line": "Hover definitions."
+      }
     },
     {
       "id": "text-style",
@@ -68,7 +104,11 @@
       "url": "https://binarynoir.tech/plugins/text-style",
       "pitch": "colored and sized text inline",
       "repo": "vitepress-text-style",
-      "related": ["markdown-tags", "glossary", "reading-time-tag"]
+      "related": ["markdown-tags", "glossary", "reading-time-tag"],
+      "cover": {
+        "title": "TEXT|STYLE",
+        "line": "Color and size, inline."
+      }
     },
     {
       "id": "downloads",
@@ -77,7 +117,11 @@
       "url": "https://binarynoir.tech/plugins/downloads",
       "pitch": "downloadable files next to your pages",
       "repo": "vitepress-downloads",
-      "related": ["exclude", "readme-index", "auto-sidebar"]
+      "related": ["exclude", "readme-index", "auto-sidebar"],
+      "cover": {
+        "title": "DOWNLOADS",
+        "line": "Files next to your pages."
+      }
     },
     {
       "id": "exclude",
@@ -86,7 +130,11 @@
       "url": "https://binarynoir.tech/plugins/exclude/",
       "pitch": "keep pages out of the build with a `.exclude` file",
       "repo": "vitepress-exclude",
-      "related": ["broken-links", "downloads"]
+      "related": ["broken-links", "downloads"],
+      "cover": {
+        "title": "EXCLUDE",
+        "line": "Keep pages out of the build."
+      }
     },
     {
       "id": "readme-index",
@@ -95,7 +143,11 @@
       "url": "https://binarynoir.tech/plugins/readme-index/",
       "pitch": "`README.md` index pages for VuePress migrations",
       "repo": "vitepress-readme-index",
-      "related": ["auto-sidebar", "html-escape", "broken-links"]
+      "related": ["auto-sidebar", "html-escape", "broken-links"],
+      "cover": {
+        "title": "README|INDEX",
+        "line": "README.md index pages."
+      }
     },
     {
       "id": "blog",
@@ -104,7 +156,11 @@
       "url": "https://binarynoir.tech/plugins/blog/",
       "pitch": "posts anywhere, a main blog and section blogs, with RSS feeds",
       "repo": "vitepress-blog",
-      "related": ["reading-time-tag", "markdown-tags", "exclude"]
+      "related": ["reading-time-tag", "markdown-tags", "exclude"],
+      "cover": {
+        "title": "BLOG",
+        "line": "Posts, blogs and RSS feeds."
+      }
     },
     {
       "id": "html-escape",
@@ -113,7 +169,11 @@
       "url": "https://binarynoir.tech/plugins/html-escape/",
       "pitch": "stray tags and braces shown as text, not build errors",
       "repo": "vitepress-html-escape",
-      "related": ["broken-links", "image-fallback", "readme-index"]
+      "related": ["broken-links", "image-fallback", "readme-index"],
+      "cover": {
+        "title": "HTML|ESCAPE",
+        "line": "Stray tags shown as text."
+      }
     },
     {
       "id": "broken-links",
@@ -122,7 +182,11 @@
       "url": "https://binarynoir.tech/plugins/broken-links",
       "pitch": "dead links shown as text, not build errors",
       "repo": "vitepress-broken-links",
-      "related": ["html-escape", "image-fallback", "exclude"]
+      "related": ["html-escape", "image-fallback", "exclude"],
+      "cover": {
+        "title": "BROKEN|LINKS",
+        "line": "Builds survive dead links."
+      }
     },
     {
       "id": "optimize-images",
@@ -131,7 +195,11 @@
       "url": "https://binarynoir.tech/plugins/optimize-images",
       "pitch": "smaller images in the build output",
       "repo": "vite-plugin-optimize-images",
-      "related": ["image-fallback"]
+      "related": ["image-fallback"],
+      "cover": {
+        "title": "OPTIMIZE|IMAGES",
+        "line": "Smaller images at build."
+      }
     },
     {
       "id": "image-fallback",
@@ -140,7 +208,11 @@
       "url": "https://binarynoir.tech/plugins/image-fallback",
       "pitch": "a placeholder instead of a failed build",
       "repo": "vite-plugin-image-fallback",
-      "related": ["optimize-images", "broken-links"]
+      "related": ["optimize-images", "broken-links"],
+      "cover": {
+        "title": "IMAGE|FALLBACK",
+        "line": "Missing images won't fail."
+      }
     },
     {
       "id": "markdown-tags-vscode",
@@ -149,7 +221,12 @@
       "url": "https://binarynoir.tech/plugins/markdown-tags/vscode",
       "pitch": "status badges in the VS Code Markdown preview",
       "repo": "vscode-markdown-tags",
-      "related": ["markdown-tags-obsidian", "markdown-tags"]
+      "related": ["markdown-tags-obsidian", "markdown-tags"],
+      "cover": {
+        "title": "MARKDOWN|TAGS",
+        "line": "Badges in the preview.",
+        "kicker": "VS CODE EXTENSION"
+      }
     },
     {
       "id": "markdown-tags-obsidian",
@@ -158,28 +235,45 @@
       "url": "https://binarynoir.tech/plugins/markdown-tags/obsidian",
       "pitch": "status badges in Obsidian",
       "repo": "obsidian-markdown-tags",
-      "related": ["markdown-tags-vscode", "markdown-tags"]
+      "related": ["markdown-tags-vscode", "markdown-tags"],
+      "cover": {
+        "title": "MARKDOWN|TAGS",
+        "line": "Badges in your notes.",
+        "kicker": "OBSIDIAN PLUGIN"
+      }
     },
     {
       "id": "noirwatch",
       "name": "NoirWatch",
       "category": "cli",
       "url": "https://binarynoir.tech/apps/noirwatch",
-      "pitch": "get notified when a web page changes"
+      "pitch": "get notified when a web page changes",
+      "cover": {
+        "title": "NOIRWATCH",
+        "line": "Know when a page changes."
+      }
     },
     {
       "id": "noircon",
       "name": "NoirCon",
       "category": "cli",
       "url": "https://binarynoir.tech/apps/noircon",
-      "pitch": "get notified when a site, server or port goes down"
+      "pitch": "get notified when a site, server or port goes down",
+      "cover": {
+        "title": "NOIRCON",
+        "line": "Know when a site goes down."
+      }
     },
     {
       "id": "callrx",
       "name": "callrx",
       "category": "cli",
       "url": "https://binarynoir.tech/apps/callrx",
-      "pitch": "amateur radio callsign lookup"
+      "pitch": "amateur radio callsign lookup",
+      "cover": {
+        "title": "CALLRX",
+        "line": "Callsign lookup."
+      }
     }
   ]
 }

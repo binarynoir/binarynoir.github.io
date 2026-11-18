@@ -3,6 +3,8 @@ title: 'Blog 0.4: browse by category and date'
 blog:
   date: 2026-10-20T21:30:00-04:00
   summary: Blog 0.4.0 adds a browse panel to every blog page, for filtering posts by category, keyword, year and month, and combining them.
+  image: /covers/blog.png
+  imageAlt: 'The BinaryNoir detective beside the words "VitePress plugin: Blog"'
   tags: [blog]
   category: Releases
 ---

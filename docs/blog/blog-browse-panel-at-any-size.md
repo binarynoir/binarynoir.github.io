@@ -3,6 +3,8 @@ title: 'Blog 0.5: a browse panel for blogs of any size'
 blog:
   date: 2026-10-21T09:19:57-04:00
   summary: Blog 0.5.0 keeps the browse panel short on phones and on blogs with hundreds of keywords, and leaves out rows that can't narrow the posts.
+  image: /covers/blog.png
+  imageAlt: 'The BinaryNoir detective beside the words "VitePress plugin: Blog"'
   tags: [blog]
   category: Releases
 ---

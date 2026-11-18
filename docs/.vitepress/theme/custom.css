@@ -325,3 +325,25 @@ abbr {
     transition: none;
   }
 }
+
+/* ---- Footer on every page ------------------------------------------------
+   VitePress hides the footer on pages with a sidebar. This site keeps it everywhere, because it
+   carries the Legal, Terms and Privacy links and the contact address. The padding matches
+   VPContent's, so the footer lines up with the page content beside the sidebar.
+   `html .Layout` outranks VitePress's scoped `.VPFooter.has-sidebar[data-v-…]` rule. */
+html .Layout .VPFooter.has-sidebar {
+  display: block;
+}
+
+@media (min-width: 60rem) {
+  html .Layout .VPFooter.has-sidebar {
+    padding-left: calc(var(--vp-sidebar-width) + 2rem);
+  }
+}
+
+@media (min-width: 90rem) {
+  html .Layout .VPFooter.has-sidebar {
+    padding-right: calc((100% - var(--vp-layout-max-width)) / 2 + 2rem);
+    padding-left: calc((100% - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width) + 2rem);
+  }
+}
