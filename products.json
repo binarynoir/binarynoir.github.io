@@ -1,5 +1,5 @@
 {
-  "new": "blog",
+  "new": "vite-blog",
   "categories": [
     {
       "id": "vitepress",
@@ -212,6 +212,19 @@
       "cover": {
         "title": "IMAGE|FALLBACK",
         "line": "Missing images won't fail."
+      }
+    },
+    {
+      "id": "vite-blog",
+      "name": "Blog for Vite",
+      "category": "vite",
+      "url": "https://binarynoir.tech/plugins/vite-blog",
+      "pitch": "a Markdown blog for a plain Vite site, with search, feeds and a strict CSP",
+      "repo": "vite-plugin-blog",
+      "related": ["blog", "optimize-images", "image-fallback"],
+      "cover": {
+        "title": "VITE|BLOG",
+        "line": "A blog for any Vite site."
       }
     },
     {

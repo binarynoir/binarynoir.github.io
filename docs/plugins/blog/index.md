@@ -10,6 +10,10 @@ title: Blog
 
 `@binarynoir/vitepress-blog` turns pages into a blog with frontmatter alone. Any page, in any folder, can be a post. A main blog lists posts from the whole site, and **section blogs** list the posts of one folder, the same way [section glossaries](/plugins/glossary/#section-glossaries) and [tagged pages](/plugins/markdown-tags/vitepress#tagged-pages) work. Every blog gets its own RSS feed.
 
+::: tip Not on VitePress?
+For a site built with plain Vite, use [Blog for Vite](/plugins/vite-blog) instead.
+:::
+
 ## See it live
 
 - **[The BinaryNoir blog](/blog/)** is this site's real blog, built with this plugin. Its [feed](/blog/feed.xml){target="_self"} is the one the navbar's RSS icon links to.

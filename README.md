@@ -24,6 +24,8 @@ It documents BinaryNoir's open-source VitePress plugins, Vite plugins and comman
 | [`@binarynoir/vite-plugin-optimize-images`](https://github.com/binarynoir/vite-plugin-optimize-images) | Re-compresses images in the build output                                                       |
 | [`@binarynoir/vite-plugin-image-fallback`](https://github.com/binarynoir/vite-plugin-image-fallback)   | Placeholder for missing images (one is missing on purpose)                                     |
 
+One plugin isn't used here: [`@binarynoir/vite-plugin-blog`](https://github.com/binarynoir/vite-plugin-blog) is for sites built with plain Vite, so this VitePress site doesn't use it. Its page is at [binarynoir.tech/plugins/vite-blog](https://binarynoir.tech/plugins/vite-blog).
+
 ## Develop
 
 Requires Node 22 or newer.

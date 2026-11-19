@@ -6,7 +6,7 @@ title: Plugins
 
 [[readingTime]]
 
-Fifteen small packages that make a documentation site easier to build and nicer to read. Each one does a single job and they share conventions. All fifteen are running on the site you are looking at.
+Small packages that make a site easier to build and nicer to read. Each one does a single job and they share conventions. Fifteen of them are running on the site you are looking at. The sixteenth, [Blog for Vite](/plugins/vite-blog), is for sites built with plain Vite, so it has its [own section](#vite-sites) below.
 
 Pick by the job you need done. Each plugin's page has a live demo.
 
@@ -60,6 +60,14 @@ Smaller images in the output, and no failed build over a missing one.
 | [Optimize Images](/plugins/optimize-images) | Vite       | Re-compresses images in the build output.                 |
 | [Image Fallback](/plugins/image-fallback)   | Vite       | Placeholder for missing images instead of a failed build. |
 
+## For plain Vite sites {#vite-sites}
+
+Your own pages, built with Vite and no VitePress. The image plugins above work here too.
+
+| Plugin                              | Works with            | What it does                                                           |
+| ----------------------------------- | --------------------- | ---------------------------------------------------------------------- |
+| [Blog for Vite](/plugins/vite-blog) | Vite 6+, no VitePress | A Markdown blog in your own page shell, with search, feeds and checks. |
+
 ## Install them all
 
 ```sh
@@ -81,7 +89,7 @@ npm install --save-dev \
   markdown-it-glossary
 ```
 
-The VitePress plugins target VitePress 2 (currently an alpha release line). Node 22 or newer is required.
+The VitePress plugins target VitePress 2 (currently an alpha release line). Node 22 or newer is required. Blog for Vite isn't in this list, because it is for sites without VitePress.
 
 ## One config, all fifteen
 

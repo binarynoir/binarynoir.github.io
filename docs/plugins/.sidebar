@@ -22,3 +22,5 @@ broken-links.md:Broken Links
 [Images handled]
 optimize-images.md:Optimize Images
 image-fallback.md:Image Fallback
+[For plain Vite sites]
+vite-blog.md:Blog for Vite

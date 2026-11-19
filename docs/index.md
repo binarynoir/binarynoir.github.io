@@ -79,6 +79,7 @@ features:
 ## Start here
 
 - **Improving a docs site?** Start with the [plugins overview](/plugins/). Every plugin has a live demo on its page.
+- **Building with plain Vite?** [Blog for Vite](/plugins/vite-blog) adds a Markdown blog to the site you already have.
 - **Want a tool for your terminal?** Pick one on the [apps page](/apps/). Each installs with one Homebrew command.
 - **Building a site like this one?** Read [how this site works](/guide/how-this-site-works) and copy what is useful.
 - **Want it set up for your team?** See [services and rates](/services/). We build the docs site, ticket structure and AI reporting for you.
