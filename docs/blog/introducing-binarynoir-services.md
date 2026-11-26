@@ -34,4 +34,4 @@ So we now do the setup for you. We build one docs site for your team, connect it
 
 There's also hourly work for one-off fixes. Rates and what's included are on the [services page](/services/). Most teams start with a strategy session, and its fee counts toward a starter build.
 
-Questions? Email [hello@binarynoir.tech](mailto:hello@binarynoir.tech?subject=Services%20enquiry).
+Questions? Email [hello@binarynoir.com](mailto:hello@binarynoir.com?subject=Services%20enquiry).

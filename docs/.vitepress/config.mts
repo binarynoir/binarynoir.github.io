@@ -29,7 +29,7 @@ const docsRoot = path.resolve(import.meta.dirname, '..');
 // The address the site is served at; binarynoir.github.io redirects here. Used by the sitemap,
 // Open Graph tags and blog feeds. Feed readers use each post's URL as its permanent ID, so
 // this must not change once the feed is public.
-const SITE_URL = 'https://binarynoir.tech';
+const SITE_URL = 'https://binarynoir.com';
 
 // @binarynoir/vitepress-auto-sidebar and -auto-navbar: how titles are written in both
 // menus. Markdown Tags syntax is stripped from titles by default (`stripTags`).
@@ -159,7 +159,7 @@ export default defineConfig({
       message:
         'Code released under the MIT License. BinaryNoir name and logos are trademarks of BinaryNoir. <a href="/legal">Legal</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a>',
       copyright:
-        'Copyright © 2026 <a href="mailto:hello@binarynoir.tech">John Smith III / BinaryNoir Studios</a>. All rights reserved except where licensed.',
+        'Copyright © 2026 <a href="mailto:hello@binarynoir.com">John Smith III / BinaryNoir Studios</a>. All rights reserved except where licensed.',
     },
   },
 

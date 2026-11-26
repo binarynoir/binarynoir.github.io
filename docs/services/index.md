@@ -10,7 +10,7 @@ Your docs live in one tool, your tickets in another, and meeting notes wherever 
 
 We fix that. We set up one docs site for your team, connect it to your tickets and meeting notes, and set up AI that can read all of it. We've done this for two companies so far. This site is the public example: it runs on the same [plugins](/plugins/) we'd use for you.
 
-[See services and rates](#services) · [Email us](mailto:hello@binarynoir.tech?subject=Services%20enquiry)
+[See services and rates](#services) · [Email us](mailto:hello@binarynoir.com?subject=Services%20enquiry)
 
 ## What changes for your team
 
@@ -91,7 +91,7 @@ For one-off fixes, or a second look at a setup you already have. We estimate the
 
 ## How it starts
 
-1. [Email us](mailto:hello@binarynoir.tech?subject=Services%20enquiry) a few lines: what your team does, where your docs and tickets live today, and what isn't working.
+1. [Email us](mailto:hello@binarynoir.com?subject=Services%20enquiry) a few lines: what your team does, where your docs and tickets live today, and what isn't working.
 2. We suggest the service that fits, or set up a free 15-minute call if it isn't clear.
 3. You come away with a plan you can act on, or a working site.
 
@@ -111,4 +111,4 @@ Strategy sessions and hourly work are invoiced when the work is done. Starter bu
 
 ## Get in touch
 
-Email **[hello@binarynoir.tech](mailto:hello@binarynoir.tech?subject=Services%20enquiry)** with a few lines about your team and what you need. We reply within two business days.
+Email **[hello@binarynoir.com](mailto:hello@binarynoir.com?subject=Services%20enquiry)** with a few lines about your team and what you need. We reply within two business days.

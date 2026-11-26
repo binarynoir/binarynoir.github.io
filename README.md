@@ -1,6 +1,6 @@
 # binarynoir.github.io
 
-The [BinaryNoir](https://github.com/binarynoir) developer hub, live at **https://binarynoir.tech**.
+The [BinaryNoir](https://github.com/binarynoir) developer hub, live at **https://binarynoir.com**.
 
 It documents BinaryNoir's open-source VitePress plugins, Vite plugins and command-line apps, and it is built with every one of those plugins, so it doubles as a working demo of how they fit together.
 
@@ -20,11 +20,11 @@ It documents BinaryNoir's open-source VitePress plugins, Vite plugins and comman
 | [`@binarynoir/vitepress-broken-links`](https://github.com/binarynoir/vitepress-broken-links)           | Dead links render as text with a fix-it popover instead of failing the build                   |
 | [`@binarynoir/vitepress-exclude`](https://github.com/binarynoir/vitepress-exclude)                     | `.exclude` files keep pages out of the build (a draft in `docs/plugins/exclude/` on purpose)   |
 | [`@binarynoir/vitepress-readme-index`](https://github.com/binarynoir/vitepress-readme-index)           | `README.md` served as a folder's index page, for VuePress migrations                           |
-| [`@binarynoir/vitepress-blog`](https://github.com/binarynoir/vitepress-blog)                           | The official [blog](https://binarynoir.tech/blog/) and its RSS feed, plus a scopes demo        |
+| [`@binarynoir/vitepress-blog`](https://github.com/binarynoir/vitepress-blog)                           | The official [blog](https://binarynoir.com/blog/) and its RSS feed, plus a scopes demo         |
 | [`@binarynoir/vite-plugin-optimize-images`](https://github.com/binarynoir/vite-plugin-optimize-images) | Re-compresses images in the build output                                                       |
 | [`@binarynoir/vite-plugin-image-fallback`](https://github.com/binarynoir/vite-plugin-image-fallback)   | Placeholder for missing images (one is missing on purpose)                                     |
 
-One plugin isn't used here: [`@binarynoir/vite-plugin-blog`](https://github.com/binarynoir/vite-plugin-blog) is for sites built with plain Vite, so this VitePress site doesn't use it. Its page is at [binarynoir.tech/plugins/vite-blog](https://binarynoir.tech/plugins/vite-blog).
+One plugin isn't used here: [`@binarynoir/vite-plugin-blog`](https://github.com/binarynoir/vite-plugin-blog) is for sites built with plain Vite, so this VitePress site doesn't use it. Its page is at [binarynoir.com/plugins/vite-blog](https://binarynoir.com/plugins/vite-blog).
 
 ## Develop
 

@@ -41,4 +41,4 @@ The times move with your needs. If tool choice is already settled, we spend that
 
 **$450** for the two-hour session, including prep and the notes afterwards. If you book a [starter build](/services/#starter-build) within 60 days, the $450 counts toward it.
 
-To book, email **[hello@binarynoir.tech](mailto:hello@binarynoir.tech?subject=Strategy%20session)** with the details above and a few times that suit you. See [all services and rates](/services/).
+To book, email **[hello@binarynoir.com](mailto:hello@binarynoir.com?subject=Strategy%20session)** with the details above and a few times that suit you. See [all services and rates](/services/).

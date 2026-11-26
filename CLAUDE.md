@@ -1,6 +1,6 @@
 # BinaryNoir site
 
-VitePress site at binarynoir.tech: the hub for the BinaryNoir plugins and apps, and the home of BinaryNoir's paid services. Run `npm run docs:dev` to preview and `npm run docs:build` to check a production build.
+VitePress site at binarynoir.com: the hub for the BinaryNoir plugins and apps, and the home of BinaryNoir's paid services. Run `npm run docs:dev` to preview and `npm run docs:build` to check a production build.
 
 ## Voice (all site copy)
 
