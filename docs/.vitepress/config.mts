@@ -220,8 +220,29 @@ export default defineConfig({
       // Missing image imports become a placeholder plus a console warning
       // instead of failing the build.
       imageFallbackPlugin(),
-      // Re-compress PNG/JPEG/WebP in the build output. Source files are untouched.
-      optimizeImagesPlugin({ verbose: true }),
+      // Re-compress PNG/JPEG/WebP/SVG in the build output. Source files are untouched.
+      optimizeImagesPlugin({
+        verbose: true,
+        svg: {
+          plugins: [
+            'preset-default',
+            {
+              // SVGO drops version="1.2" from <svg>, but BIMI's SVG Tiny PS
+              // profile requires it (public/bimi-logo.svg). Put it back.
+              name: 'keepTinyPsVersion',
+              fn: () => ({
+                element: {
+                  enter: (node) => {
+                    if (node.name === 'svg' && node.attributes.baseProfile === 'tiny-ps') {
+                      node.attributes.version = '1.2';
+                    }
+                  },
+                },
+              }),
+            },
+          ],
+        },
+      }),
       // Keeps `tagged: true` pages current while running `vitepress dev`.
       taggedPagesVitePlugin(),
       // Publishes the files in each `downloads` or `files` folder at their page-relative URL.
